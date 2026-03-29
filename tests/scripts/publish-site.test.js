@@ -39,3 +39,57 @@ test('publishSite copies site output into a target repo directory and writes .no
   assert.equal(await readFile(join(targetRepoPath, '.nojekyll'), 'utf8'), '');
   assert.deepEqual(commands, []);
 });
+
+test('publishSite preserves the .git metadata entry when syncing into a repo root', async () => {
+  const mod = await import('../../scripts/publish-site.js');
+  const workspace = await mkdtemp(join(tmpdir(), 'builders-radar-publish-'));
+  const siteRoot = join(workspace, 'site-output');
+  const targetRepoPath = join(workspace, 'pages-repo');
+
+  await mkdir(siteRoot, { recursive: true });
+  await mkdir(targetRepoPath, { recursive: true });
+  await writeFile(join(siteRoot, 'index.html'), '<html>index</html>');
+  await writeFile(join(targetRepoPath, '.git'), 'gitdir: ../.git/worktrees/pages-repo');
+  await writeFile(join(targetRepoPath, 'old.txt'), 'stale');
+
+  await mod.publishSite({
+    siteRoot,
+    targetRepoPath,
+    gitCommit: false
+  });
+
+  assert.equal(await readFile(join(targetRepoPath, '.git'), 'utf8'), 'gitdir: ../.git/worktrees/pages-repo');
+  await assert.rejects(readFile(join(targetRepoPath, 'old.txt'), 'utf8'));
+  assert.equal(await readFile(join(targetRepoPath, 'index.html'), 'utf8'), '<html>index</html>');
+});
+
+test('publishSite can push with upstream setup when a publish branch is configured', async () => {
+  const mod = await import('../../scripts/publish-site.js');
+  const workspace = await mkdtemp(join(tmpdir(), 'builders-radar-publish-'));
+  const siteRoot = join(workspace, 'site-output');
+  const targetRepoPath = join(workspace, 'pages-repo');
+  const commands = [];
+
+  await mkdir(siteRoot, { recursive: true });
+  await mkdir(targetRepoPath, { recursive: true });
+  await writeFile(join(siteRoot, 'index.html'), '<html>index</html>');
+  await writeFile(join(targetRepoPath, '.git'), 'gitdir: ../.git/worktrees/pages-repo');
+
+  await mod.publishSite({
+    siteRoot,
+    targetRepoPath,
+    gitCommit: true,
+    gitPush: true,
+    publishBranch: 'gh-pages',
+    gitRunner: async (args) => {
+      commands.push(args);
+      return { code: 0, stdout: '', stderr: '' };
+    }
+  });
+
+  assert.deepEqual(commands, [
+    ['add', '.'],
+    ['commit', '-m', 'chore: publish builders-radar site'],
+    ['push', '--set-upstream', 'origin', 'gh-pages']
+  ]);
+});

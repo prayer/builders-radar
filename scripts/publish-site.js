@@ -40,6 +40,10 @@ async function emptyDirectory(directory) {
   const children = await import('node:fs/promises').then((fs) => fs.readdir(directory, { withFileTypes: true }));
 
   for (const child of children) {
+    if (child.name === '.git') {
+      continue;
+    }
+
     const childPath = join(directory, child.name);
     await rm(childPath, { recursive: true, force: true });
   }
@@ -80,6 +84,7 @@ export async function publishSite({
   siteRoot = DEFAULT_SITE_ROOT,
   targetRepoPath,
   targetSubdir = '',
+  publishBranch,
   gitCommit = true,
   gitPush = false,
   commitMessage = 'chore: publish builders-radar site',
@@ -88,6 +93,7 @@ export async function publishSite({
   const config = await loadPublishConfig();
   const resolvedTargetRepoPath = targetRepoPath || config?.targetRepoPath;
   const resolvedTargetSubdir = targetSubdir || config?.targetSubdir || '';
+  const resolvedPublishBranch = publishBranch || config?.branch || null;
   const resolvedGitPush = gitPush || config?.push || false;
   const resolvedCommitMessage = commitMessage || config?.commitMessage || 'chore: publish builders-radar site';
 
@@ -117,7 +123,10 @@ export async function publishSite({
     });
 
     if (resolvedGitPush) {
-      await gitRunner(['push'], resolvedTargetRepoPath);
+      const pushArgs = resolvedPublishBranch
+        ? ['push', '--set-upstream', 'origin', resolvedPublishBranch]
+        : ['push'];
+      await gitRunner(pushArgs, resolvedTargetRepoPath);
     }
   }
 
