@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 
+import { access } from 'node:fs/promises';
+import { constants } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { join } from 'node:path';
 import { fetchFollowBuildersFeeds } from '../adapters/follow-builders.js';
 import { saveSnapshot } from './save-snapshot.js';
+import { generateReport } from './generate-report.js';
+import { buildSite } from './build-site.js';
 
 function takeValue(args, index, flag) {
   const value = args[index + 1];
@@ -21,6 +26,11 @@ export function resolveEntrypointUrl(scriptPath) {
   }
 
   return pathToFileURL(resolve(scriptPath)).href;
+}
+
+function resolveSnapshotPath(outputRoot, date) {
+  const root = outputRoot ?? join(process.cwd(), 'data', 'raw');
+  return join(root, date, 'follow-builders.json');
 }
 
 export function parseRunOptions(args) {
@@ -59,26 +69,52 @@ export function parseRunOptions(args) {
 export async function runDaily({
   argv = [],
   outputRoot,
+  reportsRoot,
+  siteRoot,
   baseUrl = process.env.BUILDERS_RADAR_BASE_URL,
-  fetchSnapshot = (options) => fetchFollowBuildersFeeds({ baseUrl, ...options })
+  fetchSnapshot = (options) => fetchFollowBuildersFeeds({ baseUrl, ...options }),
+  reportGenerator = generateReport,
+  siteBuilder = buildSite
 } = {}) {
   const options = parseRunOptions(argv);
   const effectiveDate = options.date ?? new Date().toISOString().slice(0, 10);
-  const snapshot = await fetchSnapshot({ date: effectiveDate });
-  const snapshotPath = await saveSnapshot({
-    outputRoot,
+  let snapshot;
+  let snapshotPath;
+
+  if (options.rebuildOnly) {
+    snapshotPath = resolveSnapshotPath(outputRoot, effectiveDate);
+    await access(snapshotPath, constants.F_OK);
+  } else {
+    snapshot = await fetchSnapshot({ date: effectiveDate });
+    snapshotPath = await saveSnapshot({
+      outputRoot,
+      date: effectiveDate,
+      snapshot
+    });
+  }
+
+  const reportResult = await reportGenerator({
     date: effectiveDate,
-    snapshot
+    snapshotPath,
+    reportsRoot
+  });
+  const siteResult = await siteBuilder({
+    reportsRoot,
+    siteRoot
   });
 
   return {
-    status: 'snapshot_saved',
+    status: 'site_built',
     options: {
       ...options,
       date: effectiveDate
     },
     snapshotPath,
-    stats: snapshot.stats
+    reportPath: reportResult.reportPath,
+    markdownPath: reportResult.markdownPath,
+    indexPath: siteResult.indexPath,
+    reportPages: siteResult.reportPages,
+    stats: snapshot?.stats
   };
 }
 

@@ -1,0 +1,84 @@
+{
+  "date": "2026-03-29",
+  "title": "2026-03-29 Builders Radar 日报",
+  "summary": "今天的有效信号主要来自 X，主题比较集中：一类是把 LLM 从“答案机器”转成“对立论证工具”，用来校正判断；一类是继续把 AI 产品的重心下沉到平台层、agent 能力边界和工作流设计，而不是表层功能堆砌；还有一类是基础设施继续做小步但关键的可靠性改进。Podcast 和 Blog 源今天没有新增可用内容，因此判断主要建立在 builders 的一手观点和发布节奏上。",
+  "sections": [
+    {
+      "id": "x",
+      "title": "X / Twitter Builders",
+      "summary": "X 侧最值得关注的不是新模型发布，而是 builders 对 AI 使用方式的再定义：用模型做反方、用 power law 做资源分配、把 agent 看成可涌现的系统，并继续补齐 infra 的可靠性短板。低信号互动和纯转发较多，已省略。",
+      "items": [
+        {
+          "headline": "Andrej Karpathy：把 LLM 当成反方辩手，而不是观点代理",
+          "summary": "Andrej Karpathy 分享了一个很实用的认知工作流：先用 LLM 强化自己的论证，再要求它系统性地论证反面，看它是否能彻底拆掉原结论。他的核心观察是，LLM 往往并不“持有”稳定立场，但非常擅长沿任一方向构造有说服力的论证。对技术读者的直接启发是，模型更适合拿来做观点压力测试，而不是直接外包判断，前提是要主动多方向提问并警惕 sycophancy。",
+          "sourceLinks": [
+            "https://x.com/karpathy/status/2037921699824607591"
+          ]
+        },
+        {
+          "headline": "Swyx：避免 false equivalence，把赌注压在极少数高杠杆事项上",
+          "summary": "Swyx 把 false equivalence 视为内容、策略和管理中的常见误区：团队容易把 a、b、c、d 说成同等重要，但现实往往是 power law，头部事项的价值可能比次优项高出数十倍。他给出的操作原则很明确：只押注极少数事情，不做无意义对冲，但保持可逆；同时预设监控触发条件，如果事实证明判断更对，要更早加码。这个框架对产品路线、招聘资源和 GTM 优先级都很适用。",
+          "sourceLinks": [
+            "https://x.com/swyx/status/2037969691910848941"
+          ]
+        },
+        {
+          "headline": "Amjad Masad：AI 普及应用开发后，顶级工程师会继续下沉到平台层",
+          "summary": "Amjad Masad 的判断是，AI 让“人人都能做 app”之后，最好的工程师不会失去价值，反而会把精力转向更深一层的平台能力建设，去扩展整个技术栈的可能性边界。他把这和自己四年前提出的“1000x engineer”联系起来，强调杠杆不只来自写得更快，而来自选择更底层、更具扩展性的建设位置。对 builder 而言，这比单纯追逐上层应用模板更值得关注。",
+          "sourceLinks": [
+            "https://x.com/amasad/status/2037951485418344835"
+          ]
+        },
+        {
+          "headline": "Zara Zhang：好的 agent 产品应当出现设计者未预见的能力",
+          "summary": "Zara Zhang 区分了传统互联网产品和 agent 产品的评价标准：前者以按预期执行既定功能为目标，后者则应在放手运行后出现连创建者都没预料到的有效行为。她同时指出“Human context window is the new wall”，意味着当模型和 agent 的能力继续上升，新的瓶颈会越来越多落在人类能否持续提供足够上下文、判断和监督上。这个视角更接近 agent 时代的产品定义问题，而不是单一 feature 问题。",
+          "sourceLinks": [
+            "https://x.com/zarazhangrui/status/2038144755478237654",
+            "https://x.com/zarazhangrui/status/2037983921946923034"
+          ]
+        },
+        {
+          "headline": "Peter Steinberger：MCPorter 0.8.0 继续补强 OAuth、JSON fallback 和 daemon 可靠性",
+          "summary": "Peter Steinberger 发布了 MCPorter 0.8.0，改进点集中在工程可用性而非新概念，包括更强的服务器 OAuth 处理、fallback 路径下合法 JSON 输出、mcporter 调用与错误处理、对 object-valued args 的支持，以及 keep-alive/daemon 稳定性。另一条动态则是他对开源维护体验的补充说明：Chrome extension 已被移除，因为 Google 在 144+ 提供了原生访问方式，只需一次性设置。两条信息合起来说明，MCP 周边工具正在从“能跑”转向“更稳、更可运维”。",
+          "sourceLinks": [
+            "https://x.com/steipete/status/2038074759527981416",
+            "https://x.com/steipete/status/2037988925818519763"
+          ]
+        },
+        {
+          "headline": "Peter Yang：产品分发和人才密度，仍是 AI 时代的两个现实约束",
+          "summary": "Peter Yang 一边提出具体产品想法，希望能直接与 Grok 讨论自己收藏的帖子，而不是手动翻找；另一边也指出 X 对低质量内容的治理还不够，downvote 不应只限于回复。与此同时，他观察到 Linear、Ramp 这类高速增长公司愿意招聘 ex-founders 做 PM，并把这视为人才吸引力测试：不仅要让顶尖候选人愿意加入，也要让他们在组织里保有足够 agency 产生真实影响。",
+          "sourceLinks": [
+            "https://x.com/petergyang/status/2038068968792162594",
+            "https://x.com/petergyang/status/2038067082223554732",
+            "https://x.com/petergyang/status/2038058600715935817"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasts",
+      "title": "Podcasts",
+      "summary": "今天没有新增可用 podcast episode。输入中该源为空，无法提取有意义的访谈观点或操作经验。",
+      "items": []
+    },
+    {
+      "id": "blogs",
+      "title": "Blogs",
+      "summary": "今天没有新增官方 blog post。输入中该源为空，因此没有可归纳的产品公告、技术结果或运营变化。",
+      "items": []
+    },
+    {
+      "id": "coverage",
+      "title": "覆盖情况",
+      "summary": "本期报告覆盖 13 位 X builders、27 条 tweets、0 个 podcast episodes、0 篇 blog posts。结论主要来自 X 一手动态，其他来源今天无新增。",
+      "items": []
+    }
+  ],
+  "sourceStats": {
+    "builders": 13,
+    "tweets": 27,
+    "podcasts": 0,
+    "blogs": 0
+  }
+}

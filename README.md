@@ -41,8 +41,26 @@ Run the current daily entrypoint scaffold:
 npm run daily -- --date 2026-03-29 --dry-run
 ```
 
+Rebuild from an existing saved snapshot without refetching:
+
+```bash
+npm run daily -- --date 2026-03-29 --rebuild-only
+```
+
 Fetch the upstream `follow-builders` feeds directly:
 
 ```bash
 node scripts/fetch-feeds.js
+```
+
+Generate a report from an existing snapshot:
+
+```bash
+npm run generate-report -- 2026-03-29 data/raw/2026-03-29/follow-builders.json
+```
+
+Build the static archive site from saved reports:
+
+```bash
+npm run build-site
 ```

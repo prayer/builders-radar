@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "daily": "node scripts/run-daily.js"
+    "daily": "node scripts/run-daily.js",
+    "generate-report": "node scripts/generate-report.js",
+    "build-site": "node scripts/build-site.js"
   },
   "engines": {
     "node": ">=20"
