@@ -76,6 +76,17 @@ and edit the values for your local setup.
 - can optionally `git add`, `git commit`, and `git push`
 - `run-daily --publish` uses the same publish path
 
+## Current live deployment
+
+- Repository: `https://github.com/prayer/builders-radar`
+- Site: `https://prayer.github.io/builders-radar/`
+
+Current preferred real publish command:
+
+```bash
+npm run daily -- --date 2026-03-29 --rebuild-only --publish
+```
+
 ## Feed transport note
 
 Some local environments may fail to reach `raw.githubusercontent.com` from Node.js with a TLS reset such as `ECONNRESET` during the HTTPS handshake.
