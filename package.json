@@ -1,0 +1,14 @@
+{
+  "name": "builders-radar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first AI daily report generator and static site",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "daily": "node scripts/run-daily.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
