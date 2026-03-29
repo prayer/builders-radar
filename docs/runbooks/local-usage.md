@@ -40,6 +40,42 @@ Rebuild the static archive from saved reports:
 npm run build-site
 ```
 
+## Publish site
+
+Copy the generated site into a local GitHub Pages repository directory:
+
+```bash
+npm run publish-site -- --repo-path D:\\Development\\path\\to\\pages-repo --no-commit
+```
+
+To let the script use a saved default target, copy:
+
+```text
+config/publish.config.example.json
+```
+
+to:
+
+```text
+config/publish.config.json
+```
+
+and edit the values for your local setup.
+
+### Recommended local publish flow
+
+1. Keep a local checkout of the Pages repository.
+2. Point `targetRepoPath` at that checkout.
+3. Start with `--no-commit` to verify file sync.
+4. Enable commit and optional push only after the output looks correct.
+
+### Current publish behavior
+
+- syncs the full `site-output/` contents into the target repo root or subdir
+- writes `.nojekyll`
+- can optionally `git add`, `git commit`, and `git push`
+- `run-daily --publish` uses the same publish path
+
 ## Feed transport note
 
 Some local environments may fail to reach `raw.githubusercontent.com` from Node.js with a TLS reset such as `ECONNRESET` during the HTTPS handshake.

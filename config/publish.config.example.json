@@ -1,0 +1,7 @@
+{
+  "targetRepoPath": "D:\\Development\\path\\to\\your-github-pages-repo",
+  "targetSubdir": "",
+  "branch": "main",
+  "commitMessage": "chore: publish builders-radar site",
+  "push": false
+}

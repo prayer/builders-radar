@@ -8,7 +8,8 @@
     "test": "node --test",
     "daily": "node scripts/run-daily.js",
     "generate-report": "node scripts/generate-report.js",
-    "build-site": "node scripts/build-site.js"
+    "build-site": "node scripts/build-site.js",
+    "publish-site": "node scripts/publish-site.js"
   },
   "engines": {
     "node": ">=20"

@@ -64,3 +64,9 @@ Build the static archive site from saved reports:
 ```bash
 npm run build-site
 ```
+
+Publish the built site into a local GitHub Pages repo directory:
+
+```bash
+npm run publish-site -- --repo-path D:\\Development\\path\\to\\pages-repo --no-commit
+```

@@ -9,6 +9,7 @@ import { fetchFollowBuildersFeeds } from '../adapters/follow-builders.js';
 import { saveSnapshot } from './save-snapshot.js';
 import { generateReport } from './generate-report.js';
 import { buildSite } from './build-site.js';
+import { publishSite } from './publish-site.js';
 
 function takeValue(args, index, flag) {
   const value = args[index + 1];
@@ -74,7 +75,8 @@ export async function runDaily({
   baseUrl = process.env.BUILDERS_RADAR_BASE_URL,
   fetchSnapshot = (options) => fetchFollowBuildersFeeds({ baseUrl, ...options }),
   reportGenerator = generateReport,
-  siteBuilder = buildSite
+  siteBuilder = buildSite,
+  publisher = publishSite
 } = {}) {
   const options = parseRunOptions(argv);
   const effectiveDate = options.date ?? new Date().toISOString().slice(0, 10);
@@ -102,6 +104,9 @@ export async function runDaily({
     reportsRoot,
     siteRoot
   });
+  const publishResult = options.publish
+    ? await publisher({ siteRoot: siteRoot ?? join(process.cwd(), 'site-output') })
+    : null;
 
   return {
     status: 'site_built',
@@ -114,6 +119,7 @@ export async function runDaily({
     markdownPath: reportResult.markdownPath,
     indexPath: siteResult.indexPath,
     reportPages: siteResult.reportPages,
+    publishRoot: publishResult?.publishRoot,
     stats: snapshot?.stats
   };
 }

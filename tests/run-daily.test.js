@@ -259,3 +259,60 @@ test('runDaily reuses an existing snapshot in rebuild-only mode without fetching
   assert.equal(result.snapshotPath, snapshotPath);
   assert.equal(result.options.rebuildOnly, true);
 });
+
+test('runDaily publishes the built site when --publish is set', async () => {
+  const mod = await import('../scripts/run-daily.js');
+  const outputRoot = await mkdtemp(join(tmpdir(), 'builders-radar-run-'));
+  const reportsRoot = await mkdtemp(join(tmpdir(), 'builders-radar-reports-'));
+  const siteRoot = await mkdtemp(join(tmpdir(), 'builders-radar-site-'));
+
+  const result = await mod.runDaily({
+    argv: ['--date', '2026-03-29', '--publish'],
+    outputRoot,
+    reportsRoot,
+    siteRoot,
+    fetchSnapshot: async () => ({
+      source: 'follow-builders',
+      fetchedAt: '2026-03-29T09:00:00.000Z',
+      feedGeneratedAt: '2026-03-29T06:00:00.000Z',
+      feeds: {
+        x: { generatedAt: '2026-03-29T06:00:00.000Z', x: [] },
+        podcasts: { generatedAt: '2026-03-29T06:00:00.000Z', podcasts: [] },
+        blogs: { generatedAt: '2026-03-29T06:00:00.000Z', blogs: [] }
+      },
+      stats: {
+        builders: 0,
+        tweets: 0,
+        podcasts: 0,
+        blogs: 0
+      }
+    }),
+    reportGenerator: async ({ date, snapshotPath }) => ({
+      report: {
+        date,
+        title: 'AI Builders 中文日报 2026-03-29',
+        summary: 'summary',
+        sections: [],
+        sourceStats: {
+          builders: 0,
+          tweets: 0,
+          podcasts: 0,
+          blogs: 0
+        }
+      },
+      reportPath: join(reportsRoot, date, 'report.json'),
+      markdownPath: join(reportsRoot, date, 'report.md'),
+      snapshotPath
+    }),
+    siteBuilder: async () => ({
+      indexPath: join(siteRoot, 'index.html'),
+      reportPages: [join(siteRoot, 'reports', '2026-03-29', 'index.html')]
+    }),
+    publisher: async ({ siteRoot: receivedSiteRoot }) => ({
+      publishRoot: join(receivedSiteRoot, '..', 'published')
+    })
+  });
+
+  assert.equal(result.options.publish, true);
+  assert.equal(result.publishRoot, join(siteRoot, '..', 'published'));
+});
