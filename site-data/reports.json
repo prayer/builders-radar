@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2026-03-29",
+    "title": "2026-03-29 AI Builders 日报",
+    "summary": "今天的高信号主要集中在方法论与工具链，而不是大规模发布。Andrej Karpathy 和 Swyx 都在强调一件事：LLM 更适合作为反向论证与决策校准器，而不是直接替你形成结论；Amjad Masad 与 Zara Zhang 则把焦点放在 agent 时代的产品边界变化，前者认为 AI 会把更多工程价值推向平台层，后者认为好 agent 的标准是能超出作者预设；Peter Steinberger 给出更落地的基础设施进展，MCPorter 0.8.0 继续补强 OAuth、JSON fallback 和 daemon 稳定性。今天没有新的 podcasts 或官方 blogs，主要信号来自 X 上的一线 builder 观察。覆盖 13 位 builders、27 条推文、0 期 podcast、0 篇 blog。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter Builders",
+        "summary": "今天的 X 讨论偏产品判断、工程方法和 agent 工具链，不是密集上新日。值得保留的内容主要是如何使用 LLM 做更稳健的判断，以及 agent 基础设施正在补哪些短板。",
+        "items": [
+          {
+            "headline": "Andrej Karpathy：把 LLM 当作双向论证器，而不是意见来源",
+            "summary": "Andrej Karpathy 认为，LLM 在帮你强化一个观点时非常有说服力，但同样也能迅速拆毁它并论证相反方向，这恰好说明它更适合做“多方向推演”工具，而不是单向权威。对技术决策来说，这个用法的价值在于主动要求模型从相反立场论证，再结合人工判断，降低被迎合式回答带偏的风险。",
+            "sourceLinks": [
+              "https://x.com/karpathy/status/2037921699824607591"
+            ]
+          },
+          {
+            "headline": "Swyx：避免 false equivalence，把资源压到少数高杠杆事项上",
+            "summary": "Swyx 复盘自己过去几年的工作经验，认为很多团队会把 a、b、c、d 视作同等重要，这是典型的 false equivalence；现实里往往是少数事项的回报远高于其他项。他给出的操作原则很直接：谨慎押注极少数关键方向、保持可逆性、提前设错判监控，并在证据变强时尽早加码，这比平均分配注意力更适合高增长产品与内容策略。",
+            "sourceLinks": [
+              "https://x.com/swyx/status/2037969691910848941"
+            ]
+          },
+          {
+            "headline": "Amjad Masad：AI 降低应用构建门槛后，顶级工程师会继续下沉到平台层",
+            "summary": "Replit CEO Amjad Masad 延续他对“1000x engineer”的判断：当 AI 让更多人都能做出应用，最强的工程师不会失去价值，而是会把精力转向更深一层的平台能力，去扩展整个系统的上限。这个观点的含义是，AI 普及不只是提高交付速度，也会重排工程分工，把稀缺人才推向框架、基础设施与能力边界的建设。",
+            "sourceLinks": [
+              "https://x.com/amasad/status/2037951485418344835",
+              "https://x.com/amasad/status/2038053670907007165"
+            ]
+          },
+          {
+            "headline": "Zara Zhang：agent 产品的好坏，取决于它能否超出作者预设",
+            "summary": "Zara Zhang 认为，互联网产品时代的“好产品”通常是按设计者预期稳定工作，但 agent 产品的更高标准是被放出去后还能做出作者原本没想到的有效动作。她同时提到“Human context window is the new wall”，指向的限制不再只是模型能力，而是人类能否持续提供足够上下文、监督与目标约束。",
+            "sourceLinks": [
+              "https://x.com/zarazhangrui/status/2038144755478237654",
+              "https://x.com/zarazhangrui/status/2037983921946923034"
+            ]
+          },
+          {
+            "headline": "Peter Steinberger：MCPorter 0.8.0 继续补可靠性短板",
+            "summary": "Peter Steinberger 发布 MCPorter 0.8.0，重点改进包括更强的 OAuth 处理、fallback 路径下的有效 JSON 输出、更稳的调用与报错行为、对 object-valued args 的更好支持，以及 keep-alive/daemon 可靠性。这类更新说明 MCP 到 CLI 的桥接正在从“能跑”进入“可长期依赖”的阶段；他另一条推文也补充了一个现实教训：做成功的开源工具，维护者需要为高噪音反馈建立更厚的心理缓冲层。",
+            "sourceLinks": [
+              "https://x.com/steipete/status/2038074759527981416",
+              "https://x.com/steipete/status/2037988925818519763"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "本周期未收录到有可用内容的 podcast 更新。",
+        "items": []
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "本周期未收录到值得纳入日报的官方 AI 公司 blog 更新。",
+        "items": []
+      }
+    ],
+    "sourceStats": {
+      "builders": 13,
+      "tweets": 27,
+      "podcasts": 0,
+      "blogs": 0
+    }
+  }
+]

@@ -1,8 +1,0 @@
-node_modules/
-dist/
-.env
-.env.*
-.DS_Store
-Thumbs.db
-site-output/
-config/publish.config.json
