@@ -29,6 +29,8 @@ The first upstream source is `follow-builders`.
 
 ## Documentation
 
-- Design docs live in `docs/design/`
-- Implementation plans live in `docs/plans/`
-- Operational notes live in `docs/runbooks/`
+- Start with `docs/architecture.md` for the overall system architecture and data flow.
+- Check `docs/progress.md` for current project status, verified state, and immediate focus.
+- Check `docs/implementation-plan.md` for the rolling plan, open work, and deferred items.
+- Use `docs/runbooks/` only for operational guides such as local usage and scheduling.
+- Do not create dated copies of architecture, plan, or progress docs. Update those files in place.

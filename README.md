@@ -16,9 +16,10 @@ Local-first AI daily report generator and static site.
 - `prompts/` report generation and translation prompts
 - `data/raw/` saved raw daily snapshots
 - `data/reports/` generated report artifacts
-- `docs/design/` design documents
-- `docs/plans/` implementation plans
-- `docs/runbooks/` local usage and scheduler notes
+- `docs/architecture.md` overall architecture and data flow
+- `docs/implementation-plan.md` rolling implementation plan
+- `docs/progress.md` current status and next steps
+- `docs/runbooks/` operational runbooks
 - `scripts/` pipeline entrypoints
 
 ## Commands
@@ -35,7 +36,7 @@ Run tests:
 npm test
 ```
 
-Run the current daily entrypoint scaffold:
+Run the daily entrypoint:
 
 ```bash
 npm run daily -- --date 2026-03-29 --dry-run
