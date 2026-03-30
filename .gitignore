@@ -6,3 +6,4 @@ dist/
 Thumbs.db
 site-output/
 config/publish.config.json
+.worktrees/

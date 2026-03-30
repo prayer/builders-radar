@@ -37,6 +37,7 @@ The system uses one shared daily pipeline with separate storage for raw snapshot
 ### Priority 2: Improve site presentation and usability
 
 - [x] Compress the detail-page header and improve horizontal layout efficiency
+- [x] Refine the detail-page header so the title uses the full top row and source stats move beside the summary on desktop
 - [ ] Refine the remaining archive page layout and visual hierarchy
 - [ ] Decide whether archive pages should expose more metadata on the index
 - [ ] Consider lightweight navigation aids such as section anchors or simple search

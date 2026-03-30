@@ -154,19 +154,19 @@ function renderReportHtml(report) {
     <a class="skip-link" href="#content">跳到内容</a>
     <main id="content" class="shell">
       <section class="hero report-header report-detail-header">
-        <div class="detail-header-grid">
-          <div class="detail-header-main">
-            <div class="eyebrow">${escapeHtml(report.date)}</div>
-            <h1 class="detail-title">${escapeHtml(report.title)}</h1>
+        <div class="detail-header-body">
+          <div class="eyebrow">${escapeHtml(report.date)}</div>
+          <h1 class="detail-title">${escapeHtml(report.title)}</h1>
+          <div class="detail-header-meta-row">
             <p class="detail-summary">${escapeHtml(report.summary)}</p>
-            ${renderSectionNav(report)}
+            <aside class="source-stats-panel" aria-label="Source stats">
+              <div class="eyebrow">Source Stats</div>
+              <div class="source-stats-grid">
+                ${renderDetailStats(report)}
+              </div>
+            </aside>
           </div>
-          <aside class="source-stats-panel" aria-label="Source stats">
-            <div class="eyebrow">Source Stats</div>
-            <div class="source-stats-grid">
-              ${renderDetailStats(report)}
-            </div>
-          </aside>
+          ${renderSectionNav(report)}
         </div>
         <p class="footer-note detail-back-link"><a href="../../index.html">返回归档首页</a></p>
       </section>

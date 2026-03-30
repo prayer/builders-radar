@@ -4,7 +4,7 @@
 
 **Goal:** Rework the report detail-page header into a more compact, horizontally efficient layout without changing the report data model.
 
-**Architecture:** Keep the change local to the static site builder and shared stylesheet. The detail page will render a compact two-column header on desktop and collapse to one column on narrow screens. Source stats move from loose chips into a compact stats panel, and the header gains a lightweight section-nav row.
+**Architecture:** Keep the change local to the static site builder and shared stylesheet. The detail page will render a compact header with a full-width title row, then a second row where the summary sits on the left and source stats sit on the right. The header keeps a lightweight section-nav row and removes the desktop-only title truncation behavior.
 
 **Tech Stack:** Node.js 20, built-in `node:test`, static HTML generation, shared CSS template
 
@@ -28,14 +28,15 @@
 Assert that the generated detail page includes:
 
 - a compact detail-header wrapper
-- a dedicated source-stats panel
+- a dedicated source-stats panel in the summary/meta row
 - inline section navigation links
+- no desktop title truncation class or style hooks
 - no legacy chip row inside the detail header
 
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npm test -- tests/scripts/build-site.test.js`
-Expected: FAIL because the current detail page still uses the old hero layout
+Expected: FAIL because the current detail page still lacks the new summary-plus-stats row and still uses the old title truncation assumptions
 
 ## Chunk 2: Implement the New Detail Header
 
@@ -49,8 +50,8 @@ Expected: FAIL because the current detail page still uses the old hero layout
 
 Render:
 
-- a compact detail-header grid
-- a stats panel with four structured stat cells
+- a full-width title row
+- a summary-plus-stats row with four structured stat cells on the right
 - a simple section-nav row linking to section anchors
 - a smaller back-link row
 
@@ -70,12 +71,12 @@ Expected: PASS
 
 Style:
 
-- compact detail-header grid
-- single-line title behavior on wider screens
+- compact detail header spacing
+- smaller title sizing with full rendering instead of ellipsis
 - compact summary spacing
-- small source-stats panel and stat grid
+- small source-stats panel and stat grid beside the summary
 - inline section-nav row
-- responsive collapse for narrow screens
+- responsive behavior that collapses the summary/stats row on narrow screens
 
 - [ ] **Step 2: Re-run site-build tests**
 

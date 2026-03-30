@@ -26,8 +26,9 @@ The local-first pipeline is working end to end for the first source, `follow-bui
   - `site-output/site-data/reports.json`
   - `site-output/site-data/reports/<date>.json`
 - compact detail-page header layout:
-  - smaller single-line title on wider screens
-  - structured `Source Stats` panel instead of large stat chips
+  - full-width title row without desktop ellipsis truncation
+  - smaller title scale for denser first-screen reading
+  - summary-left / `Source Stats`-right desktop meta row
   - inline section navigation for faster movement into the report body
 - local publish workflow to sync `site-output/` into a separate GitHub Pages repo checkout
 - unified pipeline in `scripts/run-daily.js`
@@ -67,7 +68,6 @@ This is a workaround, not a root-cause fix. The runtime note is also documented 
 - review the 2026-03-29 sample output and iterate on prompt quality using `--rebuild-only`
 - refine the archive index information density and visual hierarchy
 - decide whether the archive index should expose more report metadata
-- consider whether the detail page needs additional lightweight navigation beyond the new inline section links
 - expand the Windows Task Scheduler runbook
 - make publish behavior and status output clearer
 

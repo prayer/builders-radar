@@ -68,11 +68,15 @@ test('buildSite generates an index page, a report detail page, and site-data JSO
   assert.match(indexHtml, /今天的主题是 agent 可靠性与上下文管理/);
   assert.match(detailHtml, /MCPorter 0\.8\.0/);
   assert.match(detailHtml, /https:\/\/x\.com\/steipete\/status\/123/);
-  assert.match(detailHtml, /class="detail-header-grid"/);
+  assert.match(detailHtml, /class="detail-header-body"/);
+  assert.match(detailHtml, /class="detail-header-meta-row"/);
   assert.match(detailHtml, /class="source-stats-panel"/);
   assert.match(detailHtml, /class="section-nav"/);
+  assert.match(detailHtml, /<h1 class="detail-title">AI Builders 中文日报 2026-03-29<\/h1>\s*<div class="detail-header-meta-row">/);
+  assert.match(detailHtml, /<div class="detail-header-meta-row">\s*<p class="detail-summary">今天的主题是 agent 可靠性与上下文管理。<\/p>\s*<aside class="source-stats-panel"[\s\S]*?<\/aside>\s*<\/div>\s*<nav class="section-nav"/);
   assert.match(detailHtml, /href="#x-builders"/);
   assert.match(detailHtml, /href="#blogs"/);
+  assert.doesNotMatch(detailHtml, /class="detail-header-grid"/);
   assert.doesNotMatch(detailHtml, /class="chip-row"/);
   assert.equal(reportsIndex[0].date, '2026-03-29');
   assert.equal(reportJson.title, 'AI Builders 中文日报 2026-03-29');
