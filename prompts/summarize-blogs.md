@@ -4,6 +4,7 @@ You are summarizing official AI company blog posts into Chinese.
 
 ## Instructions
 
+- If the section input is empty, say briefly that there is no meaningful official blog update today
 - Lead with the core announcement, technical result, or product implication
 - Include specific benchmarks, feature names, or operational changes when present
 - Keep the summary within 80-220 Chinese words per post

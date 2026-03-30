@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { runCodexReport } from './lib/codex.js';
+import { prepareReportInput } from './lib/report-input.js';
 
 const DEFAULT_PROMPTS_DIR = join(process.cwd(), 'prompts');
 const DEFAULT_REPORTS_ROOT = join(process.cwd(), 'data', 'reports');
@@ -48,7 +49,7 @@ export async function loadPromptSet(promptsDir = DEFAULT_PROMPTS_DIR) {
   };
 }
 
-export function buildReportPrompt({ date, snapshot, prompts }) {
+export function buildReportPrompt({ date, reportInput, prompts }) {
   return [
     prompts.reportSystem.trim(),
     '',
@@ -71,8 +72,8 @@ export function buildReportPrompt({ date, snapshot, prompts }) {
     '## Report Date',
     date,
     '',
-    '## Snapshot JSON',
-    JSON.stringify(snapshot, null, 2),
+    '## Report Input JSON',
+    JSON.stringify(reportInput, null, 2),
     '',
     'Return only the final report JSON that matches the provided schema.'
   ].join('\n');
@@ -122,7 +123,8 @@ export async function generateReport({
 }) {
   const snapshot = JSON.parse(await readFile(snapshotPath, 'utf8'));
   const prompts = await loadPromptSet(promptsDir);
-  const prompt = buildReportPrompt({ date, snapshot, prompts });
+  const reportInput = prepareReportInput(snapshot);
+  const prompt = buildReportPrompt({ date, reportInput, prompts });
   const report = await codexRunner({ prompt });
   const outputDir = join(reportsRoot, date);
   const reportPath = join(outputDir, 'report.json');

@@ -1,12 +1,12 @@
 # Builders Radar Progress
 
-Last updated: 2026-03-29
+Last updated: 2026-03-30
 
 This file is the rolling project status summary. Update it in place instead of creating dated snapshots.
 
 ## Current Status
 
-The local-first pipeline is working end to end for the first source, `follow-builders`. The repository can fetch feeds, save dated raw snapshots, generate Chinese report artifacts with local Codex, build the static archive site, and publish the site into a GitHub Pages repository checkout.
+The local-first pipeline is working end to end for the first source, `follow-builders`. The repository can fetch feeds, save dated raw snapshots, generate Chinese report artifacts with local Codex, build the static archive site, and publish the site into a GitHub Pages repository checkout. Report generation now also applies conservative input preprocessing before prompt assembly so obviously low-signal X posts are removed, quote tweets are preserved by default, and empty podcast/blog sections are represented explicitly.
 
 ## Implemented
 
@@ -15,6 +15,11 @@ The local-first pipeline is working end to end for the first source, `follow-bui
 - local Codex report generation to:
   - `data/reports/<date>/report.json`
   - `data/reports/<date>/report.md`
+- conservative report-input preprocessing for prompt assembly:
+  - filters only obviously low-signal short X posts
+  - preserves quote tweets by default
+  - marks empty podcast and blog sections explicitly
+- tightened report prompts for stronger signal selection and clearer empty-section handling
 - static archive site generation to:
   - `site-output/index.html`
   - `site-output/reports/<date>/index.html`
@@ -27,15 +32,12 @@ The local-first pipeline is working end to end for the first source, `follow-bui
 
 ## Verified State
 
-Verified on 2026-03-29:
+Verified on 2026-03-30:
 
+- `npm test -- tests/scripts/report-input.test.js`
+- `npm test -- tests/scripts/generate-report.test.js`
+- `npm test -- tests/run-daily.test.js`
 - `npm test`
-- `npm run daily -- --date 2026-03-29 --dry-run`
-- `npm run daily -- --date 2026-03-29 --rebuild-only --dry-run`
-- `npm run daily -- --date 2026-03-29 --rebuild-only --publish`
-- `npm run generate-report -- 2026-03-29 data/raw/2026-03-29/follow-builders.json`
-- `npm run build-site`
-- `npm run publish-site -- --repo-path <local-pages-repo> --no-commit`
 
 ## Deployment State
 
@@ -58,9 +60,9 @@ This is a workaround, not a root-cause fix. The runtime note is also documented 
 
 ## Current Focus
 
-- improve report prompt quality and consistency
+- review the 2026-03-29 sample output and iterate on prompt quality using `--rebuild-only`
 - refine the generated page layout and visual hierarchy
-- review which source items should be filtered or collapsed to reduce noise
+- decide whether the archive index should expose more report metadata
 - expand the Windows Task Scheduler runbook
 - make publish behavior and status output clearer
 
@@ -69,4 +71,5 @@ This is a workaround, not a root-cause fix. The runtime note is also documented 
 - The generated report for `2026-03-29` is the current seed sample for prompt iteration
 - Keep `report.json` as the canonical site input
 - Avoid refetching when prompt tuning; prefer `--rebuild-only`
+- Conservative preprocessing intentionally does not drop quote tweets just because they are quotes
 - `config/publish.config.json` is intentionally local-only and ignored by git

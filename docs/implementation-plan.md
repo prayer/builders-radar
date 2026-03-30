@@ -1,6 +1,6 @@
 # Builders Radar Implementation Plan
 
-Last updated: 2026-03-29
+Last updated: 2026-03-30
 
 This is the rolling implementation plan for the repository. Update it in place instead of creating dated copies.
 
@@ -29,10 +29,10 @@ The system uses one shared daily pipeline with separate storage for raw snapshot
 
 ### Priority 1: Improve report quality and signal density
 
-- [ ] Tighten prompt wording for more consistent section quality
-- [ ] Review which source items should be filtered, merged, or collapsed
-- [ ] Define clearer expectations for empty sections such as podcasts or blogs
-- [ ] Use the existing saved snapshots and `--rebuild-only` flow for prompt iteration
+- [x] Tighten prompt wording for more consistent section quality
+- [x] Review which source items should be filtered, merged, or collapsed
+- [x] Define clearer expectations for empty sections such as podcasts or blogs
+- [x] Keep prompt iteration compatible with the existing saved snapshots and `--rebuild-only` flow
 
 ### Priority 2: Improve site presentation and usability
 
@@ -59,3 +59,4 @@ The system uses one shared daily pipeline with separate storage for raw snapshot
 - [ ] Add more archive metadata or richer browsing patterns
 - [ ] Support additional upstream feeds beyond `follow-builders`
 - [ ] Explore multi-topic or multi-report output for a single day
+- [ ] Consider extending report artifacts with explicit fields such as `sectionStatus`, `collapsedCount`, or `filterNotes` if future site rendering or debugging needs more visibility

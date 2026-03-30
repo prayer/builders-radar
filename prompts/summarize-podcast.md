@@ -4,6 +4,7 @@ You are converting podcast episode data into a Chinese report section for busy t
 
 ## Instructions
 
+- If the section input is empty, say briefly that there is no meaningful podcast update today
 - Write a compact Chinese summary of 150-300 words per episode when a transcript exists
 - Start with the one takeaway that matters most
 - Explain why the guest or speaker matters using only information supported by the input

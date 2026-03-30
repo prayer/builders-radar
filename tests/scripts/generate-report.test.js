@@ -33,10 +33,26 @@ test('generateReport reads a snapshot and writes report JSON and Markdown artifa
             handle: 'levie',
             tweets: [
               {
+                id: 'tweet-noise',
+                text: 'Here we go',
+                url: 'https://x.com/levie/status/tweet-noise',
+                createdAt: '2026-03-29T04:00:00.000Z',
+                isQuote: false
+              },
+              {
                 id: 'tweet-1',
                 text: 'Context is the hard part of enterprise agents.',
                 url: 'https://x.com/levie/status/tweet-1',
-                createdAt: '2026-03-29T05:00:00.000Z'
+                createdAt: '2026-03-29T05:00:00.000Z',
+                isQuote: false
+              },
+              {
+                id: 'tweet-quote',
+                text: 'Wow!',
+                url: 'https://x.com/levie/status/tweet-quote',
+                createdAt: '2026-03-29T05:30:00.000Z',
+                isQuote: true,
+                quotedTweetId: 'quoted-1'
               }
             ]
           }
@@ -66,6 +82,11 @@ test('generateReport reads a snapshot and writes report JSON and Markdown artifa
     codexRunner: async ({ prompt }) => {
       assert.match(prompt, /2026-03-29/);
       assert.match(prompt, /Aaron Levie/);
+      assert.doesNotMatch(prompt, /tweet-noise/);
+      assert.doesNotMatch(prompt, /Here we go/);
+      assert.match(prompt, /tweet-quote/);
+      assert.match(prompt, /"isEmpty": true/);
+      assert.match(prompt, /Context is the hard part of enterprise agents/);
 
       return {
         date: '2026-03-29',
@@ -112,4 +133,29 @@ test('resolveEntrypointUrl normalizes a relative generate-report script path', a
   const resolved = mod.resolveEntrypointUrl('scripts/generate-report.js');
 
   assert.match(resolved, /^file:\/\/\/[A-Za-z]:\/.*scripts\/generate-report\.js$/);
+});
+
+test('buildReportPrompt aligns section instructions with the report schema', async () => {
+  const mod = await import('../../scripts/generate-report.js');
+  const prompts = await mod.loadPromptSet();
+  const prompt = mod.buildReportPrompt({
+    date: '2026-03-29',
+    reportInput: {
+      source: 'follow-builders',
+      sourceStats: {
+        builders: 1,
+        tweets: 1,
+        podcasts: 0,
+        blogs: 0
+      },
+      x: { builders: [], isEmpty: true },
+      podcasts: { items: [], isEmpty: true },
+      blogs: { items: [], isEmpty: true }
+    },
+    prompts
+  });
+
+  assert.doesNotMatch(prompt, /Short closing note with source coverage counts/i);
+  assert.match(prompt, /Do not put coverage counts inside any section summary/i);
+  assert.match(prompt, /The canonical coverage counts already live in sourceStats/i);
 });
