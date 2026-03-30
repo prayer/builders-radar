@@ -26,6 +26,36 @@ function renderChips(report) {
   ].map(([label, value]) => `<span class="chip"><strong>${label}</strong> ${value}</span>`).join('');
 }
 
+function renderDetailStats(report) {
+  return [
+    ['Builders', report.sourceStats.builders],
+    ['Tweets', report.sourceStats.tweets],
+    ['Podcasts', report.sourceStats.podcasts],
+    ['Blogs', report.sourceStats.blogs]
+  ].map(([label, value]) => `
+    <div class="source-stat">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(String(value))}</strong>
+    </div>
+  `).join('');
+}
+
+function renderSectionNav(report) {
+  if (!report.sections || report.sections.length === 0) {
+    return '';
+  }
+
+  const links = report.sections.map((section) => `
+    <a href="#${escapeHtml(section.id)}">${escapeHtml(section.title)}</a>
+  `).join('');
+
+  return `
+    <nav class="section-nav" aria-label="Report sections">
+      ${links}
+    </nav>
+  `;
+}
+
 function renderIndexHtml(reports) {
   const latest = reports[0];
   const reportCards = reports.map((report) => `
@@ -123,12 +153,22 @@ function renderReportHtml(report) {
   <body>
     <a class="skip-link" href="#content">跳到内容</a>
     <main id="content" class="shell">
-      <section class="hero report-header">
-        <div class="eyebrow">${escapeHtml(report.date)}</div>
-        <h1>${escapeHtml(report.title)}</h1>
-        <p>${escapeHtml(report.summary)}</p>
-        <div class="chip-row">${renderChips(report)}</div>
-        <p class="footer-note"><a href="../../index.html">返回归档首页</a></p>
+      <section class="hero report-header report-detail-header">
+        <div class="detail-header-grid">
+          <div class="detail-header-main">
+            <div class="eyebrow">${escapeHtml(report.date)}</div>
+            <h1 class="detail-title">${escapeHtml(report.title)}</h1>
+            <p class="detail-summary">${escapeHtml(report.summary)}</p>
+            ${renderSectionNav(report)}
+          </div>
+          <aside class="source-stats-panel" aria-label="Source stats">
+            <div class="eyebrow">Source Stats</div>
+            <div class="source-stats-grid">
+              ${renderDetailStats(report)}
+            </div>
+          </aside>
+        </div>
+        <p class="footer-note detail-back-link"><a href="../../index.html">返回归档首页</a></p>
       </section>
       ${report.sections.map(renderSection).join('\n')}
     </main>

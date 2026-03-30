@@ -36,7 +36,8 @@ The system uses one shared daily pipeline with separate storage for raw snapshot
 
 ### Priority 2: Improve site presentation and usability
 
-- [ ] Refine the page layout and visual hierarchy
+- [x] Compress the detail-page header and improve horizontal layout efficiency
+- [ ] Refine the remaining archive page layout and visual hierarchy
 - [ ] Decide whether archive pages should expose more metadata on the index
 - [ ] Consider lightweight navigation aids such as section anchors or simple search
 
