@@ -1,85 +1,86 @@
 {
   "date": "2026-03-29",
-  "title": "2026-03-29 AI Builders 日报",
-  "summary": "今天的高信号主要不在新发布，而在一组更成熟的 AI 工作方法论上：一是把 LLM 当作可双向施压的论证工具，而不是单向答案机；二是在产品和组织上更强调少数高杠杆下注、可逆性与快速加码；三是随着 AI 降低应用开发门槛，顶尖工程师的价值正继续向平台层、工具链可靠性和 agent 交互边界迁移。另一个明显空白是信息检索与内容筛选层，几位 builder 都在从不同角度指出 feed、书签和人工上下文窗口已经开始成为新的瓶颈。",
   "sections": [
     {
       "id": "x",
-      "title": "X / Twitter Builders",
-      "summary": "X 上最有价值的讨论集中在 6 位 builder，主题分别是 LLM 论证能力、资源配置方法、AI 时代的工程分层、agent 产品标准、信息检索缺口，以及 MCP 工具链可靠性。低信号闲聊与缺少上下文的转推已省略。",
       "items": [
         {
-          "headline": "Andrej Karpathy：把 LLM 当作双向辩手，而不是意见终点",
-          "summary": "Andrej Karpathy 复盘了一次很典型的使用体验：他先用 LLM 花 4 小时强化一篇文章的论证，随后再让模型反向论证，结果模型同样能有力地拆掉原结论。这条观察的重点不是“模型更懂真相”，而是它在多个方向上都极擅长构造说服链条。对技术用户的实际启发是，LLM 适合拿来做观点压力测试，但前提是主动要求它从不同立场展开，并警惕迎合性输出。",
+          "headline": "Swyx：AI-native SaaS 窗口期比预期更早打开",
           "sourceLinks": [
-            "https://x.com/karpathy/status/2037921699824607591"
-          ]
+            "https://x.com/swyx/status/2038509566800118021",
+            "https://x.com/swyx/status/2038431061575979027"
+          ],
+          "summary": "Swyx 的核心判断有两层：一是当下最令人愉悦的 AI 能力，正被迅速收束到 coding 和 enterprise SaaS 这两个最容易兑现价值的场景；二是企业买方对新玩家的开放度比很多人预期更高。他转引 Redpoint 调研时特别强调，46% 的 enterprise CIO 愿意考虑 AI-native startups 替代 incumbents，这意味着市场不是在等技术成熟，而是在主动寻找重做 SaaS 的机会窗口。"
         },
         {
-          "headline": "Swyx：避免“伪等价”，把筹码押在少数高杠杆事项上",
-          "summary": "Swyx 讨论了一个常见但代价很高的决策错误：把 a、b、c、d 讲成同等重要，忽略真实世界的幂律分布。他给出的操作原则很明确：只押注极少数事项，不做无效对冲，但要保留可逆性；同时提前设好监控触发条件，如果判断被验证，就尽早加码。这更像是一套内容策略、团队管理和产品投资都适用的资源配置框架。",
+          "headline": "Peter Yang：Granola 的价值在于把会议记录变成 agent-first 公司的上下文层",
           "sourceLinks": [
-            "https://x.com/swyx/status/2037969691910848941"
-          ]
+            "https://x.com/petergyang/status/2038420980494909637"
+          ],
+          "summary": "Roblox Product 的 Peter Yang 看多 Granola，不是因为“AI 会议纪要”这个表层功能，而是因为会议记录本身是公司内部最有用的上下文之一。他认为 Granola 的更强点在于围绕 agents 提前布局 API 和 MCP，并且从 meeting notes 这个清晰 wedge 出发，向更大的工作流扩展。"
         },
         {
-          "headline": "Amjad Masad：AI 普及应用开发后，顶尖工程师会继续下沉到平台层",
-          "summary": "Replit CEO Amjad Masad 继续推进他早先提出的“1000x engineer”判断：AI 让更多人能直接做 app，结果不是工程价值消失，而是最强的工程师会把精力转向更底层、更具平台性的工作，扩大整个系统的能力边界。这里的观察和常见的“人人都能写软件”叙事不同，它强调的是分工重排而不是技能贬值。对 builder 来说，竞争会越来越集中在平台能力、抽象层设计和基础设施扩展性。",
+          "headline": "Thariq：Figma MCP 正在把草图到可编辑设计稿的往返成本压低",
           "sourceLinks": [
-            "https://x.com/amasad/status/2037951485418344835",
-            "https://x.com/amasad/status/2038053670907007165"
-          ]
+            "https://x.com/trq212/status/2038352023633228183",
+            "https://x.com/trq212/status/2038353920473608309",
+            "https://x.com/trq212/status/2038354323722351049"
+          ],
+          "summary": "Anthropic 的 Thariq 分享了一个很具体的工作流：先在 Figma 里画一个很粗糙的草图，再让 Claude Code 基于 Figma 文件把它补全成符合现有应用风格的设计，并主动加入可能需要的新组件。关键变化不是直接从 prompt 生成最终 UI，而是在 Figma 这个可编辑中间层里迭代，再把结果送回 Claude Code，形成更稳的设计到实现闭环。"
         },
         {
-          "headline": "Zara Zhang：好的 agent 产品应当持续出现“设计外能力”",
-          "summary": "Zara Zhang 给出了一个很直接的 agent 产品判断标准：优秀产品不只是按设计执行，而是能做出连创建者都没预想到的有效行为。她同时提到“Human context window is the new wall”，把瓶颈从模型上下文转向人的理解、筛选和管理能力。两条观点合在一起，指向的是同一个问题：agent 价值不只取决于模型本身，也取决于它能否突破人的操作和注意力上限。",
+          "headline": "Amjad Masad：vibecoding 已经开始产出可观的业务结果",
           "sourceLinks": [
-            "https://x.com/zarazhangrui/status/2038144755478237654",
-            "https://x.com/zarazhangrui/status/2037983921946923034"
-          ]
+            "https://x.com/amasad/status/2038374343953035514"
+          ],
+          "summary": "Replit CEO Amjad Masad 转引的案例强调，早期 Replit vibecoding 用户 Jon 从约一年前用一周时间和 400 美元起步，到现在做到 800 万美元 ARR。它释放的信号不是单个成功故事本身，而是 AI coding 工具正在把“极低成本验证”与“可持续经常性收入”之间的距离继续缩短。"
         },
         {
-          "headline": "Peter Yang：内容检索、质量反馈与高自主权岗位正在变成新产品机会",
-          "summary": "Peter Yang 的几条短帖指向了同一类产品缺口：他希望 Grok 能直接和自己在 X 上收藏过的内容对话，也认为 X 应把低质量内容反馈机制扩展到原帖层级，而不只是回复层级。这说明社交内容的个人知识检索与 feed 去噪仍然远未解决。另一个组织层观察是，像 Linear、Ramp 这类增长很快的公司愿意招 ex-founders 做 PM，而真正的门槛不只是能否招来人，而是组织是否给他们足够的影响力。",
+          "headline": "Guillermo Rauch：coding agents 会放大个人发明力，也会把大胆想法变成默认优势",
           "sourceLinks": [
-            "https://x.com/petergyang/status/2038068968792162594",
-            "https://x.com/petergyang/status/2038067082223554732",
-            "https://x.com/petergyang/status/2038058600715935817"
-          ]
+            "https://x.com/rauchg/status/2038396313566605720",
+            "https://x.com/rauchg/status/2038274722988003489"
+          ],
+          "summary": "Vercel CEO Guillermo Rauch 的判断更偏长期：superintelligent coding agents 会让那些长期停留在个人脑中的小众、难商业化、难落地的软件想法大规模出现。他认为 AI 的关键作用不是替代创造力，而是持续、认真地放大发明者的执行能力；与此同时，Vercel 也在为“未来的 web rendering toolkit”招聘工程师，说明这一判断已经开始反映到基础技术栈投入上。"
         },
         {
-          "headline": "Peter Steinberger：MCPorter 0.8.0 把重点放在 OAuth、JSON 回退和守护进程稳定性",
-          "summary": "Peter Steinberger 发布了 MCPorter 0.8.0，更新集中在几类真正影响可用性的细节：更强的 OAuth 处理、回退路径下有效 JSON 输出、对 object 参数更稳的 CLI 生成，以及 keep-alive/daemon 可靠性。这类改动不炫技，但非常接近真实 agent 工具链落地时最痛的地方。他另外提到一个开源维护现实：即便 Chrome 144+ 已提供原生访问能力、扩展也已移除，用户仍会因一次性设置门槛产生大量摩擦，说明产品可达性仍是生态采用速度的重要变量。",
+          "headline": "Aaron Levie：Agent-first 世界重写的不只是应用层，而是整套基础设施假设",
           "sourceLinks": [
-            "https://x.com/steipete/status/2038074759527981416",
-            "https://x.com/steipete/status/2037988925818519763"
-          ]
+            "https://x.com/levie/status/2038468564500537416",
+            "https://x.com/levie/status/2038263457125142742"
+          ],
+          "summary": "Box CEO Aaron Levie 认为，很多人低估了 agents 对底层系统约束的改写：sandboxes、search、payments、file systems 过去虽服务于机器流程，但最终仍围绕人类请求设计；当 agents 变成 24/7 并行执行主体后，低延迟启动、超大规模检索、微支付和高速读写权限管理都会变成新刚需。对应到组织层面，他进一步判断，自动化不会自然减少工作，反而会把项目范围一并放大，因为团队会倾向于把原来做不到的任务也并进同一条工作流。"
+        },
+        {
+          "headline": "Garry Tan：大 PR 的第一优化不一定是写代码，而是先把并行边界规划清楚",
+          "sourceLinks": [
+            "https://x.com/garrytan/status/2038493235862253676"
+          ],
+          "summary": "YC CEO Garry Tan 提到，在面对“大而全”的 pull request 时，最简单但最有效的优化是先判断哪些部分可以被 agents 并行化，再明确并行推进与最终合并的时机。他点名 `/plan-ceo-review` 这类规划流程的价值，反映出 agent 时代的产能提升开始前移到任务拆解和协作编排，而不只是代码生成本身。"
         }
-      ]
+      ],
+      "summary": "今天的 X 讨论高度集中在 agent-native 工作流上：从企业 SaaS 重做窗口、meeting notes 作为 agent 上下文层，到 Figma MCP 驱动的设计往返，再到底层 sandboxes、search、payments、file systems 的重构需求。更值得注意的是，几位创始人与产品负责人都在强调同一个方向：AI 不只是让现有流程更快，而是在抬高可行项目的上限，并把规划、协作与基础设施一起推向新形态。",
+      "title": "X / Twitter Builders"
     },
     {
       "id": "podcasts",
-      "title": "Podcasts",
-      "summary": "今天没有可用的 podcast 更新。",
-      "items": []
+      "items": [],
+      "summary": "今天没有值得写入报告的 Podcast 更新。",
+      "title": "Podcasts"
     },
     {
       "id": "blogs",
-      "title": "Blogs",
-      "summary": "今天没有可用的官方 blog 更新。",
-      "items": []
-    },
-    {
-      "id": "coverage",
-      "title": "来源覆盖",
-      "summary": "本期覆盖 13 位 builders、27 条 tweets、0 期 podcasts、0 篇 blogs。",
-      "items": []
+      "items": [],
+      "summary": "今天没有值得写入报告的官方博客更新。",
+      "title": "Blogs"
     }
   ],
   "sourceStats": {
-    "builders": 13,
-    "tweets": 27,
+    "blogs": 0,
+    "builders": 14,
     "podcasts": 0,
-    "blogs": 0
-  }
+    "tweets": 27
+  },
+  "summary": "2026-03-29 的 builder 信号很集中：市场侧，企业对 AI-native SaaS 的接受度可能比多数人预期更高；产品侧，meeting notes、Figma MCP、规划型 agent workflow 都在说明 AI 已从“生成内容”转向“重组工作流”；基础设施侧，Aaron Levie 指向的 sandboxes、search、payments、file systems 约束变化，提示 agent-first 时代的真正瓶颈正在从模型能力转向系统承载能力。整体看，今天最重要的结论不是又多了哪些新工具，而是越来越多 builders 开始把 agent 当成默认执行主体来重新设计产品、团队协作和底层栈。",
+  "title": "Builders Radar 日报｜2026-03-29"
 }

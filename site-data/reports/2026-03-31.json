@@ -1,0 +1,68 @@
+{
+  "date": "2026-03-31",
+  "title": "2026-03-31 AI Builders 日报",
+  "summary": "今天的高信号主要集中在两个方向：一是 AI coding/agent 正从“能写代码”转向“能被企业接入并受控运营”，相关讨论同时覆盖自动化研发、公开源码风险、以及安全合规约束；二是研究与产品判断开始更明确地区分“能力提升”和“可落地性”，既有对数学证明质量提升的乐观判断，也有对企业级 agent 治理成本的冷静提醒。播客部分则给出更激进的产品路线图：把 agent 组织成可委派、可测试、可部署、可监控的管理层，目标是把软件公司拆成一套云端自治系统。",
+  "sections": [
+    {
+      "id": "x",
+      "title": "X / Twitter Builders",
+      "summary": "今天的 X 讨论以 agent 软件工程、企业治理边界和公开源码风险为主，零散转评较多，真正值得保留的信号集中在少数几位 builder。",
+      "items": [
+        {
+          "headline": "Aaron Levie：企业里的 agent 提效不会免费，真正瓶颈在治理层",
+          "summary": "Box CEO Aaron Levie 明确指出，agent 带来的生产力上限最终会被 security、compliance、governance 和人工复核能力限制。对企业来说，vibe coding 不是无条件扩张的默认选项；如果缺少流程、控制和监管兼容性，agent 越能动手，风险也越集中。这条判断的含义很直接：企业级 agent 落地的核心，不是再多接几个模型，而是先补齐可审计、可约束、可回滚的控制面。",
+          "sourceLinks": [
+            "https://x.com/levie/status/2039216522028257549"
+          ]
+        },
+        {
+          "headline": "Aditya Agarwal：公开源码可能正在变成“生产修 bug”之后的新极端默认",
+          "summary": "South Park Commons 合伙人 Aditya Agarwal 回看早期 Facebook “在生产环境修 bug”的工程哲学，提出一个更激进的类比：在软件足够动态的前提下，默认让源码公开也许未必像过去那样不可想象。他没有把这个判断包装成结论，而是保留了强烈的不确定性。这条观察的价值在于，它点出了 AI 时代软件开发边界正在松动：当生成、迭代和修复速度大幅提升时，传统“封闭源码才安全”的直觉可能会被重新检验。",
+          "sourceLinks": [
+            "https://x.com/adityaag/status/2039198010681565665"
+          ]
+        },
+        {
+          "headline": "Kevin Weil：模型不仅能解更多开放问题，证明本身也在变得更优雅",
+          "summary": "OpenAI VP Science Kevin Weil 转发的核心观点不是单纯“AI 更强了”，而是随着模型继续进步，它给出的数学证明质量也在提升，甚至体现出更优雅的结构。这比常见的 benchmark 讨论更有信号，因为它暗示模型改进不只体现在命中率，还可能体现在推理表达与证明组织方式上。对研究和产品团队而言，这意味着评估模型能力时，可能需要开始关注答案质量的“形式层”而不只是对错。",
+          "sourceLinks": [
+            "https://x.com/kevinweil/status/2039200605672284572"
+          ]
+        },
+        {
+          "headline": "Swyx：Codex 在 2026 年 3 月的增长停滞引发关注",
+          "summary": "Swyx 直接质疑 Codex 在 2026 年 3 月为何没有继续增长。虽然这条内容本身信息量有限，但它反映出 builder 圈对 AI coding 产品增长曲线的敏感度已经很高，市场现在不仅看功能发布，也盯着使用与扩张趋势是否持续。其隐含信号是：AI 开发工具进入竞争更深水区后，单靠话题热度已不足以支撑持续上升的产品势能。",
+          "sourceLinks": [
+            "https://x.com/swyx/status/2039222156815716437"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasts",
+      "title": "Podcasts",
+      "summary": "今天只有一条值得记录的播客内容，重点不是“一个人独角兽”的口号，而是其背后的系统设计。",
+      "items": [
+        {
+          "headline": "Data Driven NYC：把软件公司拆成一套可委派的 agent 管理系统",
+          "summary": "最重要的 takeaway 不是“一人十亿美元公司”的愿景本身，而是 Andrew 给出的实现路径已经从通用 assistant 转向“manager agents + specialist agents”的组织结构。他把公司的核心动作压缩为做产品、卖产品、支持客户和运营系统四层，再把当前突破点放在最接近工程环节的管理层自动化：从 bug/需求进入系统，到生成 ticket、调用 coding agent、生成 QA 计划、启动 browser agent 验证、合并 PR、再到监控 Vercel 部署与基础设施告警，整条链路都试图放进云端闭环里运行。\n\n这套产品从早期的 co-founder 演化到新发布的 co-founder CTO，明显不再把自己定义成“会写邮件和做杂活的 assistant”，而是把自己定位为自治软件组织的中层控制面。演讲里最有现实意义的部分有三点：第一，他们明确放弃本地开发路径，转而依赖 preview environments，把 agent 的执行环境、测试环境和部署环境统一到云端；第二，browser agent 被用于回归验证，失败后会回退到代码生成环节重试，说明他们追求的是带反馈回路的自动化，而不是单次代码生成；第三，团队内部已经把 token 开销当作新的生产资料，甚至出现“部分天数 token 成本高于工资”的结构变化。这里面的风险也很明显：演讲给出的效率数据和路线图高度来自单方陈述，而且销售、客服、运营等后续模块还在路线上，但对正在搭建 agent engineering 平台的团队来说，这一套“管理层 agent”思路比单纯堆更多 coding agent 更值得关注。",
+          "sourceLinks": [
+            "https://youtube.com/watch?v=rX3CxlGm-00"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blogs",
+      "title": "Blogs",
+      "summary": "今天没有有意义的官方博客更新。",
+      "items": []
+    }
+  ],
+  "sourceStats": {
+    "builders": 10,
+    "tweets": 15,
+    "podcasts": 1,
+    "blogs": 0
+  }
+}
