@@ -54,28 +54,59 @@ const REPORT_SCHEMA = {
   }
 };
 
-function spawnCodex(args, input, cwd) {
+function isIgnorableStdinError(error) {
+  return error?.code === 'EOF' || error?.code === 'EPIPE';
+}
+
+export function spawnCodex(args, input, cwd, { spawnImpl = spawn } = {}) {
   return new Promise((resolvePromise, rejectPromise) => {
-    const child = spawn('codex', args, {
+    const child = spawnImpl('codex', args, {
       cwd,
       stdio: ['pipe', 'pipe', 'pipe'],
       shell: false
     });
 
     let stderr = '';
+    let settled = false;
+
+    function rejectOnce(error) {
+      if (settled) {
+        return;
+      }
+
+      settled = true;
+      rejectPromise(error);
+    }
+
+    function resolveOnce() {
+      if (settled) {
+        return;
+      }
+
+      settled = true;
+      resolvePromise();
+    }
 
     child.stderr.on('data', (chunk) => {
       stderr += chunk.toString();
     });
 
-    child.on('error', rejectPromise);
-    child.on('close', (code) => {
-      if (code !== 0) {
-        rejectPromise(new Error(stderr.trim() || `codex exited with code ${code}`));
+    child.stdin.on('error', (error) => {
+      if (isIgnorableStdinError(error)) {
         return;
       }
 
-      resolvePromise();
+      rejectOnce(error);
+    });
+
+    child.on('error', rejectOnce);
+    child.on('close', (code) => {
+      if (code !== 0) {
+        rejectOnce(new Error(stderr.trim() || `codex exited with code ${code}`));
+        return;
+      }
+
+      resolveOnce();
     });
 
     child.stdin.end(input);
