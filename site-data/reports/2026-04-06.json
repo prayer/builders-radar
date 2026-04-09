@@ -1,0 +1,92 @@
+{
+  "date": "2026-04-06",
+  "title": "builders-radar 2026-04-06",
+  "summary": "今天的信号集中在两端：一端是产品与工作流更靠近实时反馈和工具化协作，OpenAI 的近端/远端节奏、X + Replit 的实时可视化、以及把 agent 直接写成产品营销层，都在强调更短的迭代回路；另一端是对“模型到底应该理解什么”的再分层，Moonlake 把世界模型拆成因果、状态和渲染两层，并把评估重新拉回到任务结果而不是表面观感。整体上，今天更像是在讨论 AI 系统如何形成可用的抽象层，而不是继续追逐单一模型分数。",
+  "sections": [
+    {
+      "id": "x",
+      "title": "X / Twitter builders",
+      "summary": "今天的 X 信号主要围绕两件事：AI 产品的反馈回路正在缩短，agent 已经开始直接承担营销、演示和研发协作；同时，很多人开始明确反对只看“看起来很强”的表面效果，更关注抽象层、工作流和真实使用结果。",
+      "items": [
+        {
+          "headline": "Andrej Karpathy 关注 GitHub Gist 的高质量评论生态",
+          "summary": "Andrej Karpathy 说 GitHub Gist 的评论质量让他意外，明显更有帮助、建设性，也更少“AI 味”。他猜测原因可能来自社区结构、Markdown 形式或激励机制，并表示自己可能会更多用 Gist，同时半认真地建议 @github 可以考虑在评论体验上和 X 竞争。",
+          "sourceLinks": [
+            "https://x.com/karpathy/status/2040806346556428585"
+          ]
+        },
+        {
+          "headline": "Peter Yang 讨论 OpenAI 的近端与远端节奏",
+          "summary": "Peter Yang 转载了 Codex 产品负责人对 OpenAI 节奏的解释：团队只做近端和远端，不做中期 roadmap，因为中间层最容易失真。这个观点的重点不是流程细节，而是承认在快速变化的模型时代，产品路线图本身可能不如短周期可交付事项可靠。",
+          "sourceLinks": [
+            "https://x.com/petergyang/status/2040943889822232790",
+            "https://x.com/petergyang/status/2040954866567364758"
+          ]
+        },
+        {
+          "headline": "Amjad Masad 展示 X API + Replit 的实时原型",
+          "summary": "Amjad Masad 展示了 @X API + @Replit 的一个实时原型：tannerlbraden 做了 NASA Artemis II 任务可视化，把 X feed 和统计数据直接接进来。这个例子更像在说明，外部数据流、快速原型和可复用开发环境已经可以把“演示”直接拉成“产品雏形”。",
+          "sourceLinks": [
+            "https://x.com/amasad/status/2040918650245578906"
+          ]
+        },
+        {
+          "headline": "Guillermo Rauch 把 X 当作产品反馈回路",
+          "summary": "Guillermo Rauch 强调 Vercel 团队在 X 上持续听客户反馈，并把这些对话直接转化为产品决策。他还展示了用 v0 做“月球旗帜”项目的过程：从简化版一把梭，到给更多 C++/Rust 参考后生成更复杂的物理模拟、Web Worker 性能优化和程序化地形，核心信息是模型在理解约束后会显著变强。",
+          "sourceLinks": [
+            "https://x.com/rauchg/status/2040879055990632715",
+            "https://x.com/rauchg/status/2040822340532236565"
+          ]
+        },
+        {
+          "headline": "Aaron Levie 认为 AI 更可能放大需求而不是消灭岗位",
+          "summary": "Aaron Levie 认为 AI agents 提高效率后，企业会把软件用到更多原本不值得做的地方，因此更可能带来需求扩张，而不是简单裁员。结果不是“更少工程师”，而是更多自动化、更多安全与合规、更多媒体和法律工作，以及更多原本被忽略的行业软件化。",
+          "sourceLinks": [
+            "https://x.com/levie/status/2040967947275948357"
+          ]
+        },
+        {
+          "headline": "Zara Zhang 强调深读内容，并让 agent 直接承担产品叙述",
+          "summary": "Zara Zhang 先强调，在“人人都在总结”的时代，真正想消费的内容仍值得逐字读原文，而不是再看一层 AI 摘要。更关键的是，她建议在 AGENTS.md 里直接要求 agent 扮演产品营销者，把功能、收益和使用方式讲清楚，因为对没有 GUI 的技能或应用来说，agent 本身就是界面。",
+          "sourceLinks": [
+            "https://x.com/zarazhangrui/status/2041031588000252279",
+            "https://x.com/zarazhangrui/status/2040956069699297314"
+          ]
+        },
+        {
+          "headline": "Aditya Agarwal 质疑 LLM 医疗拒答的边界",
+          "summary": "Aditya Agarwal 提出一个很直接的类比：急诊室不能拒收病人，为什么 LLM 可以轻易拒绝医疗建议。这个问题没有给出答案，但它把焦点放在高风险场景里的服务边界、拒答策略和责任划分。",
+          "sourceLinks": [
+            "https://x.com/adityaag/status/2041016861027193239"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasts",
+      "title": "Podcasts",
+      "summary": "今天只有一档播客更新，主题是 Moonlake 对 world models 的方法论分歧：不要把高保真视频生成当成世界理解，真正有用的是能处理动作后果、长时一致性和多模态因果关系的系统。",
+      "items": [
+        {
+          "headline": "Latent Space 讨论 Moonlake 的多模态 world model 路线",
+          "summary": "这期的核心判断很明确：world model 不能只会生成“看起来像真的”视频，必须能基于动作预测世界如何变化，尤其是长时间尺度上的因果后果。Chris Manning 和 Fan-yun Sun 把 Moonlake 的思路拆成两层：一层是处理因果、持久性和逻辑一致性的多模态 reasoning model，另一层是 Reverie，用来把这些持久表征再渲染成高保真或任意风格的视觉结果。节目里还反复强调，评估不该停留在通用 benchmark，而应看游戏里真实停留时长、部署到目标环境后的鲁棒性等终局指标，因为不同任务的“好”本来就不一样。",
+          "sourceLinks": [
+            "https://www.youtube.com/@LatentSpacePod"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blogs",
+      "title": "Blogs",
+      "summary": "今天没有有意义的官方博客更新。",
+      "items": []
+    }
+  ],
+  "sourceStats": {
+    "builders": 13,
+    "tweets": 26,
+    "podcasts": 1,
+    "blogs": 0
+  }
+}

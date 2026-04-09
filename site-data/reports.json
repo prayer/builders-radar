@@ -1,5 +1,575 @@
 [
   {
+    "date": "2026-04-09",
+    "title": "2026-04-09 AI Builders 日报",
+    "summary": "今天最强的主线是 agent 基础设施开始从自建脚手架转向托管运行时：Anthropic 同时发布 Managed Agents 产品与工程拆解，Box、Sentry、Vibecode 一类真实工作流也迅速接入。另一条主线是工作界面继续被重写，Google 把 NotebookLM 式资料工作区并入 Gemini，团队协作则越来越像“每人一个 agent”的组织改造。与此同时，builders 也在提醒现实约束仍然存在，包括无限订阅的经济性、评测偏置，以及多 agent 协作里的记忆、权限与群聊失控问题。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter Builders",
+        "summary": "今天的 X 信号集中在两端：一端是平台把 agent 基础设施产品化，另一端是团队开始按“每人一个 agent”重写协作方式。强信号更新来自 Gemini 的 Notebooks 发布、Managed Agents 的使用反馈，以及围绕成本模型、评测方法和组织变迁的现实讨论。",
+        "items": [
+          {
+            "headline": "Josh Woodward | Gemini 把 Notebooks 并入主产品",
+            "summary": "Google / Google Labs / Gemini App / Google AI Studio 的 VP Josh Woodward 表示，Gemini 已把部分 NotebookLM 能力直接整合进 Gemini App，核心不是再加一个聊天功能，而是把聊天升级为有资料底座的持续工作区。首发能力包括免费上传 100 个来源、按项目组织聊天，以及来源与聊天同步；当前先在 web 端分批上线，Mobile、EU 和 Workspace 还在后续。这个动作说明 Google 正把“资料驱动的第二大脑”从独立工具拉回主入口。",
+            "sourceLinks": [
+              "https://x.com/joshwoodward/status/2041982173402821018"
+            ]
+          },
+          {
+            "headline": "Peter Yang | 不要把“无限量 AI 订阅”当成长期常量",
+            "summary": "Roblox 的 Peter Yang 认为，Claude Max 和 ChatGPT Pro 这类 all-you-can-use 订阅未必会长期持续，因此团队不该把当前额度和价格结构视为稳定前提。他把讨论延伸到 Anthropic 对 OpenClaw 访问的变化、如何在 Mac 上跑本地模型，以及中国市场的一线观察。对 builders 来说，这更像是一条成本与部署策略提醒：云端高配模型之外，仍要准备本地和多供应商备选。",
+            "sourceLinks": [
+              "https://x.com/petergyang/status/2041989206495653915"
+            ]
+          },
+          {
+            "headline": "Guillermo Rauch | Web 既是 AI 的交付层，也是 agent-native 的基础设施层",
+            "summary": "Vercel CEO Guillermo Rauch 一边推广 AI Gateway，一边给出更长期判断：web 是 AI 的天然介质，浏览器正在变成每个人的 IDE，而 WebGPU、WebAssembly 等底层能力会继续抬高 web 的性能上限。他把 AI Gateway 定位为降低停机、供应商锁定和密钥管理负担的基础设施产品，同时认为 generative UI 乃至“AGUI”会首先在 web 上爆发。含义很直接：前端不再只是展示层，而是多模型编排和 agent-native 产品的主战场。",
+            "sourceLinks": [
+              "https://x.com/rauchg/status/2041957973531226372",
+              "https://x.com/rauchg/status/2041883605711122488"
+            ]
+          },
+          {
+            "headline": "Alex Albert | Managed Agents 的目标不是 demo，而是直接承接生产流量",
+            "summary": "Anthropic 研究员 Alex Albert 认为，Managed Agents 同时覆盖了两类看似冲突的诉求：周末快速拼装一个 agent 项目，以及把它稳健地交付给数百万用户。重点不在“少写一些 self-hosting 代码”，而在把托管复杂度抽掉，同时保留 harness、tools、skills 的配置弹性。这和 Anthropic 当天的产品与工程发布形成呼应，说明其目标是生产级 agent runtime，而不是只做原型平台。",
+            "sourceLinks": [
+              "https://x.com/alexalbert__/status/2041941720611614786"
+            ]
+          },
+          {
+            "headline": "Aaron Levie | 企业切入点仍是已有内容工作流，而不是新聊天框",
+            "summary": "Box CEO Aaron Levie 把 Box API 或 MCP 与 Claude Managed Agents 连起来后，强调知识工作里的 background agents 已可以在 2 分钟内自动化文档审阅、数据抽取和跨系统流转。这里的关键不是单个模型更聪明，而是内容系统、权限边界和 agent runtime 开始拼成可上线的闭环。对企业产品团队而言，离真实价值最近的入口依旧是文档和流程，而不是再造一个通用助手界面。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2041975669928702370"
+            ]
+          },
+          {
+            "headline": "Nikunj Kothari | 个人知识产品开始从“能生成”转向“能组织”",
+            "summary": "FPV Ventures 的 Nikunj Kothari 发布了开源 LLMwiki：把 tweets、bookmarks、iMessage/WhatsApp 和个人写作汇总后，生成可浏览的个人知识库，并明确说 repo 是用 Opus 4.5 fully vibe coded 完成。更有价值的信号是，他把前端设计也视为 agent 产出的重要部分，而不是只验证文本生成。这个案例说明，个人知识产品的门槛正在从“能不能写”转向“数据接入、信息组织和可读性是否足够好”。",
+            "sourceLinks": [
+              "https://x.com/nikunj/status/2042020992969744702",
+              "https://x.com/nikunj/status/2042021738083766568"
+            ]
+          },
+          {
+            "headline": "Peter Steinberger | eval 先要去掉身份偏置，再谈模型高下",
+            "summary": "OpenClaw 的 Peter Steinberger 在做 character evals 时发现，Claude 作为 judge 会持续把自己排在第一，于是改成在评审阶段移除模型名。这个修正很小，但点出了更普遍的问题：只要评测暴露品牌或模型身份，结论就可能混入偏置，而不是只比较行为。他同时也提醒另一面现实：大家一边想要更强的本地模型，一边仍在抱怨顶级模型不够稳定、会犯错、指令跟随也不够好。",
+            "sourceLinks": [
+              "https://x.com/steipete/status/2042017534816231486",
+              "https://x.com/steipete/status/2041936147450863952"
+            ]
+          },
+          {
+            "headline": "Aditya Agarwal | AI coding 先改变组织文化，再改变产能",
+            "summary": "South Park Commons 的 Aditya Agarwal 表示，团队在两个月内从只有 1 到 2 人写代码，变成全员每周都在写代码。结果不是单纯节省人力，而是自动化心态增强、延迟下降、更多人把注意力转向更有趣的问题，整体 ambition 被放大。这个案例说明，AI coding 工具的组织价值首先体现在文化和职责边界变化，其次才是代码产量。",
+            "sourceLinks": [
+              "https://x.com/adityaag/status/2041985720706122070"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "播客部分的高信号内容集中在 Every 对组织级 agent 协作的第一手复盘，价值在 operational lessons，而不是产品宣传。",
+        "items": [
+          {
+            "headline": "AI & I by Every | 当每个员工都有个人 agent，组织会长出一张平行 org chart",
+            "summary": "这期最有价值的观察是：当 agent 不是公司共享助手，而是“属于某个人”的 PlusOne/OpenClaw 时，组织里会自然长出一张平行的 agent org chart。Every 发现，agent 会逐渐继承主人的专业分工、语气和信誉，因此同事开始直接找某人的 agent 处理 Growth、产品或内部工具问题；公开在 Slack 中协作还会形成一种可观察的学习效应，让团队更快学会如何管理 agent。节目也没有回避限制：记忆不稳定、群聊中过度发言、多个 agent 相互打转烧 token、技能共享与数据权限边界都还是未解题。PlusOne 的产品决策因此偏向“托管基础设施 + 公开可见的交互 + 有限私聊权限”，核心不是做一个更强的聊天框，而是给组织级人机协作建立可追责、可复用、可扩展的操作层。",
+            "sourceLinks": [
+              "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "官方博客今天几乎都围绕 Managed Agents 展开：一篇解释底层架构为何要解耦，一篇把产品能力、性能收益和落地案例直接摆出来。",
+        "items": [
+          {
+            "headline": "Anthropic Engineering | Managed Agents 的关键是把 brain、hands、session 拆开",
+            "summary": "Anthropic Engineering 的核心论点不是再做一个 agent loop，而是把 session、harness、sandbox 变成可独立替换的稳定接口。原先把所有组件塞进单个 container 会把实例养成难恢复的“pet”：容器挂掉即丢会话，调试必须进入带用户数据的环境，VPC 接入也被耦合设计卡住。新架构把 brain 从 hands 中拿出来，harness 通过统一接口调用 sandbox 和外部工具，session 则作为可持久查询的事件日志存放在上下文窗口之外。结果是容器和 harness 都能像 cattle 一样失败后重建，token 不再暴露给 Claude 生成的代码，且 p50 TTFT 下降约 60%，p95 下降超过 90%。对 builders 的启发是，长时运行 agent 的关键壁垒已经从 prompt 设计转向状态恢复、安全边界和多执行环境编排。",
+            "sourceLinks": [
+              "https://www.anthropic.com/engineering/managed-agents"
+            ]
+          },
+          {
+            "headline": "Claude Blog | Claude Managed Agents 公测，把生产级 agent 基础设施打包成 API",
+            "summary": "Claude Blog 宣布 Claude Managed Agents 进入 public beta，直接把安全 sandbox、鉴权、长时会话、恢复机制和 tracing 打包为可组合 API。官方给出的卖点很明确：把原本要花数月搭的生产基础设施压缩到几天，并在结构化文件生成的内部测试里把任务成功率最多提高 10 个点；multi-agent coordination 和 self-evaluation 则处于 research preview。案例也比纯概念更有说服力，Notion、Rakuten、Asana、Vibecode、Sentry 都被拿来说明“几周而不是几个月”地接入真实工作流。对开发团队的实际含义是，把精力从自建 runtime 转回任务定义、工具设计和 guardrails。",
+            "sourceLinks": [
+              "https://claude.com/blog/claude-managed-agents"
+            ]
+          }
+        ]
+      }
+    ],
+    "sourceStats": {
+      "builders": 14,
+      "tweets": 30,
+      "podcasts": 1,
+      "blogs": 2
+    }
+  },
+  {
+    "date": "2026-04-08",
+    "title": "2026-04-08 AI Builders 日报：代理式工程进入流程化，Claude Mythos Preview 引发能力重估",
+    "summary": "今天更值得关注的不是单条发布，而是两条主线正在收敛。第一，Anthropic 通过 Claude Mythos Preview 和 Project Glasswing 释放出新一轮前沿模型升级信号，多位从业者据此上调了对 agent 能力爬坡速度的预期。第二，围绕 Codex、Claude Code 和企业 agent 的讨论明显从“模型会不会写代码”转向“如何把评审、验证、权限、CLI、知识沉淀和工作流 orchestration 做成可持续系统”，产品化落点已经开始出现在科研审稿、RFP 自动化和多 provider 成本管理等具体场景中。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter",
+        "summary": "今天的 X 讨论集中在两类高信号主题：一类是前沿模型能力继续上冲，另一类是 agent 工程从单次生成走向流程、约束和组织级协作。相比单纯晒效果，builder 们更在意验证成本、权限边界、结构化工作流和能否把模型能力稳定嵌入真实生产环境。",
+        "items": [
+          {
+            "headline": "Anthropic 推出 Claude Mythos Preview，Project Glasswing 同步浮出水面",
+            "summary": "Anthropic 研究员 Alex Albert 连续发文披露 Claude Mythos Preview，并说明该模型已向 Project Glasswing 的 launch partners 开放，重点不只是模型本身，而是它已经嵌入到特定合作与部署路径。结合他把 Glasswing 称为自己加入 Anthropic 近三年来最重要的行业事件之一，今天市场读到的是 Anthropic 在同时推进模型能力和更大规模的落地叙事。",
+            "sourceLinks": [
+              "https://x.com/alexalbert__/status/2041579938537775160",
+              "https://x.com/alexalbert__/status/2041579950332113155",
+              "https://x.com/alexalbert__/status/2041578743769280811"
+            ]
+          },
+          {
+            "headline": "Prism 的 Paper Review 把科研审稿做成 Codex 驱动的结构化工作流",
+            "summary": "OpenAI VP Science Kevin Weil 介绍 Prism 新增的 Paper Review，不是 grammar checker，而是更像技术审稿人，检查数学、推导、符号、单位、结构，以及论文结论是否真被结果支撑。更关键的是，它在 Prism 内以 structured workflow 运行，并直接写出可编辑的 LaTeX review file，说明 Codex 类能力正在被封装进研究工作台，而不是停留在独立对话框里。",
+            "sourceLinks": [
+              "https://x.com/kevinweil/status/2041573802212303053",
+              "https://x.com/kevinweil/status/2041573804145799346",
+              "https://x.com/kevinweil/status/2041592093718749659"
+            ]
+          },
+          {
+            "headline": "Aaron Levie：前沿模型爬坡正在把 agent 工作流推向知识工作的主流程",
+            "summary": "Box CEO Aaron Levie 一边把 Mythos 视为前沿模型仍在持续加速的证据，一边给出更直接的产品判断：知识工作的跃迁点不再是 chatbot，而是能在后台连续工作数分钟到数小时、调用工具、读写数据并交付完整结果的 agent。以 Box Agent 自动生成 RFP 回复为例，他的核心观点是，未来竞争壁垒会越来越取决于产品是否能持续吃到模型、工具调用和代码生成能力改善带来的复利。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2041732610179703100",
+              "https://x.com/levie/status/2041512156693201176"
+            ]
+          },
+          {
+            "headline": "Sam Altman 重置 codex 配额，释放出更强的高频使用信号",
+            "summary": "Sam Altman 表示为庆祝 300 万 weekly codex users，团队正在重置 usage limits，并计划在用户数每增加 100 万时继续重置，直到 1000 万。这里更重要的信息不是一次活动，而是 codex 已经被当作高频开发基础设施来运营，容量和产品策略都开始直接随使用规模滚动调整。",
+            "sourceLinks": [
+              "https://x.com/sama/status/2041658719839383945"
+            ]
+          },
+          {
+            "headline": "Thariq：开放式 verification 很容易烧 tokens，却不一定提升结果",
+            "summary": "Anthropic 的 Thariq 在复盘多次用户通话和 transcript 后给出一个很实用的结论：open ended verification 很容易消耗大量 tokens，但未必让最终输出更好。对正在拉长 agent 流程的人来说，这意味着验证本身也需要被工程化，否则成本会被“更严谨”的表象吞掉。",
+            "sourceLinks": [
+              "https://x.com/trq212/status/2041722125510377705"
+            ]
+          },
+          {
+            "headline": "Garry Tan 点出 agent 时代的两个基础问题：权限边界与 Markdown 作为通用中间层",
+            "summary": "Garry Tan 指出 Claude Code 的一个现实边界问题：即便 Write File 工具受工作区限制，只要允许 bash，agent 仍可能通过 `cat >>` 之类方式写入任意文件。随后他又把当下的软件形态概括成“code is data and data is code again... It’s Markdown”，两条放在一起看，核心是 agent 系统的安全边界和文本接口正在变成同一个设计问题。",
+            "sourceLinks": [
+              "https://x.com/garrytan/status/2041654662764609735",
+              "https://x.com/garrytan/status/2041653129020936328"
+            ]
+          },
+          {
+            "headline": "CodexBar 0.20 把多 provider 与成本归因继续做深",
+            "summary": "Peter Steinberger 发布 CodexBar 0.20，新增 Perplexity 和 OpenCode Go providers，支持无重新登录切换 Codex accounts，并修复 Claude token/cost inflation 的重复统计问题。这个更新的重点不在新按钮，而在 agent 工具链开始把多 provider 管理、账户切换和成本历史整合视为默认能力。",
+            "sourceLinks": [
+              "https://x.com/steipete/status/2041731875241066517"
+            ]
+          },
+          {
+            "headline": "Nikunj Kothari：早期公司不该把注意力放在流量叙事而忽略 changelog 与 retention",
+            "summary": "fpvventures 合伙人 Nikunj Kothari 给出一个朴素但有效的尽调视角：先看 changelog 和 feature release 是否持续更新。他的判断是，一些早期公司把精力放在获取浏览量和融资叙事上，而不是产品进展与 retention；在 AI 创业里，这个提醒尤其重要，因为模型能力能放大演示效果，但不能替代真实留存。",
+            "sourceLinks": [
+              "https://x.com/nikunj/status/2041757065354293760"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "今天只有一档高信号播客，内容密度很高，核心是把 coding agent 从“辅助写代码”推进到“可运营的软件生产系统”。",
+        "items": [
+          {
+            "headline": "Latent Space：Ryan Lopopolo 谈 harness engineering，本质是在为 agent 重写软件交付流程",
+            "summary": "这期最重要的结论是，真正的杠杆不只来自模型更会写代码，而来自围绕模型重写整套软件交付系统。Ryan Lopopolo 以 OpenAI Frontier 的内部实践为例，描述了一个近乎极端的约束：团队刻意不自己写代码，而是把文档、skills、测试、review agent、构建脚本、可观测性和 PR 流程都改造成 agent 更容易消费的文本与工具接口，从而把同步人类注意力压到最低。实践层面，他强调要持续追问 agent 在哪里出错、人在什么环节被迫介入，然后把这些经验回灌到仓库里；例如把构建时间压到 1 分钟内、把失败日志压缩成更适合 agent 读取的 CLI 输出、用本地工具链替代高噪声接口，并让系统在 greenfield 仓库里优先追求 agent 可操作性而不是传统的人类舒适度。更值得注意的是，他们已经把 PR 推进、CI 修复、冲突处理、review 反馈和 rework 也纳入 orchestration，说明“人审代码”正在被“人审结果和边界条件”替代。局限同样明确：这套方法首先适用于新仓库、强约束架构和可回收代码的环境，不是对所有生产系统的即插即用答案。",
+            "sourceLinks": [
+              "https://www.youtube.com/@LatentSpacePod"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天没有有意义的官方博客更新。",
+        "items": []
+      }
+    ],
+    "sourceStats": {
+      "builders": 17,
+      "tweets": 35,
+      "podcasts": 1,
+      "blogs": 0
+    }
+  },
+  {
+    "date": "2026-04-06",
+    "title": "builders-radar 2026-04-06",
+    "summary": "今天的信号集中在两端：一端是产品与工作流更靠近实时反馈和工具化协作，OpenAI 的近端/远端节奏、X + Replit 的实时可视化、以及把 agent 直接写成产品营销层，都在强调更短的迭代回路；另一端是对“模型到底应该理解什么”的再分层，Moonlake 把世界模型拆成因果、状态和渲染两层，并把评估重新拉回到任务结果而不是表面观感。整体上，今天更像是在讨论 AI 系统如何形成可用的抽象层，而不是继续追逐单一模型分数。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter builders",
+        "summary": "今天的 X 信号主要围绕两件事：AI 产品的反馈回路正在缩短，agent 已经开始直接承担营销、演示和研发协作；同时，很多人开始明确反对只看“看起来很强”的表面效果，更关注抽象层、工作流和真实使用结果。",
+        "items": [
+          {
+            "headline": "Andrej Karpathy 关注 GitHub Gist 的高质量评论生态",
+            "summary": "Andrej Karpathy 说 GitHub Gist 的评论质量让他意外，明显更有帮助、建设性，也更少“AI 味”。他猜测原因可能来自社区结构、Markdown 形式或激励机制，并表示自己可能会更多用 Gist，同时半认真地建议 @github 可以考虑在评论体验上和 X 竞争。",
+            "sourceLinks": [
+              "https://x.com/karpathy/status/2040806346556428585"
+            ]
+          },
+          {
+            "headline": "Peter Yang 讨论 OpenAI 的近端与远端节奏",
+            "summary": "Peter Yang 转载了 Codex 产品负责人对 OpenAI 节奏的解释：团队只做近端和远端，不做中期 roadmap，因为中间层最容易失真。这个观点的重点不是流程细节，而是承认在快速变化的模型时代，产品路线图本身可能不如短周期可交付事项可靠。",
+            "sourceLinks": [
+              "https://x.com/petergyang/status/2040943889822232790",
+              "https://x.com/petergyang/status/2040954866567364758"
+            ]
+          },
+          {
+            "headline": "Amjad Masad 展示 X API + Replit 的实时原型",
+            "summary": "Amjad Masad 展示了 @X API + @Replit 的一个实时原型：tannerlbraden 做了 NASA Artemis II 任务可视化，把 X feed 和统计数据直接接进来。这个例子更像在说明，外部数据流、快速原型和可复用开发环境已经可以把“演示”直接拉成“产品雏形”。",
+            "sourceLinks": [
+              "https://x.com/amasad/status/2040918650245578906"
+            ]
+          },
+          {
+            "headline": "Guillermo Rauch 把 X 当作产品反馈回路",
+            "summary": "Guillermo Rauch 强调 Vercel 团队在 X 上持续听客户反馈，并把这些对话直接转化为产品决策。他还展示了用 v0 做“月球旗帜”项目的过程：从简化版一把梭，到给更多 C++/Rust 参考后生成更复杂的物理模拟、Web Worker 性能优化和程序化地形，核心信息是模型在理解约束后会显著变强。",
+            "sourceLinks": [
+              "https://x.com/rauchg/status/2040879055990632715",
+              "https://x.com/rauchg/status/2040822340532236565"
+            ]
+          },
+          {
+            "headline": "Aaron Levie 认为 AI 更可能放大需求而不是消灭岗位",
+            "summary": "Aaron Levie 认为 AI agents 提高效率后，企业会把软件用到更多原本不值得做的地方，因此更可能带来需求扩张，而不是简单裁员。结果不是“更少工程师”，而是更多自动化、更多安全与合规、更多媒体和法律工作，以及更多原本被忽略的行业软件化。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2040967947275948357"
+            ]
+          },
+          {
+            "headline": "Zara Zhang 强调深读内容，并让 agent 直接承担产品叙述",
+            "summary": "Zara Zhang 先强调，在“人人都在总结”的时代，真正想消费的内容仍值得逐字读原文，而不是再看一层 AI 摘要。更关键的是，她建议在 AGENTS.md 里直接要求 agent 扮演产品营销者，把功能、收益和使用方式讲清楚，因为对没有 GUI 的技能或应用来说，agent 本身就是界面。",
+            "sourceLinks": [
+              "https://x.com/zarazhangrui/status/2041031588000252279",
+              "https://x.com/zarazhangrui/status/2040956069699297314"
+            ]
+          },
+          {
+            "headline": "Aditya Agarwal 质疑 LLM 医疗拒答的边界",
+            "summary": "Aditya Agarwal 提出一个很直接的类比：急诊室不能拒收病人，为什么 LLM 可以轻易拒绝医疗建议。这个问题没有给出答案，但它把焦点放在高风险场景里的服务边界、拒答策略和责任划分。",
+            "sourceLinks": [
+              "https://x.com/adityaag/status/2041016861027193239"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "今天只有一档播客更新，主题是 Moonlake 对 world models 的方法论分歧：不要把高保真视频生成当成世界理解，真正有用的是能处理动作后果、长时一致性和多模态因果关系的系统。",
+        "items": [
+          {
+            "headline": "Latent Space 讨论 Moonlake 的多模态 world model 路线",
+            "summary": "这期的核心判断很明确：world model 不能只会生成“看起来像真的”视频，必须能基于动作预测世界如何变化，尤其是长时间尺度上的因果后果。Chris Manning 和 Fan-yun Sun 把 Moonlake 的思路拆成两层：一层是处理因果、持久性和逻辑一致性的多模态 reasoning model，另一层是 Reverie，用来把这些持久表征再渲染成高保真或任意风格的视觉结果。节目里还反复强调，评估不该停留在通用 benchmark，而应看游戏里真实停留时长、部署到目标环境后的鲁棒性等终局指标，因为不同任务的“好”本来就不一样。",
+            "sourceLinks": [
+              "https://www.youtube.com/@LatentSpacePod"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天没有有意义的官方博客更新。",
+        "items": []
+      }
+    ],
+    "sourceStats": {
+      "builders": 13,
+      "tweets": 26,
+      "podcasts": 1,
+      "blogs": 0
+    }
+  },
+  {
+    "date": "2026-04-05",
+    "title": "2026-04-05 AI Builders 日报",
+    "summary": "今天的高信号更新主要集中在两条线索。第一，Andrej Karpathy 继续推进“个人知识库 + agent”的个体化 AI 方向，强调显式、可迁移、用户自持的数据层，而不是把记忆锁在模型供应商内部；第二，Aaron Levie 从企业落地角度进一步说明，真正决定 agent 可用性的不是单次模型能力，而是上下文层、工具调用和权限隔离如何协同。相较之下，其余动态更多是产品迭代与轻量观点，值得关注但信号强度较低。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter Builders",
+        "summary": "今天的 X 讨论里，最值得看的是个人 AI 记忆架构与企业 agent 系统设计两类观点；另有少量产品工程执行层更新。",
+        "items": [
+          {
+            "headline": "Andrej Karpathy：把“记忆”做成用户可见、可迁移、可自管的文件层",
+            "summary": "Andrej Karpathy 延续了他对 personal wiki / LLM wiki 的思路，认为比起“AI 会随着使用自动变懂你”的黑箱叙事，更好的个体化路径是把记忆做成显式、可浏览、可编辑的 wiki。核心原则是 data ownership、file over app 和 BYOAI：数据留在本地、格式通用、可被不同模型和工具直接消费，用户不会被某一家 AI 产品锁死。他还补了一份“idea file”，强调在 agent 时代分享想法本身往往比分享固定应用更重要，因为接收方可以让自己的 agent 按本地需求重建实现。除此之外，他也提出 AI 可能显著提升社会对政府预算、法案、游说关系和地方治理的可读性与问责能力，本质上是把“处理公开复杂数据”的门槛从少数专业人士手中部分释放出来。",
+            "sourceLinks": [
+              "https://x.com/karpathy/status/2040572272944324650",
+              "https://x.com/karpathy/status/2040470801506541998",
+              "https://x.com/karpathy/status/2040549459193704852"
+            ]
+          },
+          {
+            "headline": "Aaron Levie：企业 AI 的核心仍是上下文层，不是把一切塞进模型",
+            "summary": "Aaron Levie 认为，企业场景里最难的问题不是模型本身不够强，而是每个用户可访问的知识边界不同，持续在模型层学习企业知识几乎不可行，因此 context layer 会长期处在应用 AI 栈中心。与此同时，更大的上下文窗口、更稳定的工具调用和更强的推理能力，正在把 agent 架构从“embedding + chunk retrieval”的权宜方案，推向更接近人类工作流的文档搜索、复查和二次检索模式。这个变化的含义是，agent 开始能处理更完整的文档语境、识别搜索失败并主动补查，企业内容型工作流的上限随之上移。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2040650799550722243",
+              "https://x.com/levie/status/2040528801386361128"
+            ]
+          },
+          {
+            "headline": "Garry Tan：GStack 继续朝“software factory”方向推进",
+            "summary": "Garry Tan 透露 GStack 一次性合入了 14 个 security bug fixes，其中一半来自社区 PR，说明项目已经进入以加固和外部贡献协同为重点的阶段。与此同时，他还在尝试把 code review 做得更自适应、更智能，并把这视作通往“L8 software factory”的持续工作。信号点不在单个功能，而在于产品正把安全修复、社区协作和评审自动化并入同一条交付流水线。",
+            "sourceLinks": [
+              "https://x.com/garrytan/status/2040658880586522783",
+              "https://x.com/garrytan/status/2040667535490863254"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "今天只有一档值得记录的播客，重点不在泛 AI 叙事，而在 AI 如何进入材料科学与实验闭环。",
+        "items": [
+          {
+            "headline": "No Priors：Liam Fedus 谈 Periodic Labs 如何把 AI 从“写文本”推进到“操作原子”",
+            "summary": "这期最重要的判断是，AI 若想真正推动科学与产业加速，必须进入物理世界，并在实验中形成闭环，而不只是停留在语言与软件层。Liam Fedus 以 Periodic Labs 为例，提出其系统不是单一大模型，而是用 language model 作为 orchestration layer，调度文献、实验数据和面向原子体系的专用模型，再通过持续实验获得高质量、可校准的数据回流。与互联网语料不同，材料与化学领域的公开数据常常噪声极大、同一性质跨文献可差出几个数量级，因此关键不只是“有数据”，而是建立 simulation、literature 与实验之间的主动闭环。Fedus 还明确区分了软件和科学中的自我改进速度：前者因验证便宜、反馈快，已经接近自动化拐点；后者仍受实验成本、设备与自动化程度约束，但方向同样成立。对 builders 的实际启发是，面向物理世界的 AI 产品需要把模型、工具、实验控制和数据质量工程一起设计，而不是期待通用模型直接外推到科学发现。输入仅提供 No Priors 频道链接，未包含该集单独页面。",
+            "sourceLinks": [
+              "https://www.youtube.com/@NoPriorsPodcast"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天没有有意义的官方博客更新。",
+        "items": []
+      }
+    ],
+    "sourceStats": {
+      "builders": 9,
+      "tweets": 18,
+      "podcasts": 1,
+      "blogs": 0
+    }
+  },
+  {
+    "date": "2026-04-04",
+    "title": "2026-04-04 AI Builders 日报",
+    "summary": "今天的高信号主题集中在三条线上：一是 agent 从“能用”走向“能自我扩展”，Swyx、Peter Steinberger 等人的讨论都指向同一个现实，即工作流已经开始围绕长上下文、文件系统、shell 和自改写能力重构；二是产品与组织层面的配套开始跟上，Linear 的 Nan Yu 讨论设计、PM、PMM 的边界，Aaron Levie 强调当前 agent 仍受人类上下文管理约束；三是工具链继续快速迭代，Cursor 推出新界面与 Composer 2，Claude 扩展 Microsoft 365 connectors，Garry Tan 则把 attention 放在 DX 审查与代码生成站点性能。播客部分最值得关注的是 Marc Andreessen 对“80 年一夜成功”的判断：他把当下 AI 归纳为 LLM、reasoning、agents、self-improvement 四次功能性突破叠加，并认为真正的约束正在从模型能力转向供给、组织与现实世界采用速度。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter Builders",
+        "summary": "X 上的有效信息主要围绕 agent 工作方式、产品组织判断，以及 AI 工具界面的迭代速度展开。相较空泛情绪，今天更值得看的内容是那些直接触及实现路径、组织权衡或产品使用门槛的帖子。",
+        "items": [
+          {
+            "headline": "Swyx：agent 已经进入“贴需求即可落地”的阶段",
+            "summary": "Swyx 给出的两个判断都很具体：一方面，他认为把博客或推文直接交给 @devinai，就能一次性完成实现，说明 agent 已开始承接跨文档到代码的闭环；另一方面，他转发“录屏加标注验证功能”的测试方式，意味着 AI 开发流程正在把验证材料也纳入可审查产物，而不只是代码 diff。本质上，他强调的不是模型更会聊天，而是实现与验证正在一起自动化。",
+            "sourceLinks": [
+              "https://x.com/swyx/status/2040181076237443299",
+              "https://x.com/swyx/status/2040245613997219902"
+            ]
+          },
+          {
+            "headline": "Nan Yu：产品、设计、PMM 的边界不该被随意折叠",
+            "summary": "Linear 的产品负责人 Nan Yu 连续讨论组织设计问题，核心观点很明确：品牌设计与产品设计应更靠近，否则探索会变浅、审美和品牌会受损；同时，PMM 更自然地应与产品管理协同，而不是把设计和产品管理强行合并。对 builder 来说，这是一种反常见做法的提醒，AI 时代工具更强，不代表组织边界可以更随便。",
+            "sourceLinks": [
+              "https://x.com/thenanyu/status/2040206778751750255",
+              "https://x.com/thenanyu/status/2040177368187212157"
+            ]
+          },
+          {
+            "headline": "Aaron Levie：agent 还没有消除管理层，反而先暴露了上下文极限",
+            "summary": "Aaron Levie 的判断是，当前 agent 的效果仍取决于给到的上下文、工具权限，以及人类是否能持续校准和整合其产出。因此他不认同“人会很快被拿掉”的叙事，至少在当下阶段，真正稀缺的不是生成能力，而是管理 agent 子任务与异常升级的认知带宽。这比泛泛谈替代更接近真实落地约束。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2040264454982480138"
+            ]
+          },
+          {
+            "headline": "Peter Steinberger：开放 agent 生态正在转向成本、缓存与平台摩擦",
+            "summary": "Peter Steinberger 对 Anthropic 的公开批评很直接，认为封闭策略正在伤害生态，但他同时也指出，最新版本会加入更好的 cache 使用来降低 API 成本，说明开放 agent 产品竞争已经从功能延伸到推理成本结构。另一条信息同样务实：GitHub API 配额限制开始成为 agent 工作流瓶颈，基础平台并未为高频 agent 访问而设计。",
+            "sourceLinks": [
+              "https://x.com/steipete/status/2040209434019082522",
+              "https://x.com/steipete/status/2040298884787032103",
+              "https://x.com/steipete/status/2040067429242675523"
+            ]
+          },
+          {
+            "headline": "Ryo Lu：Cursor 在界面层主动做减法，并直接用使用量验证",
+            "summary": "Ryo Lu 透露 Cursor 新界面与新 icon 已上线，并鼓励用户周末试用 Composer 2，给出的指标是“2x the usage”。这类表述的重点不只是 UI 更新，而是产品团队在把“更简单”的界面判断与实际使用增长挂钩，说明 AI IDE 的竞争已经进入交互密度、可见性和默认路径优化阶段。",
+            "sourceLinks": [
+              "https://x.com/ryolu_/status/2040272055673999730",
+              "https://x.com/ryolu_/status/2040270917637648749",
+              "https://x.com/ryolu_/status/2040061299053519099"
+            ]
+          },
+          {
+            "headline": "Garry Tan：代码生成不只拼速度，也开始转向 DX 评审与性能证明",
+            "summary": "Garry Tan 一边发布 GStack 的 `/plan-devex-review`，明确把开发者体验审查流程产品化；另一边又拿 Garry’s List 的 95 PageSpeed 成绩回应“codegen 做不出高性能产品”的质疑。信号很清楚：代码生成工具链的竞争，正在从“能不能生成”转到“能不能产出可维护、可审查、性能过关的结果”。",
+            "sourceLinks": [
+              "https://x.com/garrytan/status/2040211569775395042",
+              "https://x.com/garrytan/status/2040228442130850008"
+            ]
+          },
+          {
+            "headline": "Zara Zhang：人设蒸馏开始外溢到 agent skill 设计",
+            "summary": "Zara Zhang 观察到一个新趋势：人们开始把同事、创作者甚至前任“蒸馏”为 agent skills。这个说法虽然短，但很有产品含义，它说明 agent 定制正在从任务模板走向人格、决策偏好和风格迁移；另一条关于 PM 与 PMM 应合并的表态，也呼应了今天 X 上关于组织边界重画的讨论。",
+            "sourceLinks": [
+              "https://x.com/zarazhangrui/status/2040211603875074512",
+              "https://x.com/zarazhangrui/status/2040319135507480921"
+            ]
+          },
+          {
+            "headline": "Claude：Microsoft 365 connectors 已下放到所有套餐",
+            "summary": "Claude 宣布 Microsoft 365 connectors 面向所有 Claude plan 开放，可接入 Outlook、OneDrive 和 SharePoint。对实际工作流而言，这不是单纯的集成数量增加，而是把企业邮件、文档和文件检索能力下沉到更广泛用户层，直接降低了把 Claude 接到现有办公上下文的门槛。",
+            "sourceLinks": [
+              "https://x.com/claudeai/status/2040086268562842097"
+            ]
+          },
+          {
+            "headline": "Thariq：Claude Code 生态开始用补贴修复开发者关系",
+            "summary": "Thariq 提到可领取一个月免费 credits，并明确表示“感谢大家的耐心”，这更像一次对近期摩擦的运营补偿，而不只是促销。结合同日生态里的公开争议，可以把它理解为：agent 编码产品在扩张期，开发者信任与成本体验已经成为需要主动维护的部分。",
+            "sourceLinks": [
+              "https://x.com/trq212/status/2040215427931156595"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "今天只有一档值得记录的播客，但信息密度很高，核心价值在于把近期 AI 进展串成了一套连续叙事，而不是孤立地谈单个产品。",
+        "items": [
+          {
+            "headline": "Latent Space：Marc Andreessen 把当下 AI 定义为“80 年一夜成功”",
+            "summary": "Marc Andreessen 的核心判断是，今天的 AI 不是突然爆发，而是神经网络、Transformer 及更早研究长期积累后的集中兑现，因此他用“80 年一夜成功”来描述当下。更重要的是，他把近阶段能力跃迁归纳为四步：LLM、reasoning、agents、self-improvement，并认为这些突破都已经越过“演示价值”，开始进入真实世界可用阶段。对 builders 来说，最有启发的部分有两点：第一，他把 Pi + OpenClaw 这类 agent 架构理解为“LLM + shell + file system + markdown + cron”的组合，强调真正的杠杆来自复用 Unix 世界已有能力，而不是重新发明整套协议；第二，他认为模型能力继续上升几乎是确定的，真正更难的是供给约束、现实行业的采用阻力，以及组织结构能否承接这种能力。这使问题从“AI 行不行”转向“社会系统和产品架构能否跟上”。",
+            "sourceLinks": [
+              "https://www.youtube.com/@LatentSpacePod"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天没有有实质信息量的官方博客更新。",
+        "items": []
+      }
+    ],
+    "sourceStats": {
+      "builders": 14,
+      "tweets": 31,
+      "podcasts": 1,
+      "blogs": 0
+    }
+  },
+  {
+    "date": "2026-04-03",
+    "title": "2026-04-03 AI Builders 日报",
+    "summary": "今天更值得关注的信号集中在两条线。第一，AI 工具正在从“单次生成”转向“可持续操作的工作环境”：Andrej Karpathy 把 LLM 知识库描述成由原始资料、自动编译 wiki、健康检查和 CLI 工具组成的长期研究系统，Ryo Lu 与多位 Cursor 相关讨论则把界面焦点放在可见性、可控性和更少的操作负担上。第二，AI 的价值开始从软件工作流外溢到更重的现实系统，最典型的是 Ginkgo Bioworks 对 autonomous labs 的判断：关键不只是模型更聪明，而是让模型直接驱动实验、压缩单位科研成本并重构实验组织方式。其余高信号更新还包括 Claude 在 Windows 推进 computer use，以及 Aaron Levie 对 agent 架构“及时拆脚手架”的产品经验。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter Builders",
+        "summary": "X 上的高信号内容主要围绕三件事：LLM 正在变成研究知识基础设施；AI 编程产品继续向更少 UI 摩擦、更强可见性演进；agent 与现实世界系统的结合开始要求更激进地重写架构假设。",
+        "items": [
+          {
+            "headline": "Andrej Karpathy：LLM 知识库正在替代零散检索，研究流程变成可持续编译的个人 wiki",
+            "summary": "Andrej Karpathy 介绍了他最近高频使用的一套研究工作流：先把文章、论文、repo、数据集和图片沉淀到本地 `raw/`，再让 LLM 持续把这些材料“编译”成带摘要、概念文章、反向链接和索引文件的 markdown wiki，并在 Obsidian 中查看与派生输出。关键点不在传统 RAG，而在让模型长期维护知识结构、自动做一致性检查、补全缺失信息、生成 slide 和图表，并把每次问答结果重新归档回知识库。另一条延伸判断更激进：前沿 LLM 的一次提问，未来可能自然演化成一个临时多 agent 团队，自动建 wiki、反复 lint、迭代后再产出完整报告，说明交互单位正在从单次 `.decode()` 变成完整任务编排。",
+            "sourceLinks": [
+              "https://x.com/karpathy/status/2039805659525644595",
+              "https://x.com/karpathy/status/2039808711452246261"
+            ]
+          },
+          {
+            "headline": "Aaron Levie：做 AI agents 要对旧架构“无情”，模型进步会让旧脚手架从加分项变成负担",
+            "summary": "Aaron Levie 总结 Box Agent 的一个核心经验：agent 系统不是一次性定型的工程，模型能力提升后，原先为搜索、分块、检索和任务约束搭建的外围系统，可能迅速从必要补丁变成性能瓶颈。产品团队如果对既有架构有路径依赖，就会错过前沿模型在复杂推理、工具调用、动态写代码和长上下文处理上的真实增益。对 builder 的实际含义是，agent 平台需要预留“持续拆脚手架”的能力，而不是把补丁层永久制度化。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2039931799414194621"
+            ]
+          },
+          {
+            "headline": "Ryo Lu 与相关反馈：Cursor 3 把竞争点押在“glass”式可见性，而不是更深的黑箱自动化",
+            "summary": "Ryo Lu 用“glass vs. black box”解释 Cursor 3 的设计取向：随着 AI 更强，工具不该把用户进一步降级成拉杆式操作员，而应让计划、diff、agent 状态和文件修改过程都可见、可编辑、可中断。这个观点与产品发布文案强调的“starts simple, then unfolds more tools when you need them”一致，指向的是按需展开复杂度，而非默认把所有控制面板堆给用户。Peter Yang 的体验反馈提供了外部验证：他认为 Cursor 3 的新界面显著减少了多余按钮和切换，更接近“直接和 agent 对话”的理想状态，也暗示 AI IDE 的下一阶段竞争会集中在默认视图和交互负担，而不只是模型本身。",
+            "sourceLinks": [
+              "https://x.com/ryolu_/status/2039780768847958359",
+              "https://x.com/ryolu_/status/2039895634313187619",
+              "https://x.com/petergyang/status/2039850011044016291"
+            ]
+          },
+          {
+            "headline": "Claude：Windows 上线 computer use，桌面代理能力继续补齐平台覆盖",
+            "summary": "Claude 宣布 Claude Cowork 和 Claude Code Desktop 的 computer use 已支持 Windows。这类更新本身不只是平台适配，而是在降低桌面代理工作流的部署门槛：原先偏 Mac 的能力开始向更广的开发与企业桌面环境扩展。对开发者和内部工具团队来说，这意味着基于 GUI 操作、桌面自动化和混合工作流的 agent 方案更容易进入标准 Windows 环境。",
+            "sourceLinks": [
+              "https://x.com/claudeai/status/2039836891508261106"
+            ]
+          },
+          {
+            "headline": "Peter Steinberger：AI 生成的安全报告洪峰，正在把开源维护成本推高到新水平",
+            "summary": "Peter Steinberger 转述内核安全列表的变化：漏洞报告量已从两年前每周 2 到 3 个，上升到近年每周约 10 个，而 2026 年初以来达到每天 5 到 10 个。更关键的是，这些报告并非全是噪音，很多是正确的，以至于需要增加维护者处理。这个观察的含义并不乐观：AI 降低了发现问题和提交报告的门槛，但并没有同步降低开源项目验证、修复和沟通的维护成本，一部分 OSS 项目可能因此被额外的审查流量压垮。",
+            "sourceLinks": [
+              "https://x.com/steipete/status/2039782190838686088"
+            ]
+          },
+          {
+            "headline": "Amjad Masad：Replit 一边补企业基础设施，一边继续建设 GTM 组织",
+            "summary": "Amjad Masad 的两条更新分别对应产品和组织层面。一条是转发“no-setup enterprise-grade auth solution for everyone”，说明 Replit 仍在补齐更偏企业级的身份认证与接入能力；另一条是宣布在 Salt Lake City 新设 sales office，表明其商业化动作已不只围绕自助式开发者产品，而在同步建设线下销售能力。对 AI 编程平台来说，这是一种典型信号：从“能用”走向企业采购，产品能力和销售体系通常要一起升级。",
+            "sourceLinks": [
+              "https://x.com/amasad/status/2039774118443421887",
+              "https://x.com/amasad/status/2039777772701413396"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "今天的 podcast 只有一条，但信息密度很高，核心不在模型做科研结论本身，而在模型与机器人实验室结合后，实验吞吐、组织方式和科研成本结构可能一起被重写。",
+        "items": [
+          {
+            "headline": "Training Data：Ginkgo Bioworks 认为 autonomous labs 会先重构实验经济，再推动 AI 科学发现加速",
+            "summary": "Jason Kelly 的核心判断很明确：AI 对生物科技的影响不会停留在“更好的软件工具”，而会改变实验科学本身的生产方式。Ginkgo 近两年把重点从“用模型设计生物”转向“把实验室做成更便宜、更快的 autonomous lab”，因为他认为真正限制科研效率的并不是想法数量，而是大量高成本、低利用率、依赖人工的实验执行环节。与 OpenAI 的合作给了一个实证案例：在 cell-free protein synthesis 问题上，模型驱动机器人实验室经过 6 轮、约 3 万次实验，把既有 benchmark 提升了 40%。他强调突破点不是模型神奇地“理解了生物”，而是它能像科学家一样设计实验、读回数据、迭代假设，并且全天候运行。\n\n更重要的是，这会改写科研组织结构。Kelly 设想的未来不是单个 AI scientist，而是大量 AI scientist 并行跑不同假设、每天共享原始实验结果，而不是像今天的人类实验室那样隔几个月或几年只交换压缩后的论文结论。再叠加机器人实验室把成本从“人、场地、低利用率设备”转向更接近按试剂计费，科研的单位产出可能出现数量级变化。他还指出一个现实细节：自然语言编程正在成为实验室自动化的关键 UI，科学家不需要再写 LabVIEW 式流程图，而可以直接用 Claude Code 或 Codex 提交 protocol。整体上，这期节目最重要的 takeaway 是，AI for science 的瓶颈不只在模型，而在能否把实验执行层彻底软件化、自动化，并形成数据回流到模型与工作流的闭环。",
+            "sourceLinks": [
+              "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天没有有意义的官方博客更新。",
+        "items": []
+      }
+    ],
+    "sourceStats": {
+      "builders": 12,
+      "tweets": 26,
+      "podcasts": 1,
+      "blogs": 0
+    }
+  },
+  {
     "date": "2026-04-02",
     "title": "2026-04-02 AI Builders 日报：Agent 开始从演示层进入产品层与基础设施层",
     "summary": "今天的高信号更新不在“又一个大模型发布”，而在 agent 正被做成可部署、可协作、可评估的真实系统。X 上的讨论集中在三类变化：Claude Code 继续补齐移动端到本地 CLI 的连续工作流，Linear 和 Replit 把 agent 推成产品里的一级对象，OpenClaw 一类工具开始直接接管个人执行流。长内容里，Mistral 把语音与企业定制绑定在一起，强调 open-weight、低延迟 TTS 与私有数据微调的现实价值；Anthropic 则连续两篇工程文把注意力拉回 harness、QA 和评测噪声，提醒行业不要把几分榜单差距误读成纯模型能力差距。",

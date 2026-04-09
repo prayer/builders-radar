@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2026-04-04 AI Builders 日报</title>
+    <meta name="description" content="今天的高信号主题集中在三条线上：一是 agent 从“能用”走向“能自我扩展”，Swyx、Peter Steinberger 等人的讨论都指向同一个现实，即工作流已经开始围绕长上下文、文件系统、shell 和自改写能力重构；二是产品与组织层面的配套开始跟上，Linear 的 Nan Yu 讨论设计、PM、PMM 的边界，Aaron Levie 强调当前 agent 仍受人类上下文管理约束；三是工具链继续快速迭代，Cursor 推出新界面与 Composer 2，Claude 扩展 Microsoft 365 connectors，Garry Tan 则把 attention 放在 DX 审查与代码生成站点性能。播客部分最值得关注的是 Marc Andreessen 对“80 年一夜成功”的判断：他把当下 AI 归纳为 LLM、reasoning、agents、self-improvement 四次功能性突破叠加，并认为真正的约束正在从模型能力转向供给、组织与现实世界采用速度。">
+    <link rel="stylesheet" href="../../shared.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到内容</a>
+    <main id="content" class="shell">
+      <section class="hero report-header report-detail-header">
+        <div class="detail-header-body">
+          <div class="eyebrow">2026-04-04</div>
+          <h1 class="detail-title">2026-04-04 AI Builders 日报</h1>
+          <div class="detail-header-meta-row">
+            <p class="detail-summary">今天的高信号主题集中在三条线上：一是 agent 从“能用”走向“能自我扩展”，Swyx、Peter Steinberger 等人的讨论都指向同一个现实，即工作流已经开始围绕长上下文、文件系统、shell 和自改写能力重构；二是产品与组织层面的配套开始跟上，Linear 的 Nan Yu 讨论设计、PM、PMM 的边界，Aaron Levie 强调当前 agent 仍受人类上下文管理约束；三是工具链继续快速迭代，Cursor 推出新界面与 Composer 2，Claude 扩展 Microsoft 365 connectors，Garry Tan 则把 attention 放在 DX 审查与代码生成站点性能。播客部分最值得关注的是 Marc Andreessen 对“80 年一夜成功”的判断：他把当下 AI 归纳为 LLM、reasoning、agents、self-improvement 四次功能性突破叠加，并认为真正的约束正在从模型能力转向供给、组织与现实世界采用速度。</p>
+            <aside class="source-stats-panel" aria-label="Source stats">
+              <div class="eyebrow">Source Stats</div>
+              <div class="source-stats-grid">
+                
+    <div class="source-stat">
+      <span>Builders</span>
+      <strong>14</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Tweets</span>
+      <strong>31</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Podcasts</span>
+      <strong>1</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Blogs</span>
+      <strong>0</strong>
+    </div>
+  
+              </div>
+            </aside>
+          </div>
+          
+    <nav class="section-nav" aria-label="Report sections">
+      
+    <a href="#x">X / Twitter Builders</a>
+  
+    <a href="#podcasts">Podcasts</a>
+  
+    <a href="#blogs">Blogs</a>
+  
+    </nav>
+  
+        </div>
+        <p class="footer-note detail-back-link"><a href="../../index.html">返回归档首页</a></p>
+      </section>
+      
+    <section class="panel section-block" id="x">
+      <div>
+        <div class="eyebrow">x</div>
+        <h2>X / Twitter Builders</h2>
+      </div>
+      <p>X 上的有效信息主要围绕 agent 工作方式、产品组织判断，以及 AI 工具界面的迭代速度展开。相较空泛情绪，今天更值得看的内容是那些直接触及实现路径、组织权衡或产品使用门槛的帖子。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Swyx：agent 已经进入“贴需求即可落地”的阶段</h3>
+        <p>Swyx 给出的两个判断都很具体：一方面，他认为把博客或推文直接交给 @devinai，就能一次性完成实现，说明 agent 已开始承接跨文档到代码的闭环；另一方面，他转发“录屏加标注验证功能”的测试方式，意味着 AI 开发流程正在把验证材料也纳入可审查产物，而不只是代码 diff。本质上，他强调的不是模型更会聊天，而是实现与验证正在一起自动化。</p>
+        <ul><li><a href="https://x.com/swyx/status/2040181076237443299">https://x.com/swyx/status/2040181076237443299</a></li><li><a href="https://x.com/swyx/status/2040245613997219902">https://x.com/swyx/status/2040245613997219902</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Nan Yu：产品、设计、PMM 的边界不该被随意折叠</h3>
+        <p>Linear 的产品负责人 Nan Yu 连续讨论组织设计问题，核心观点很明确：品牌设计与产品设计应更靠近，否则探索会变浅、审美和品牌会受损；同时，PMM 更自然地应与产品管理协同，而不是把设计和产品管理强行合并。对 builder 来说，这是一种反常见做法的提醒，AI 时代工具更强，不代表组织边界可以更随便。</p>
+        <ul><li><a href="https://x.com/thenanyu/status/2040206778751750255">https://x.com/thenanyu/status/2040206778751750255</a></li><li><a href="https://x.com/thenanyu/status/2040177368187212157">https://x.com/thenanyu/status/2040177368187212157</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Aaron Levie：agent 还没有消除管理层，反而先暴露了上下文极限</h3>
+        <p>Aaron Levie 的判断是，当前 agent 的效果仍取决于给到的上下文、工具权限，以及人类是否能持续校准和整合其产出。因此他不认同“人会很快被拿掉”的叙事，至少在当下阶段，真正稀缺的不是生成能力，而是管理 agent 子任务与异常升级的认知带宽。这比泛泛谈替代更接近真实落地约束。</p>
+        <ul><li><a href="https://x.com/levie/status/2040264454982480138">https://x.com/levie/status/2040264454982480138</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Peter Steinberger：开放 agent 生态正在转向成本、缓存与平台摩擦</h3>
+        <p>Peter Steinberger 对 Anthropic 的公开批评很直接，认为封闭策略正在伤害生态，但他同时也指出，最新版本会加入更好的 cache 使用来降低 API 成本，说明开放 agent 产品竞争已经从功能延伸到推理成本结构。另一条信息同样务实：GitHub API 配额限制开始成为 agent 工作流瓶颈，基础平台并未为高频 agent 访问而设计。</p>
+        <ul><li><a href="https://x.com/steipete/status/2040209434019082522">https://x.com/steipete/status/2040209434019082522</a></li><li><a href="https://x.com/steipete/status/2040298884787032103">https://x.com/steipete/status/2040298884787032103</a></li><li><a href="https://x.com/steipete/status/2040067429242675523">https://x.com/steipete/status/2040067429242675523</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Ryo Lu：Cursor 在界面层主动做减法，并直接用使用量验证</h3>
+        <p>Ryo Lu 透露 Cursor 新界面与新 icon 已上线，并鼓励用户周末试用 Composer 2，给出的指标是“2x the usage”。这类表述的重点不只是 UI 更新，而是产品团队在把“更简单”的界面判断与实际使用增长挂钩，说明 AI IDE 的竞争已经进入交互密度、可见性和默认路径优化阶段。</p>
+        <ul><li><a href="https://x.com/ryolu_/status/2040272055673999730">https://x.com/ryolu_/status/2040272055673999730</a></li><li><a href="https://x.com/ryolu_/status/2040270917637648749">https://x.com/ryolu_/status/2040270917637648749</a></li><li><a href="https://x.com/ryolu_/status/2040061299053519099">https://x.com/ryolu_/status/2040061299053519099</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Garry Tan：代码生成不只拼速度，也开始转向 DX 评审与性能证明</h3>
+        <p>Garry Tan 一边发布 GStack 的 `/plan-devex-review`，明确把开发者体验审查流程产品化；另一边又拿 Garry’s List 的 95 PageSpeed 成绩回应“codegen 做不出高性能产品”的质疑。信号很清楚：代码生成工具链的竞争，正在从“能不能生成”转到“能不能产出可维护、可审查、性能过关的结果”。</p>
+        <ul><li><a href="https://x.com/garrytan/status/2040211569775395042">https://x.com/garrytan/status/2040211569775395042</a></li><li><a href="https://x.com/garrytan/status/2040228442130850008">https://x.com/garrytan/status/2040228442130850008</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Zara Zhang：人设蒸馏开始外溢到 agent skill 设计</h3>
+        <p>Zara Zhang 观察到一个新趋势：人们开始把同事、创作者甚至前任“蒸馏”为 agent skills。这个说法虽然短，但很有产品含义，它说明 agent 定制正在从任务模板走向人格、决策偏好和风格迁移；另一条关于 PM 与 PMM 应合并的表态，也呼应了今天 X 上关于组织边界重画的讨论。</p>
+        <ul><li><a href="https://x.com/zarazhangrui/status/2040211603875074512">https://x.com/zarazhangrui/status/2040211603875074512</a></li><li><a href="https://x.com/zarazhangrui/status/2040319135507480921">https://x.com/zarazhangrui/status/2040319135507480921</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Claude：Microsoft 365 connectors 已下放到所有套餐</h3>
+        <p>Claude 宣布 Microsoft 365 connectors 面向所有 Claude plan 开放，可接入 Outlook、OneDrive 和 SharePoint。对实际工作流而言，这不是单纯的集成数量增加，而是把企业邮件、文档和文件检索能力下沉到更广泛用户层，直接降低了把 Claude 接到现有办公上下文的门槛。</p>
+        <ul><li><a href="https://x.com/claudeai/status/2040086268562842097">https://x.com/claudeai/status/2040086268562842097</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Thariq：Claude Code 生态开始用补贴修复开发者关系</h3>
+        <p>Thariq 提到可领取一个月免费 credits，并明确表示“感谢大家的耐心”，这更像一次对近期摩擦的运营补偿，而不只是促销。结合同日生态里的公开争议，可以把它理解为：agent 编码产品在扩张期，开发者信任与成本体验已经成为需要主动维护的部分。</p>
+        <ul><li><a href="https://x.com/trq212/status/2040215427931156595">https://x.com/trq212/status/2040215427931156595</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="podcasts">
+      <div>
+        <div class="eyebrow">podcasts</div>
+        <h2>Podcasts</h2>
+      </div>
+      <p>今天只有一档值得记录的播客，但信息密度很高，核心价值在于把近期 AI 进展串成了一套连续叙事，而不是孤立地谈单个产品。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Latent Space：Marc Andreessen 把当下 AI 定义为“80 年一夜成功”</h3>
+        <p>Marc Andreessen 的核心判断是，今天的 AI 不是突然爆发，而是神经网络、Transformer 及更早研究长期积累后的集中兑现，因此他用“80 年一夜成功”来描述当下。更重要的是，他把近阶段能力跃迁归纳为四步：LLM、reasoning、agents、self-improvement，并认为这些突破都已经越过“演示价值”，开始进入真实世界可用阶段。对 builders 来说，最有启发的部分有两点：第一，他把 Pi + OpenClaw 这类 agent 架构理解为“LLM + shell + file system + markdown + cron”的组合，强调真正的杠杆来自复用 Unix 世界已有能力，而不是重新发明整套协议；第二，他认为模型能力继续上升几乎是确定的，真正更难的是供给约束、现实行业的采用阻力，以及组织结构能否承接这种能力。这使问题从“AI 行不行”转向“社会系统和产品架构能否跟上”。</p>
+        <ul><li><a href="https://www.youtube.com/@LatentSpacePod">https://www.youtube.com/@LatentSpacePod</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="blogs">
+      <div>
+        <div class="eyebrow">blogs</div>
+        <h2>Blogs</h2>
+      </div>
+      <p>今天没有有实质信息量的官方博客更新。</p>
+      <div class="section-list">
+        <article class="item-card"><p>本节当前没有具体条目。</p></article>
+      </div>
+    </section>
+  
+    </main>
+  </body>
+</html>

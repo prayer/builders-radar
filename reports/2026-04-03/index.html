@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2026-04-03 AI Builders 日报</title>
+    <meta name="description" content="今天更值得关注的信号集中在两条线。第一，AI 工具正在从“单次生成”转向“可持续操作的工作环境”：Andrej Karpathy 把 LLM 知识库描述成由原始资料、自动编译 wiki、健康检查和 CLI 工具组成的长期研究系统，Ryo Lu 与多位 Cursor 相关讨论则把界面焦点放在可见性、可控性和更少的操作负担上。第二，AI 的价值开始从软件工作流外溢到更重的现实系统，最典型的是 Ginkgo Bioworks 对 autonomous labs 的判断：关键不只是模型更聪明，而是让模型直接驱动实验、压缩单位科研成本并重构实验组织方式。其余高信号更新还包括 Claude 在 Windows 推进 computer use，以及 Aaron Levie 对 agent 架构“及时拆脚手架”的产品经验。">
+    <link rel="stylesheet" href="../../shared.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到内容</a>
+    <main id="content" class="shell">
+      <section class="hero report-header report-detail-header">
+        <div class="detail-header-body">
+          <div class="eyebrow">2026-04-03</div>
+          <h1 class="detail-title">2026-04-03 AI Builders 日报</h1>
+          <div class="detail-header-meta-row">
+            <p class="detail-summary">今天更值得关注的信号集中在两条线。第一，AI 工具正在从“单次生成”转向“可持续操作的工作环境”：Andrej Karpathy 把 LLM 知识库描述成由原始资料、自动编译 wiki、健康检查和 CLI 工具组成的长期研究系统，Ryo Lu 与多位 Cursor 相关讨论则把界面焦点放在可见性、可控性和更少的操作负担上。第二，AI 的价值开始从软件工作流外溢到更重的现实系统，最典型的是 Ginkgo Bioworks 对 autonomous labs 的判断：关键不只是模型更聪明，而是让模型直接驱动实验、压缩单位科研成本并重构实验组织方式。其余高信号更新还包括 Claude 在 Windows 推进 computer use，以及 Aaron Levie 对 agent 架构“及时拆脚手架”的产品经验。</p>
+            <aside class="source-stats-panel" aria-label="Source stats">
+              <div class="eyebrow">Source Stats</div>
+              <div class="source-stats-grid">
+                
+    <div class="source-stat">
+      <span>Builders</span>
+      <strong>12</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Tweets</span>
+      <strong>26</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Podcasts</span>
+      <strong>1</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Blogs</span>
+      <strong>0</strong>
+    </div>
+  
+              </div>
+            </aside>
+          </div>
+          
+    <nav class="section-nav" aria-label="Report sections">
+      
+    <a href="#x">X / Twitter Builders</a>
+  
+    <a href="#podcasts">Podcasts</a>
+  
+    <a href="#blogs">Blogs</a>
+  
+    </nav>
+  
+        </div>
+        <p class="footer-note detail-back-link"><a href="../../index.html">返回归档首页</a></p>
+      </section>
+      
+    <section class="panel section-block" id="x">
+      <div>
+        <div class="eyebrow">x</div>
+        <h2>X / Twitter Builders</h2>
+      </div>
+      <p>X 上的高信号内容主要围绕三件事：LLM 正在变成研究知识基础设施；AI 编程产品继续向更少 UI 摩擦、更强可见性演进；agent 与现实世界系统的结合开始要求更激进地重写架构假设。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Andrej Karpathy：LLM 知识库正在替代零散检索，研究流程变成可持续编译的个人 wiki</h3>
+        <p>Andrej Karpathy 介绍了他最近高频使用的一套研究工作流：先把文章、论文、repo、数据集和图片沉淀到本地 `raw/`，再让 LLM 持续把这些材料“编译”成带摘要、概念文章、反向链接和索引文件的 markdown wiki，并在 Obsidian 中查看与派生输出。关键点不在传统 RAG，而在让模型长期维护知识结构、自动做一致性检查、补全缺失信息、生成 slide 和图表，并把每次问答结果重新归档回知识库。另一条延伸判断更激进：前沿 LLM 的一次提问，未来可能自然演化成一个临时多 agent 团队，自动建 wiki、反复 lint、迭代后再产出完整报告，说明交互单位正在从单次 `.decode()` 变成完整任务编排。</p>
+        <ul><li><a href="https://x.com/karpathy/status/2039805659525644595">https://x.com/karpathy/status/2039805659525644595</a></li><li><a href="https://x.com/karpathy/status/2039808711452246261">https://x.com/karpathy/status/2039808711452246261</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Aaron Levie：做 AI agents 要对旧架构“无情”，模型进步会让旧脚手架从加分项变成负担</h3>
+        <p>Aaron Levie 总结 Box Agent 的一个核心经验：agent 系统不是一次性定型的工程，模型能力提升后，原先为搜索、分块、检索和任务约束搭建的外围系统，可能迅速从必要补丁变成性能瓶颈。产品团队如果对既有架构有路径依赖，就会错过前沿模型在复杂推理、工具调用、动态写代码和长上下文处理上的真实增益。对 builder 的实际含义是，agent 平台需要预留“持续拆脚手架”的能力，而不是把补丁层永久制度化。</p>
+        <ul><li><a href="https://x.com/levie/status/2039931799414194621">https://x.com/levie/status/2039931799414194621</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Ryo Lu 与相关反馈：Cursor 3 把竞争点押在“glass”式可见性，而不是更深的黑箱自动化</h3>
+        <p>Ryo Lu 用“glass vs. black box”解释 Cursor 3 的设计取向：随着 AI 更强，工具不该把用户进一步降级成拉杆式操作员，而应让计划、diff、agent 状态和文件修改过程都可见、可编辑、可中断。这个观点与产品发布文案强调的“starts simple, then unfolds more tools when you need them”一致，指向的是按需展开复杂度，而非默认把所有控制面板堆给用户。Peter Yang 的体验反馈提供了外部验证：他认为 Cursor 3 的新界面显著减少了多余按钮和切换，更接近“直接和 agent 对话”的理想状态，也暗示 AI IDE 的下一阶段竞争会集中在默认视图和交互负担，而不只是模型本身。</p>
+        <ul><li><a href="https://x.com/ryolu_/status/2039780768847958359">https://x.com/ryolu_/status/2039780768847958359</a></li><li><a href="https://x.com/ryolu_/status/2039895634313187619">https://x.com/ryolu_/status/2039895634313187619</a></li><li><a href="https://x.com/petergyang/status/2039850011044016291">https://x.com/petergyang/status/2039850011044016291</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Claude：Windows 上线 computer use，桌面代理能力继续补齐平台覆盖</h3>
+        <p>Claude 宣布 Claude Cowork 和 Claude Code Desktop 的 computer use 已支持 Windows。这类更新本身不只是平台适配，而是在降低桌面代理工作流的部署门槛：原先偏 Mac 的能力开始向更广的开发与企业桌面环境扩展。对开发者和内部工具团队来说，这意味着基于 GUI 操作、桌面自动化和混合工作流的 agent 方案更容易进入标准 Windows 环境。</p>
+        <ul><li><a href="https://x.com/claudeai/status/2039836891508261106">https://x.com/claudeai/status/2039836891508261106</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Peter Steinberger：AI 生成的安全报告洪峰，正在把开源维护成本推高到新水平</h3>
+        <p>Peter Steinberger 转述内核安全列表的变化：漏洞报告量已从两年前每周 2 到 3 个，上升到近年每周约 10 个，而 2026 年初以来达到每天 5 到 10 个。更关键的是，这些报告并非全是噪音，很多是正确的，以至于需要增加维护者处理。这个观察的含义并不乐观：AI 降低了发现问题和提交报告的门槛，但并没有同步降低开源项目验证、修复和沟通的维护成本，一部分 OSS 项目可能因此被额外的审查流量压垮。</p>
+        <ul><li><a href="https://x.com/steipete/status/2039782190838686088">https://x.com/steipete/status/2039782190838686088</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Amjad Masad：Replit 一边补企业基础设施，一边继续建设 GTM 组织</h3>
+        <p>Amjad Masad 的两条更新分别对应产品和组织层面。一条是转发“no-setup enterprise-grade auth solution for everyone”，说明 Replit 仍在补齐更偏企业级的身份认证与接入能力；另一条是宣布在 Salt Lake City 新设 sales office，表明其商业化动作已不只围绕自助式开发者产品，而在同步建设线下销售能力。对 AI 编程平台来说，这是一种典型信号：从“能用”走向企业采购，产品能力和销售体系通常要一起升级。</p>
+        <ul><li><a href="https://x.com/amasad/status/2039774118443421887">https://x.com/amasad/status/2039774118443421887</a></li><li><a href="https://x.com/amasad/status/2039777772701413396">https://x.com/amasad/status/2039777772701413396</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="podcasts">
+      <div>
+        <div class="eyebrow">podcasts</div>
+        <h2>Podcasts</h2>
+      </div>
+      <p>今天的 podcast 只有一条，但信息密度很高，核心不在模型做科研结论本身，而在模型与机器人实验室结合后，实验吞吐、组织方式和科研成本结构可能一起被重写。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Training Data：Ginkgo Bioworks 认为 autonomous labs 会先重构实验经济，再推动 AI 科学发现加速</h3>
+        <p>Jason Kelly 的核心判断很明确：AI 对生物科技的影响不会停留在“更好的软件工具”，而会改变实验科学本身的生产方式。Ginkgo 近两年把重点从“用模型设计生物”转向“把实验室做成更便宜、更快的 autonomous lab”，因为他认为真正限制科研效率的并不是想法数量，而是大量高成本、低利用率、依赖人工的实验执行环节。与 OpenAI 的合作给了一个实证案例：在 cell-free protein synthesis 问题上，模型驱动机器人实验室经过 6 轮、约 3 万次实验，把既有 benchmark 提升了 40%。他强调突破点不是模型神奇地“理解了生物”，而是它能像科学家一样设计实验、读回数据、迭代假设，并且全天候运行。
+
+更重要的是，这会改写科研组织结构。Kelly 设想的未来不是单个 AI scientist，而是大量 AI scientist 并行跑不同假设、每天共享原始实验结果，而不是像今天的人类实验室那样隔几个月或几年只交换压缩后的论文结论。再叠加机器人实验室把成本从“人、场地、低利用率设备”转向更接近按试剂计费，科研的单位产出可能出现数量级变化。他还指出一个现实细节：自然语言编程正在成为实验室自动化的关键 UI，科学家不需要再写 LabVIEW 式流程图，而可以直接用 Claude Code 或 Codex 提交 protocol。整体上，这期节目最重要的 takeaway 是，AI for science 的瓶颈不只在模型，而在能否把实验执行层彻底软件化、自动化，并形成数据回流到模型与工作流的闭环。</p>
+        <ul><li><a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8">https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="blogs">
+      <div>
+        <div class="eyebrow">blogs</div>
+        <h2>Blogs</h2>
+      </div>
+      <p>今天没有有意义的官方博客更新。</p>
+      <div class="section-list">
+        <article class="item-card"><p>本节当前没有具体条目。</p></article>
+      </div>
+    </section>
+  
+    </main>
+  </body>
+</html>

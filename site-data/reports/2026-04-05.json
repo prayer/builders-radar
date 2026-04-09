@@ -1,0 +1,65 @@
+{
+  "date": "2026-04-05",
+  "title": "2026-04-05 AI Builders 日报",
+  "summary": "今天的高信号更新主要集中在两条线索。第一，Andrej Karpathy 继续推进“个人知识库 + agent”的个体化 AI 方向，强调显式、可迁移、用户自持的数据层，而不是把记忆锁在模型供应商内部；第二，Aaron Levie 从企业落地角度进一步说明，真正决定 agent 可用性的不是单次模型能力，而是上下文层、工具调用和权限隔离如何协同。相较之下，其余动态更多是产品迭代与轻量观点，值得关注但信号强度较低。",
+  "sections": [
+    {
+      "id": "x",
+      "title": "X / Twitter Builders",
+      "summary": "今天的 X 讨论里，最值得看的是个人 AI 记忆架构与企业 agent 系统设计两类观点；另有少量产品工程执行层更新。",
+      "items": [
+        {
+          "headline": "Andrej Karpathy：把“记忆”做成用户可见、可迁移、可自管的文件层",
+          "summary": "Andrej Karpathy 延续了他对 personal wiki / LLM wiki 的思路，认为比起“AI 会随着使用自动变懂你”的黑箱叙事，更好的个体化路径是把记忆做成显式、可浏览、可编辑的 wiki。核心原则是 data ownership、file over app 和 BYOAI：数据留在本地、格式通用、可被不同模型和工具直接消费，用户不会被某一家 AI 产品锁死。他还补了一份“idea file”，强调在 agent 时代分享想法本身往往比分享固定应用更重要，因为接收方可以让自己的 agent 按本地需求重建实现。除此之外，他也提出 AI 可能显著提升社会对政府预算、法案、游说关系和地方治理的可读性与问责能力，本质上是把“处理公开复杂数据”的门槛从少数专业人士手中部分释放出来。",
+          "sourceLinks": [
+            "https://x.com/karpathy/status/2040572272944324650",
+            "https://x.com/karpathy/status/2040470801506541998",
+            "https://x.com/karpathy/status/2040549459193704852"
+          ]
+        },
+        {
+          "headline": "Aaron Levie：企业 AI 的核心仍是上下文层，不是把一切塞进模型",
+          "summary": "Aaron Levie 认为，企业场景里最难的问题不是模型本身不够强，而是每个用户可访问的知识边界不同，持续在模型层学习企业知识几乎不可行，因此 context layer 会长期处在应用 AI 栈中心。与此同时，更大的上下文窗口、更稳定的工具调用和更强的推理能力，正在把 agent 架构从“embedding + chunk retrieval”的权宜方案，推向更接近人类工作流的文档搜索、复查和二次检索模式。这个变化的含义是，agent 开始能处理更完整的文档语境、识别搜索失败并主动补查，企业内容型工作流的上限随之上移。",
+          "sourceLinks": [
+            "https://x.com/levie/status/2040650799550722243",
+            "https://x.com/levie/status/2040528801386361128"
+          ]
+        },
+        {
+          "headline": "Garry Tan：GStack 继续朝“software factory”方向推进",
+          "summary": "Garry Tan 透露 GStack 一次性合入了 14 个 security bug fixes，其中一半来自社区 PR，说明项目已经进入以加固和外部贡献协同为重点的阶段。与此同时，他还在尝试把 code review 做得更自适应、更智能，并把这视作通往“L8 software factory”的持续工作。信号点不在单个功能，而在于产品正把安全修复、社区协作和评审自动化并入同一条交付流水线。",
+          "sourceLinks": [
+            "https://x.com/garrytan/status/2040658880586522783",
+            "https://x.com/garrytan/status/2040667535490863254"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasts",
+      "title": "Podcasts",
+      "summary": "今天只有一档值得记录的播客，重点不在泛 AI 叙事，而在 AI 如何进入材料科学与实验闭环。",
+      "items": [
+        {
+          "headline": "No Priors：Liam Fedus 谈 Periodic Labs 如何把 AI 从“写文本”推进到“操作原子”",
+          "summary": "这期最重要的判断是，AI 若想真正推动科学与产业加速，必须进入物理世界，并在实验中形成闭环，而不只是停留在语言与软件层。Liam Fedus 以 Periodic Labs 为例，提出其系统不是单一大模型，而是用 language model 作为 orchestration layer，调度文献、实验数据和面向原子体系的专用模型，再通过持续实验获得高质量、可校准的数据回流。与互联网语料不同，材料与化学领域的公开数据常常噪声极大、同一性质跨文献可差出几个数量级，因此关键不只是“有数据”，而是建立 simulation、literature 与实验之间的主动闭环。Fedus 还明确区分了软件和科学中的自我改进速度：前者因验证便宜、反馈快，已经接近自动化拐点；后者仍受实验成本、设备与自动化程度约束，但方向同样成立。对 builders 的实际启发是，面向物理世界的 AI 产品需要把模型、工具、实验控制和数据质量工程一起设计，而不是期待通用模型直接外推到科学发现。输入仅提供 No Priors 频道链接，未包含该集单独页面。",
+          "sourceLinks": [
+            "https://www.youtube.com/@NoPriorsPodcast"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blogs",
+      "title": "Blogs",
+      "summary": "今天没有有意义的官方博客更新。",
+      "items": []
+    }
+  ],
+  "sourceStats": {
+    "builders": 9,
+    "tweets": 18,
+    "podcasts": 1,
+    "blogs": 0
+  }
+}
