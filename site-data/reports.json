@@ -1,5 +1,111 @@
 [
   {
+    "date": "2026-04-10",
+    "title": "2026-04-10 Builders Radar 日报",
+    "summary": "今天的高信号主题是，AI 的真实前沿正从“聊天体验”转向“可在真实环境中持续工作的 agent”。一边是 Andrej Karpathy、Aaron Levie 等人强调公众对 AI 能力的认知仍停留在免费聊天层；另一边是 Claude、Claude Code、Codex 一类产品开始把模型路由、监控、多云部署、长时任务与企业基础设施打包成可落地能力。产品层面，Google 将 Lyria 3 下放到 Gemini 免费层，音乐生成继续走大众化分发；而围绕 agent 的记忆、上下文、云执行与付费分层，也在同一天出现更清晰的产品化信号。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter Builders",
+        "summary": "今天 X 上最值得关注的不是单一模型升级，而是 agent 工作流的产品化继续加深：模型开始被组织成可路由、可监控、可多云部署、可长期执行的系统。同时，业内对“AI 到底已经强到什么程度”的认知分歧还在扩大。",
+        "items": [
+          {
+            "headline": "Andrej Karpathy：公众认知还停留在旧聊天模型，真正跃迁发生在高端 agentic coding",
+            "summary": "Andrej Karpathy 认为，当前关于 AI 能力的争论越来越像两拨人在“错位对话”。大量用户仍以去年的免费 ChatGPT 或一些失败的语音演示来判断 AI，但真正发生剧变的是 OpenAI Codex、Claude Code 这类面向技术工作的付费 agentic model。它们在编程、数学、研究等可验证任务上进步极快，原因既包括 RL 更容易用明确奖励优化，也包括这些方向更直接对应高价值 B2B 场景。",
+            "sourceLinks": [
+              "https://x.com/karpathy/status/2042334451611693415",
+              "https://x.com/karpathy/status/2042341482531864741"
+            ]
+          },
+          {
+            "headline": "Claude：把 Opus 变成 Sonnet/Haiku 的中途顾问，模型路由开始进入产品默认层",
+            "summary": "Claude 官方账号发布了 Claude Platform beta 中的 advisor tool：Sonnet 或 Haiku agent 在执行过程中遇到困难时，可以在单个 Messages API 请求内调用 Opus 给出计划，再继续执行。官方给出的 eval 是，带 Opus advisor 的 Sonnet 在 SWE-bench Multilingual 上比 Sonnet 单独运行高 2.7 个百分点，同时单任务成本低 11.9%。这说明更强的 agent 体验不一定来自“全程用最贵模型”，而可能来自更精细的分层调用。",
+            "sourceLinks": [
+              "https://x.com/claudeai/status/2042308625989882054",
+              "https://x.com/claudeai/status/2042308627478773808",
+              "https://x.com/claudeai/status/2042308629940855048"
+            ]
+          },
+          {
+            "headline": "Cat Wu：Claude Code 接入 Bedrock 和 Vertex 的初始化被明显压缩",
+            "summary": "Cat Wu 提到，Claude Code 现在可以更快完成与 Bedrock 和 Vertex 的接入配置。信号不在功能新奇，而在企业部署摩擦正在下降：Anthropic 显然在补齐多云与托管平台路径，让 Claude Code 更容易进入已有基础设施，而不只是停留在本地开发者工具层。",
+            "sourceLinks": [
+              "https://x.com/_catwu/status/2042345489778331915"
+            ]
+          },
+          {
+            "headline": "Thariq：Monitor Tool 和 prompting 仍是 agent 时代的高杠杆层",
+            "summary": "Thariq 展示了 Claude Code 的 Monitor Tool 用法，例如显式要求它启动开发服务器并持续观察报错。这里的重点不是“会不会用工具”，而是人是否会把任务目标、观察职责和执行边界明确写进 prompt。Thariq 也直接判断，prompting 会继续像写作或演讲一样成为长期高杠杆技能，因为核心瓶颈是人和 agent 之间的带宽。",
+            "sourceLinks": [
+              "https://x.com/trq212/status/2042335178388103559",
+              "https://x.com/trq212/status/2042318547519762678"
+            ]
+          },
+          {
+            "headline": "Guillermo Rauch：下一代云基础设施要先服务 agent，而不是只服务开发者",
+            "summary": "Guillermo Rauch 将“Agentic Infrastructure”定义为新的云层：为 Claude Code、Codex、Cursor 这类 coding agent 提供可点击的界面、长时运行的 compute、sandbox 和 token delivery network。其隐含判断是，未来软件不只是“页面部署”，而是“页面到 agent”的迁移，系统还要具备自修复、自优化、自安全等属性。他同时引用 `npx shadcn init` 的高频使用数据，说明软件创建规模正在迅速放大。",
+            "sourceLinks": [
+              "https://x.com/rauchg/status/2042358253510963384",
+              "https://x.com/rauchg/status/2042294997278736552"
+            ]
+          },
+          {
+            "headline": "Aaron Levie：企业 AI 正从聊天工具分裂为真正干活的后台 agent",
+            "summary": "Aaron Levie 认为，AI 采用正在分化为两个世界：大多数人还在用聊天工具，少数组织已经开始部署可长时间运行、能产出真实工作结果的 agent，后者的生产率提升可以从一开始就达到 100% 到 200%。他特别指出，下一波机会不在新增一个 consumer app，而在零售、医药、金融、医疗等“原本不太像软件行业”的流程自动化；真正难点会落在上下文供给、change management、合规、安全和遗留系统改造上。对于 prompting，他的判断也很直接：给 agent 清晰、完整的任务上下文，本质上和带新同事入职一样，是持续高杠杆能力。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2042392664943870443",
+              "https://x.com/levie/status/2042460500785602648",
+              "https://x.com/levie/status/2042469771275329594"
+            ]
+          },
+          {
+            "headline": "Josh Woodward：Google 把 Lyria 3 下放到 Gemini 免费层，音乐生成继续走大众化分发",
+            "summary": "Josh Woodward 宣布，Gemini 从当天起向免费用户开放 Lyria 3 的完整能力，每天可生成 5 首完整歌曲，超额后仍可继续生成 30 秒片段。结合“不到 50 天生成超过 1 亿首歌”的数据，这更像一次产品分发动作而不只是模型炫技：Google 正把音乐生成做成高频入口，并继续增强模型的创意回复风格。",
+            "sourceLinks": [
+              "https://x.com/joshwoodward/status/2042318148851188151",
+              "https://x.com/joshwoodward/status/2042291365107941669"
+            ]
+          },
+          {
+            "headline": "Garry Tan：围绕 OpenClaw / Hermes Agent 的“长期记忆层”开始被封装成开源组件",
+            "summary": "Garry Tan 连续分享了 GBrain，这是一套 MIT 开源方案，目标是让 OpenClaw 或 Hermes Agent 对 10,000 份以上 markdown 文件实现高质量召回，并给出了自己的部署组合。它反映的不是单点 demo，而是本地 agent 栈正在从“会跑”转向“有记忆、有外部存储、可复用安装脚本”的工程化阶段。",
+            "sourceLinks": [
+              "https://x.com/garrytan/status/2042497872114090069",
+              "https://x.com/garrytan/status/2042495930948338048",
+              "https://x.com/garrytan/status/2042493525934424114"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "今天只有一档值得保留的播客更新，核心信息集中在 OpenAI 对研究型 agent、RL 适用边界、通用 harness 与 alignment 的最新判断。",
+        "items": [
+          {
+            "headline": "OpenAI 首席科学家：研究型 agent 正在逼近，下一阶段瓶颈是长时任务、环境交互与对齐泛化",
+            "summary": "这期最重要的结论是，OpenAI 内部已把 coding agent 视为现实工作流的一部分，嘉宾明确表示团队多数实际编码已在使用 Codex，这让“研究实习生级 AI”不再像远期口号，而更像能力连续爬坡中的下一站。对 builder 的直接启发有三点。第一，代码和数学之所以进展最快，不只是因为它们重要，更因为结果可验证，适合 RL 持续优化；接下来真正难的是医疗、法律、科研这类更长周期、部分目标模糊的任务，模型必须学会判断局部进展并接入真实环境。第二，企业现在更该投入的是 eval、上下文、示例数据和 harness，而不是急着复刻实验室级 RL pipeline；他甚至判断更通用的 harness 会逐步从 coding 扩展到更多知识工作。第三，alignment 的焦点正从表面行为控制转向更深的泛化问题，包括 chain-of-thought monitoring、模型在分布外情境下会回落到什么价值，以及行业是否准备好在能力提升过快时做出放缓决策。",
+            "sourceLinks": [
+              "https://www.youtube.com/@RedpointAI"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天没有值得纳入的官方博客更新。",
+        "items": []
+      }
+    ],
+    "sourceStats": {
+      "builders": 20,
+      "tweets": 41,
+      "podcasts": 1,
+      "blogs": 0
+    }
+  },
+  {
     "date": "2026-04-09",
     "title": "2026-04-09 AI Builders 日报",
     "summary": "今天最强的主线是 agent 基础设施开始从自建脚手架转向托管运行时：Anthropic 同时发布 Managed Agents 产品与工程拆解，Box、Sentry、Vibecode 一类真实工作流也迅速接入。另一条主线是工作界面继续被重写，Google 把 NotebookLM 式资料工作区并入 Gemini，团队协作则越来越像“每人一个 agent”的组织改造。与此同时，builders 也在提醒现实约束仍然存在，包括无限订阅的经济性、评测偏置，以及多 agent 协作里的记忆、权限与群聊失控问题。",
