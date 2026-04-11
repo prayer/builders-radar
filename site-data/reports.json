@@ -1,17 +1,17 @@
 [
   {
     "date": "2026-04-11",
-    "title": "2026-04-11 Builders Radar AI 日报",
-    "summary": "今天最强的主线不是单一模型发布，而是 Anthropic 把 AI 工作流继续拆成更清晰的几层：前台是 Claude for Word 和跨 Office 文档协作，中间是 Claude Code `/ultraplan` 这类云端规划能力，后台则是对 agent harness、安全审批和评测基础设施的系统化重做。X 上的高信号讨论也在指向同一件事：软件正从“有人点界面”转向“agent 通过 API、文件和本地环境直接完成工作”，而真正的差异化越来越落在 UX、边界设计、工作流组织方式，以及对低成本执行的利用能力上。",
+    "title": "2026-04-11 AI Builders Radar",
+    "summary": "今天的高信号主要集中在两条线：一是 Anthropic 明显在把 Claude 从“能写代码”继续推向“能规划、能跨文档、能低摩擦自治执行”的工作系统，相关更新同时覆盖 Claude Code、Office 集成、安全权限与 agent harness 方法论；二是围绕 agent 产品的工程约束开始被更明确地讨论，包括 headless/API-first 软件形态、评测基础设施噪声、以及本地执行与信任边界的产品设计。对开发者和产品团队来说，重点已不只是模型更强，而是怎样把更强的模型放进可控、可复用、可落地的工作流。",
     "sections": [
       {
         "id": "x",
-        "title": "X / Twitter",
-        "summary": "X 上今天的有效信号集中在三件事：Anthropic 扩展 Claude 的规划与办公入口，企业软件被迫走向 headless/API-first，产品团队开始把“执行几乎免费”视为新的默认条件。",
+        "title": "X / Twitter Builders",
+        "summary": "X 上的有效更新集中在 agent 工作流、企业软件接口形态，以及 Anthropic 新能力的产品化方向。低信号闲聊和缺少上下文的转发已省略。",
         "items": [
           {
-            "headline": "Thariq：Claude Code 把“规划”进一步从本地执行中拆出来",
-            "summary": "Anthropic 的 Thariq 宣布 Claude Code 新增预览功能 `/ultraplan`，允许用户先在 web 上生成、阅读和编辑实现计划，再决定在 web 或终端里执行。其补充说明里还明确了一个重要产品判断：实现阶段往往依赖本地环境和交互，但规划本身更适合在云端完成；同时 `/ultraplan` 与原有 plan mode 大致消耗相同的 tokens 和订阅额度，说明这不是更贵的“高级模式”，而是一次工作流重组。",
+            "headline": "Thariq：Claude Code 推出 /ultraplan，把“规划”从本地执行里拆出来",
+            "summary": "Anthropic 的 Thariq 宣布 Claude Code 新增预览功能 `/ultraplan`：用户可以先在网页端生成和编辑实现计划，再决定继续在网页执行，或回到终端落地。他补充说，planning 更适合放在云端，因为核心是读代码和理解意图，而真正实现往往仍需要本地环境与交互；同时 `/ultraplan` 的 token 消耗和 plan mode 大致相当。这实际上把“先规划、后执行”的 agent 工作流产品化了。",
             "sourceLinks": [
               "https://x.com/trq212/status/2042671370186973589",
               "https://x.com/trq212/status/2042671371684319723",
@@ -19,23 +19,23 @@
             ]
           },
           {
-            "headline": "Claude：Claude for Word 进入 beta，并开始跨 Word、Excel、PowerPoint 共享上下文",
-            "summary": "Claude 官方账号宣布 Claude for Word 已进入 beta，可直接在侧边栏里起草、编辑和修订文档，并保留原有格式、以 tracked changes 呈现修改结果，当前面向 Team 和 Enterprise。更关键的是，Claude for Word、Excel、PowerPoint 之间已经可以共享上下文，这意味着 Office 正在从单点文档助手变成跨文档协作入口。",
+            "headline": "Aaron Levie：没有优秀 headless mode 和 API 的软件，未来 3 到 5 年会变成风险项",
+            "summary": "Box CEO Aaron Levie 认为，企业 CIO 和 AI 负责人越来越明确地把“可被 agent 调用”视为基础要求，而不只是附加能力。他给出的观察很直接：跨银行、媒体、金融和医疗的 20 位 IT 负责人一致认为，未来不会继续保留没有良好 API 选项的供应商。含义是，软件价值必须能脱离自家界面被 agent 使用，商业模式也可能从 seat license 继续转向更偏 consumption 的计费。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2042759653281456218"
+            ]
+          },
+          {
+            "headline": "Claude：Word 进入 beta，并开始跨 Word、Excel、PowerPoint 共享上下文",
+            "summary": "Claude 官方账号宣布 Claude for Word 已进入 beta，可在侧边栏里直接起草、编辑和修订文档，保留原格式并以 tracked changes 方式呈现修改，面向 Team 和 Enterprise 计划开放。更重要的是，它与 Claude for Excel、Claude for PowerPoint 共享上下文，意味着同一次对话可以跨多个打开的 Office 文档工作。这比单点写作助手更接近“文档工作空间里的 agent 层”。",
             "sourceLinks": [
               "https://x.com/claudeai/status/2042670341915295865",
               "https://x.com/claudeai/status/2042670343173574705"
             ]
           },
           {
-            "headline": "Aaron Levie：没有 headless mode 的软件，未来 3-5 年会系统性掉队",
-            "summary": "Box CEO Aaron Levie 基于与传统行业 CIO 和 AI 负责人交流后的观察，给出一个很明确的企业软件判断：如果产品没有可靠的 API 或 headless mode，未来会越来越难留在采购名单里。其背后的逻辑不是“界面不重要”，而是 agent 既会在平台内工作，也会在平台外调度软件能力；当使用软件的主体从人扩展到大量 agents，商业模式也会被迫从 seat license 重新转向 consumption 或混合计费。",
-            "sourceLinks": [
-              "https://x.com/levie/status/2042759653281456218"
-            ]
-          },
-          {
-            "headline": "Garry Tan：AI agent 仍处在 Altair BASIC 时代，真正的瓶颈是 DevEx",
-            "summary": "Garry Tan 一边展示 GBrain 和 `/plan-devex-review` 的效果，一边承认现阶段把 OpenClaw、GBrain、知识库和手机端串起来仍然“很挫折”。他的核心观点不是否定能力，而是提醒大家：现在很多 agent 产品已经能做出惊艳 demo，但系统接线、权限、跨工具协作和开发体验仍远未成熟，真正的 PM 价值开始体现在把这些粗糙链路变成可复用工作流。",
+            "headline": "Garry Tan：当前 agent 生态仍处在“Altair BASIC 时代”，真正短板是开发者体验",
+            "summary": "Garry Tan 一边展示 GBrain 与 `/plan-devex-review` 产出的开发体验评审，一边直言 OpenClaw、GBrain、LLM Knowledge Wiki 与手机打通的配置过程仍然“有点令人沮丧”。他的判断是，问题并不在想象力不足，而在工具链互联、权限与使用路径仍过于原始，像早期个人计算时代。这类反馈说明 agent 产品的竞争，正在从“能不能做”转向“普通人能不能顺畅地配好并长期使用”。",
             "sourceLinks": [
               "https://x.com/garrytan/status/2042827575454822432",
               "https://x.com/garrytan/status/2042827737812078927",
@@ -43,17 +43,19 @@
             ]
           },
           {
-            "headline": "Peter Yang：关于中国 AI 创业与工作方式的观察，重点落在供给强度和工具现实主义",
-            "summary": "Peter Yang 转述并补充了对中国 AI 工作文化的观察，核心信号包括长工时、团队年轻化、北京作为主要 AI hub，以及城市层面的创业激励。他特别指出很多团队会通过 VPN 直接使用 Claude Code 等美国顶级工具，这说明中国 AI 创业环境并不是“本地工具封闭替代”，而是高度现实主义地混用全球最强能力，同时政府也在通过补贴推动 one person companies 等更轻量的创业组织形式。",
+            "headline": "Zara Zhang：理解 AI 能力的更有效方式，是把自己变成 builder",
+            "summary": "Zara Zhang 认为，真正理解 AI 边界，不能只停留在消费层，而要亲手使用 AI coding tools 去构建东西，因为“learn to build -> build to learn”。她还给出一个更细的内容使用建议：不要只让 AI 做普通 summarize，而应改写为杂志文章、苏格拉底式对话，或基于个人兴趣做选择性提炼。背后的共同点是，把模型从被动压缩器转成主动重组器。",
             "sourceLinks": [
-              "https://x.com/petergyang/status/2042772055905689977"
+              "https://x.com/zarazhangrui/status/2042660162574467580",
+              "https://x.com/zarazhangrui/status/2042846640130920574",
+              "https://x.com/zarazhangrui/status/2042513006018601065"
             ]
           },
           {
-            "headline": "Aditya Agarwal：当执行接近免费，软件竞争会从“能不能做”转向“做什么值得做”",
-            "summary": "Aditya Agarwal 用一句很短的话点出今天很多产品讨论的底层变化：当软件越来越接近“免费生成”，不喜欢某个界面就重做，性能慢就重构数据层并自动优化，这会让过去昂贵的工程选择迅速贬值。这不是说工程不重要，而是说稀缺资源正从实现能力转向判断力，谁更清楚该重写什么、保留什么、服务谁，谁就更占优势。",
+            "headline": "Dan Shipper：Claude Managed Agents 已开始进入实际产品形态",
+            "summary": "Dan Shipper 提到，@every 旗下应用 TrySpiral 已经成为首个使用 Claude Managed agents 的产品。这条信息本身不展开技术细节，但它说明 Anthropic 新推出的托管 agent 基础设施已经开始被外部产品直接消费，市场很快会从“平台能力发布”转向“谁先做出可复用应用层体验”。",
             "sourceLinks": [
-              "https://x.com/adityaag/status/2042736543891362058"
+              "https://x.com/danshipper/status/2042683598801690691"
             ]
           }
         ]
@@ -61,11 +63,11 @@
       {
         "id": "podcasts",
         "title": "Podcasts",
-        "summary": "今天只有一档高信号播客，但信息密度很高，基本把 Anthropic 当前对 agent、产品和软件未来的判断讲清楚了。",
+        "summary": "今天有一档值得看的播客，信息密度很高，核心围绕 Anthropic 如何把更强模型变成可用 agent 产品。",
         "items": [
           {
-            "headline": "The MAD Podcast：Felix Rieseberg 谈 Claude Cowork、Mythos 与软件产品的新瓶颈",
-            "summary": "最重要的 takeaway 是，模型继续变强当然重要，但 Felix Rieseberg 反复强调，当前真正稀缺的已经不是“再多一点模型能力”，而是怎样把现有能力包装成可信、可用、可嵌入真实工作的产品。作为 Anthropic 负责 Claude Cowork 的产品与工程负责人，他给出的几个判断很值得 builders 注意：Mythos 对内部工程团队来说是明显的 step-function change，尤其体现在找安全漏洞和写代码的深度上；Cowork 的价值不只是把 Claude Code 搬给非程序员，而是通过本地电脑、虚拟机、skills、memory files 和受控联网，把 agent 放进真实工作环境。更反直觉的一点是，他认为“execution is essentially free”后，团队可以同时做几十上百个原型，新的瓶颈变成 taste、对用户工作的理解，以及怎样逐步建立用户信任。对创业者而言，他一方面建议不要过早自建太多 agent 基础设施，另一方面又强调大量行业长尾和线下世界仍未被 AI 充分重写，机会还远没结束。",
+            "headline": "Felix Rieseberg 谈 Claude Cowork、Mythos 与 agent 产品的真正瓶颈",
+            "summary": "最重要的 takeaway 是：模型能力继续跃迁，但真正决定 agent 产品成败的瓶颈正在从“模型不够强”转向“工作如何组织、边界如何设定、UX 是否让人敢持续托付”。Felix Rieseberg 作为 Anthropic 负责 Claude Cowork 的工程负责人，给出了几个很具体的判断：Mythos 在内部被视为明显的 step-function change，尤其体现在代码安全缺陷发现能力；Cowork 的关键设计不是炫技，而是把 agent 放在本地电脑与本地文件附近，用虚拟机、权限边界、skills 和 memory text files 让它逐步可信；随着 execution 变便宜，团队可以同时试几十上百个原型，产品路线反而更依赖 taste、验证和短周期迭代。对 builder 来说，这期最实用的启发是，agent 的差异化空间仍然巨大，但更可能来自工作流、上下文组织和用户体验，而不是额外堆一层复杂基础设施。",
             "sourceLinks": [
               "https://www.youtube.com/@DataDrivenNYC/videos"
             ]
@@ -75,32 +77,32 @@
       {
         "id": "blogs",
         "title": "Blogs",
-        "summary": "官方博客的共同主题很一致：与其盯着模型分数和功能堆叠，不如把注意力放到评测条件、agent harness、权限边界和交互形态这些更容易决定真实效果的地方。",
+        "summary": "官方博客的重点几乎都围绕 Anthropic：一部分在讲 agent 系统怎么更稳、更安全，另一部分在讲哪些旧的 harness 假设应该被删掉。",
         "items": [
           {
-            "headline": "Anthropic Engineering：agentic coding eval 的分数，可能先被基础设施噪声放大了",
-            "summary": "Anthropic 用 Terminal-Bench 2.0 的内部实验说明，单是资源配置差异就能带来最高 6 个百分点的成绩波动，已经超过很多 leaderboard 上模型之间的差距。关键发现是：在 3x 以内的资源冗余主要是在消除 OOM 等基础设施噪声；超过这个区间后，额外资源会真正改变 agent 可尝试的解法，从而改变 benchmark 在测什么。对 builders 和评测使用者的实际意义是，今后看 agentic eval 时，3 个百分点以内的领先都该默认持保留态度，除非资源下限、上限和 enforcement 方法都被明确披露。",
+            "headline": "Anthropic Engineering：agentic coding eval 的分数，可能先被基础设施而不是模型拉开",
+            "summary": "Anthropic 用 Terminal-Bench 2.0 做实验后发现，仅资源配置和执行方式不同，就能带来最高 6 个百分点的成绩差距；其中 3x 以内的资源放宽主要是在减少 infra error，超过 3x 后则开始真实改变 agent 可采用的解法。文章的核心结论是，agent 评测不是纯模型测试，硬件、限时、容器 enforcement 方式都会改变结果。对依赖 leaderboard 选型的团队，这意味着 3 个百分点以内的领先在没有公开运行配置时都该谨慎看待。",
             "sourceLinks": [
               "https://www.anthropic.com/engineering/infrastructure-noise"
             ]
           },
           {
-            "headline": "Anthropic Engineering：Claude Code auto mode 试图在“频繁点批准”和“完全跳过权限”之间找中间层",
-            "summary": "这篇文章介绍了 Claude Code 的 auto mode：用模型分类器替代人工审批，目标是在不恢复大量弹窗的前提下，拦住越权、误判、prompt injection 和数据外泄风险。其设计重点是双层防线，输入侧先做 prompt-injection probe，输出侧再用 transcript classifier 判定动作是否越过用户授权；部署结果是对真实内部流量的误拦截率约 0.4%，但对真实 overeager 危险动作仍有 17% 的漏拦截。结论很清楚：它比 `--dangerously-skip-permissions` 安全得多，但还不是高风险场景里人工审批的替代品。",
+            "headline": "Anthropic Engineering：Claude Code auto mode 试图替代“dangerously skip permissions”",
+            "summary": "Claude Code 新的 auto mode 用两层模型化防线减少人工批准：输入侧先检查 prompt injection，输出侧再用 transcript classifier 判断动作是否越权，从而在不频繁弹窗的情况下拦截危险操作。文章坦承这不是完美防护，完整流水线对真实 overeager 行为仍有 17% false negative rate，但相较完全跳过权限已经安全得多。实际意义在于，Anthropic 正在把 agent 权限管理从“全靠人点 approve”推进到“可接受残余风险下的自动审批”。",
             "sourceLinks": [
               "https://www.anthropic.com/engineering/claude-code-auto-mode"
             ]
           },
           {
-            "headline": "Claude Blog：更强的 Claude 往往意味着更轻的 harness，而不是更重的 orchestration",
-            "summary": "Anthropic 在这篇方法论文章里给出三个建议：优先使用 Claude 已经擅长的通用工具；持续追问“有哪些事情可以不再由 harness 代劳”；只在真正需要 UX、安全或可观测性边界时再升格为专用工具。文中最值得 builders 记住的不是某个单点技巧，而是整体方向：随着模型变强，tool orchestration、skills、memory folder、subagents 这些能力越来越可以交回给模型自己决定，外层系统要做的是缓存设计、边界约束和少量必要的声明式接口。",
+            "headline": "Claude Blog：随着 Claude 变强，很多 harness 里的“补丁逻辑”应该被删掉",
+            "summary": "《Harnessing Claude’s intelligence》系统总结了三条建设性原则：优先使用 Claude 已经擅长的通用工具；持续追问“还有哪些事不必由 harness 代劳”；只在 UX、安全和可观测性需要时再加边界。文中给出多个信号，例如让 Claude 自己决定筛选哪些 tool outputs、自己加载 skills、自己持久化 memory，往往比预设复杂 orchestration 更有效。对开发者来说，这篇文章最重要的提醒是，很多曾经合理的 agent 设计，会随着模型升级迅速变成性能负担。",
             "sourceLinks": [
               "https://claude.com/blog/harnessing-claudes-intelligence"
             ]
           },
           {
-            "headline": "Claude Blog：Claude 现在会在对话里直接生成可交互图表、图解和可视化",
-            "summary": "Claude 新增了 inline、临时性的交互式 visualizations，可在讲解复利、周期变化、元素周期表等主题时直接生成图表和图解，并支持继续追问或调整。这个更新看起来偏展示层，但对产品团队的意义在于，它把“回答”从纯文本进一步推向可操作界面，而且是由模型按上下文动态决定何时生成，而不是依赖固定模板页面。",
+            "headline": "Claude Blog：Claude 开始原生生成交互式图表、图解和可视化",
+            "summary": "Claude 现在会在对话中直接生成临时的交互式 charts、diagrams 和 visualizations，用来帮助解释当前主题，而不是像 artifacts 那样生成独立文档。用户既可以显式要求“draw this as a diagram”，也可以让 Claude 自主判断何时适合可视化；功能面向所有 plan types 开放。对产品团队而言，这代表回答层正在从纯文本扩展为可交互表达层，很多解释型、教育型和分析型场景的默认 UI 可能会被改写。",
             "sourceLinks": [
               "https://claude.com/blog/claude-builds-visuals"
             ]
