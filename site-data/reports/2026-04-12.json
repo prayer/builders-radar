@@ -1,0 +1,94 @@
+{
+  "date": "2026-04-12",
+  "title": "2026-04-12 Builders Radar 日报",
+  "summary": "今天的信号主要集中在 agent 工具链和金融基础设施两条线：一边是 Vercel Sandbox、Claude Code 的 harness / memory 设计、thin harness / fat skills 这类工程实践，正在收敛到更可组合的 agent 运行方式；另一边是 Circle 对 stablecoins、Arc 和 tokenization 的叙述，把可编程美元、确定性结算和机器间经济活动定义为底层设施。播客只有一集，主题同样围绕 agentic payments；官方博客今天没有新增。",
+  "sections": [
+    {
+      "id": "x",
+      "title": "X / Twitter builders",
+      "summary": "今天的 X 讨论明显偏向 agent 系统设计与支付/结算基础设施。高信号内容集中在 harness、memory、sandbox、token 需求和 stablecoin 作为机器经济底座这些主题上。",
+      "items": [
+        {
+          "headline": "Guillermo Rauch：Vercel Sandbox 把 microVM 沙箱推向生产级基础设施",
+          "summary": "Guillermo Rauch（@vercel CEO）称 Vercel Sandbox 已经是最快的 microVM-based Sandbox，而且迁移客户反馈的真实世界性能和可靠性也很强。这个表述把重点放在编码 agent、并行计算和通用 compute，而不是单纯的实验室基准。",
+          "sourceLinks": [
+            "https://x.com/rauchg/status/2043020059896091016"
+          ]
+        },
+        {
+          "headline": "Garry Tan：harness 应该很薄，skills 和 memory 应该是持久资产",
+          "summary": "Garry Tan（President & CEO @ycombinator）强调，在面向大量 agentic engineers 的开源系统里，harness 过厚会让 memory 一并失效。它应该只负责调度和读取文件，memory、skills 和 brain 更像 markdown / git repo 里的长期资产。这是对 agent 架构边界的明确主张。",
+          "sourceLinks": [
+            "https://x.com/garrytan/status/2043198783006355747",
+            "https://x.com/garrytan/status/2043198780800197025"
+          ]
+        },
+        {
+          "headline": "Peter Steinberger：OpenClaw 正在把 harness 做成可替换插件层",
+          "summary": "Peter Steinberger 提到 harness 现在可以做成插件，默认 Pi harness 可以替换成 Anthropic SDK 或其他自定义实现。与此同时，他在试验 strict agentic 执行和 native Codex 作为 harness，目标是让 agent 更能处理长周期任务，但也承认这可能削弱一些 personality。",
+          "sourceLinks": [
+            "https://x.com/steipete/status/2043136624469619050",
+            "https://x.com/steipete/status/2043136620006961384",
+            "https://x.com/steipete/status/2043136615640694797"
+          ]
+        },
+        {
+          "headline": "Aditya Agarwal：真正的 agent，关键在长周期 memory 管理",
+          "summary": "Aditya Agarwal 认为，真正的 agent 和“LLM 跑循环”之间的差别，不在触发方式，而在 long-horizon memory management。对他来说，Claude Code 的 3-tier memory architecture 是最值得注意的部分，说明 memory 设计已经是 agent 系统的核心问题。",
+          "sourceLinks": [
+            "https://x.com/adityaag/status/2043144970060939487"
+          ]
+        },
+        {
+          "headline": "Aaron Levie：agent 工作负载会把 token 需求推到远超当前认知",
+          "summary": "Aaron Levie（ceo @box）认为数据中心需求正在被低估，因为 chat 工具虽然 token 效率高，但 coding agents 这类负载会消耗数量级更高的 token。更重要的是，他判断这种消耗模式会扩散到更广泛的 knowledge work，带来远超今天预期的 token 处理需求。他对法律行业的判断也一致：AI 反而会制造更多咨询、redline 和合规需求。",
+          "sourceLinks": [
+            "https://x.com/levie/status/2043192337111924930",
+            "https://x.com/levie/status/2043051227387433144"
+          ]
+        },
+        {
+          "headline": "Zara Zhang：人类沟通会退回到定义目标、审美和陪伴",
+          "summary": "Zara Zhang 认为，人类沟通更适合用于决定做什么、什么叫好、以及提供陪伴和头脑风暴，而不是项目同步、状态更新和交接。她进一步把最有效的协作方式概括为“一个人端到端负责，再配合 agents”。这是一个很明确的工作流判断：沟通会收缩，所有权会增强。",
+          "sourceLinks": [
+            "https://x.com/zarazhangrui/status/2043202553538925031",
+            "https://x.com/zarazhangrui/status/2043187721989149146"
+          ]
+        },
+        {
+          "headline": "Thariq：Claude Code 里已经有 Turbotax connector",
+          "summary": "Thariq 直接点出 Claude Code 里已经加入了 Turbotax connector，说明 agent 工具链正在向更具体的日常行政任务延伸。这个例子本身很小，但它代表的方向很清楚：从代码和知识工作，继续走向税务、表单和普通事务自动化。",
+          "sourceLinks": [
+            "https://x.com/trq212/status/2043138221836746762"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasts",
+      "title": "Podcasts",
+      "summary": "今天只有一集有实质内容的播客，主题集中在 stablecoins、agentic payments 和 tokenization。",
+      "items": [
+        {
+          "headline": "No Priors：Jeremy Allaire 讨论 agentic economy 与 Circle 的金融底座",
+          "summary": "这一期的核心判断是：agentic payments 不只是更快的转账，而是在为机器之间的经济活动建立一套可编程、可审计、可结算的金融底座。Jeremy Allaire 把 Circle 的起点定义为“互联网上的美元协议”，强调 USDC 由短久期美债、repo 和现金支持，目标是像互联网数据一样全天候、全球化地移动价值。更进一步，他把 Arc 描述为面向 machine economy 的 economic operating system，默认原生资产是 USDC，同时强调确定性最终结算、隐私原语、合规要求，以及面向金融机构和技术公司的验证者模型。整期谈话的落点不是加密投机，而是 tokenization、RWA、AI agents 支付与结算，以及未来会出现的新型组织形态。",
+          "sourceLinks": [
+            "https://www.youtube.com/@NoPriorsPodcast"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blogs",
+      "title": "Blogs",
+      "summary": "今天没有有意义的官方博客更新。",
+      "items": []
+    }
+  ],
+  "sourceStats": {
+    "builders": 11,
+    "tweets": 18,
+    "podcasts": 1,
+    "blogs": 0
+  }
+}
