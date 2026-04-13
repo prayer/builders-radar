@@ -1,5 +1,98 @@
 [
   {
+    "date": "2026-04-13",
+    "title": "builders radar 日报",
+    "summary": "今天的信号主要集中在 agents 架构、企业落地节奏和安全防御前移。X 上的讨论把焦点放在“LLM + shell + 文件系统 + markdown + cron”的 agent 形态、企业从聊天转向执行型自动化，以及高质量软件和安全能力被重新定价；播客则继续强化“AI 正在把软件、组织和身份验证问题同时推到前台”的判断。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter builders",
+        "summary": "今天的 X 动态以 agent 架构、企业 adoption 和工作流重构为主，少量观点型内容集中在模型能力、组织形态与安全边界。",
+        "items": [
+          {
+            "headline": "Kevin Weil：把人类智能和机器智能理解为高维空间中的不同点",
+            "summary": "这条 quote tweet 不是线性的“人类 vs 机器”对立，而是强调两者分布在更高维的能力空间里，应该继续探索更多组合方式。它的含义更偏产品和研究方法论：不要把能力边界预设成单轴竞争，而要寻找新的坐标系。",
+            "sourceLinks": [
+              "https://x.com/kevinweil/status/2043510607736189193"
+            ]
+          },
+          {
+            "headline": "Aaron Levie：企业 AI 正从聊天进入执行，真正的难点是流程和组织",
+            "summary": "他观察到企业正在从“先铺开再看”转向围绕具体工作流做自动化，agent 进入的前提是改造流程、预算和遗留系统，而不是简单把聊天界面接到业务上。另一个判断是，安全、协同和头部人才的需求不会下降，反而会因为 AI 放大攻防速度而上升。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2043426157367095397",
+              "https://x.com/levie/status/2043318118169354302"
+            ]
+          },
+          {
+            "headline": "Guillermo Rauch：把最挑剔的客户拉进 X 群，工程团队直接面对反馈",
+            "summary": "他的建议很直接：把最苛刻、最愿意给反馈的用户和工程负责人放进同一个群里，快速响应、快速交付。它本质上是在强调，面向 AI 产品的迭代节奏已经变成高频闭环，工程团队不能再隔着层层流程接收市场信号。",
+            "sourceLinks": [
+              "https://x.com/rauchg/status/2043381737754120592"
+            ]
+          },
+          {
+            "headline": "Garry Tan：agentic engineering 的核心是分层，模糊操作交给 skills，确定性操作交给 code",
+            "summary": "他把今年的一个重要结论压缩成一句话：把人类擅长的模糊操作放进 markdown skills，把必须精确的操作放进代码，harness 保持尽量薄。这个框架和他“做对的事要放在对的层”是同一观点，重点不是重写一切，而是重新分配软件职责边界。",
+            "sourceLinks": [
+              "https://x.com/garrytan/status/2043566215927328955",
+              "https://x.com/garrytan/status/2043566405862236254"
+            ]
+          },
+          {
+            "headline": "Zara Zhang：把 Chrome 新标签页做成标签页管理器",
+            "summary": "她用 vibe coding 做了一个可视化的新标签页，核心功能是按 domain 分组、识别重复标签、一键关闭“easy wins”，并把暂时不处理的页面收进 checklist。这个例子更像一个具体的个人工作流优化，而不是抽象的 AI 叙事，但它说明了轻量工具可以快速替代很多手工浏览器整理动作。",
+            "sourceLinks": [
+              "https://x.com/zarazhangrui/status/2043415572688629937",
+              "https://x.com/zarazhangrui/status/2043415661528129873"
+            ]
+          },
+          {
+            "headline": "Aditya Agarwal：Anthropic 的文化更像早期 Facebook",
+            "summary": "他的判断集中在内部文化气质上，认为 Anthropic 带有早期 Facebook 那种自下而上的 hacker 氛围、强使命对齐和明显的乐趣感。这个观察的重点不是组织标签，而是他在比较“高使命感 + 真实动手文化”对公司速度和凝聚力的影响。",
+            "sourceLinks": [
+              "https://x.com/adityaag/status/2043501400626491758"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "这一期播客延续了对 AI 产业拐点的乐观判断，但更重要的是把 agent、软件架构和身份/支付基础设施连成了一条线。",
+        "items": [
+          {
+            "headline": "Latent Space：Marc Andreessen 认为 AI 是“80 年的 overnight success”",
+            "summary": "这一期的核心判断是，当前 AI 不是凭空出现的奇迹，而是长期研究积累后的突然解锁；真正的变化不在于概念本身新不新，而在于几个关键能力已经同时可用。Marc Andreessen 把 agent 归纳为 LLM + shell + file system + markdown + cron，强调它的状态应该落在文件里，因此模型、运行时和执行环境都可以替换，agent 还可以自我迁移、自我修改和扩展自身能力。对应到产品和工程，他认为文本协议、人类可读性、view source 这类旧 web 设计原则，对 AI 时代依然成立，因为它们让系统能力更容易被暴露和组合。谈到商业化时，他判断高质量软件会变成可无限供给的资源，真正的瓶颈会转向算力、身份验证和支付基础设施，所以 proof of human、stablecoins、以及 bot 需要自己的资金账户，都会变成现实问题。",
+            "sourceLinks": [
+              "https://www.youtube.com/@LatentSpacePod"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天只有一篇有实质内容的官方博客，主题是把防御侧安全流程按 AI 时代的攻防速度重新设计。",
+        "items": [
+          {
+            "headline": "Claude Blog：为 AI 加速的攻击面重做安全体系",
+            "summary": "这篇文章的重点不是泛泛谈“AI 让安全更难”，而是把结论落到可执行的安全流程上：补丁窗口正在缩短，KEV 和 EPSS 需要优先级前置，互联网暴露面的修复要尽量压到 24 小时内。它同时建议把 AI 引入漏洞分诊、依赖整理、补丁生成、静态分析、渗透测试和事件响应，并明确强调 memory-safe languages、zero trust、最小暴露面和短期 token。对工程团队的直接含义是，安全不再只是审计和周会问题，而是持续自动化的生产系统。",
+            "sourceLinks": [
+              "https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense"
+            ]
+          }
+        ]
+      }
+    ],
+    "sourceStats": {
+      "builders": 12,
+      "tweets": 19,
+      "podcasts": 1,
+      "blogs": 1
+    }
+  },
+  {
     "date": "2026-04-12",
     "title": "2026-04-12 Builders Radar 日报",
     "summary": "今天的信号主要集中在 agent 工具链和金融基础设施两条线：一边是 Vercel Sandbox、Claude Code 的 harness / memory 设计、thin harness / fat skills 这类工程实践，正在收敛到更可组合的 agent 运行方式；另一边是 Circle 对 stablecoins、Arc 和 tokenization 的叙述，把可编程美元、确定性结算和机器间经济活动定义为底层设施。播客只有一集，主题同样围绕 agentic payments；官方博客今天没有新增。",
