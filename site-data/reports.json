@@ -1,5 +1,123 @@
 [
   {
+    "date": "2026-04-15",
+    "title": "builders-radar 2026-04-15",
+    "summary": "今天的信号主要集中在 Claude Code 桌面版重做、agent 驱动的营销与发现机制，以及把 AI 工具从单次提示推进到可持续工作流。更一致的判断是：真正的竞争点不在“能不能 vibe code”，而在会话编排、权限、数据底座和可重复执行的系统。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter builders",
+        "summary": "今天 X 上最集中的主题是 Claude Code 桌面版重做、agent-led marketing，以及把 AI 工具从单次提示推进到可持续工作流。多位 builders 的共同结论是：接下来拼的不是更花哨的 prompt，而是会话编排、权限、数据底座和可重复执行的系统。",
+        "items": [
+          {
+            "headline": "Claude（Anthropic）: Claude Code 桌面版重做，转向并行会话工作流",
+            "summary": "Claude 公布 Claude Code on desktop 的重设计，重点是把多个会话并行管理放进一个窗口里：新的侧栏、拖拽式布局、集成终端、文件编辑、HTML/PDF 预览和更快的 diff 查看器。它还强调 CLI plugins 在桌面端保持一致，SSH 也扩展到 Mac。多位 Anthropic 成员的反应一致指向同一件事：现在的 agentic 编程更像同时调度多个会话，而不是单线程聊天。",
+            "sourceLinks": [
+              "https://x.com/claudeai/status/2044131493966909862",
+              "https://x.com/claudeai/status/2044131495296586041",
+              "https://x.com/alexalbert__/status/2044144091395699055",
+              "https://x.com/_catwu/status/2044212251717186007"
+            ]
+          },
+          {
+            "headline": "Aaron Levie（Box CEO）: 企业卖 agent，本质上是在卖 workflow 和落地服务",
+            "summary": "他认为，把 agent 卖进企业时，真正需要交付的不是一个“装上就完”的软件工具，而是把实际 workflow 帮客户跑起来。这里会涉及系统接入、上下文配置、变更管理，以及把跨客户的最佳实践再沉淀回产品。结论很直接：forward deployed engineer 这类角色短期内不会消失。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2044225408972009842"
+            ]
+          },
+          {
+            "headline": "Nikunj Kothari（FPV Ventures partner）: 简单流程会被 vibe code 掉，复杂系统不会",
+            "summary": "他用 Slack 通知系统举例，反驳“周末就能 vibe code 一个成熟系统”的叙事。简单工作流确实会被快速自动化，但高质量系统仍然依赖时间、持续打磨和对细节的投入。核心判断是，经验和品控不会因为 Claude Code 而失去价值。",
+            "sourceLinks": [
+              "https://x.com/nikunj/status/2044277884777574565"
+            ]
+          },
+          {
+            "headline": "Zara Zhang（Builder）: Tab Out 收敛为纯本地 Chrome extension",
+            "summary": "她回溯了 Tab Out 的演化路径：先从 Chrome browsing history 和新标签页入口找切入点，再逐步删掉不必要的 LLM 功能。最新版本已经变成纯 Chrome extension，没有 server、Node.js 或 npm，保存也完全本地化。她给出的产品结论是，这类工具的关键往往不是继续加功能，而是把 Claude 过度生成的部分删掉。",
+            "sourceLinks": [
+              "https://x.com/zarazhangrui/status/2044211269767704929",
+              "https://x.com/zarazhangrui/status/2044114136364397043"
+            ]
+          },
+          {
+            "headline": "Amjad Masad（Replit CEO）: Replit 在印度补齐支付闭环，同时强调“转换应用”已成技能",
+            "summary": "他一边宣布 Indian Replit Builders 现在可以 build & pay with Razorpay，一边把自己做过的大量 one-off conversion apps 归纳成已经内化的技能。这个信号更像是在强调，面向区域开发者的工具链不只是生成代码，还要把支付、交付和快速迭代的闭环一起做完。",
+            "sourceLinks": [
+              "https://x.com/amasad/status/2044161522415612096",
+              "https://x.com/amasad/status/2044277183766770029"
+            ]
+          },
+          {
+            "headline": "Guillermo Rauch（Vercel CEO）: agent coding platform 需要高弹性、兼容 Postgres 的数据库",
+            "summary": "他明确建议，如果在做 agent coding platform，就要配套一个高度弹性、且 Postgres-compatible 的数据库服务，并点名 DSQL。潜台词是，agent 应用的生成和迭代速度已经足够快，后端存储与扩展能力不能成为瓶颈。",
+            "sourceLinks": [
+              "https://x.com/rauchg/status/2044067044325503404"
+            ]
+          },
+          {
+            "headline": "Josh Woodward（Google VP）: Gemini 新增 NEET practice tests",
+            "summary": "Gemini 新增了 NEET practice tests，面向印度即将参加医学考试的用户，并且已经开始往更多科目和国家扩展。这个更新更像是把 Gemini 放进具体考试场景里的落地动作，而不是抽象的模型宣传。",
+            "sourceLinks": [
+              "https://x.com/joshwoodward/status/2044149482548580689"
+            ]
+          },
+          {
+            "headline": "Dan Shipper（Every CEO）: Sparkle v4 把 Mac 清理做成持续运行的 agent",
+            "summary": "Sparkle v4 的定位很明确：先做深度清理，再在后台按计划维持整理状态，把桌面维护变成可重复执行的工作流。它强调的不是一次性清爽，而是让 agent 持续接管文件系统里的重复劳动。",
+            "sourceLinks": [
+              "https://x.com/danshipper/status/2044079255726838273",
+              "https://x.com/danshipper/status/2044079868841783779"
+            ]
+          },
+          {
+            "headline": "Garry Tan（Y Combinator CEO）: GBrain 开源，强调 agentic coding toolkit 的可复用性",
+            "summary": "他表示 GBrain 是 free、open source、MIT License，并称自己借助 OpenClaw 和 GStack 在大约 12 天内完成。更值得注意的是，他把自己的个人知识库描述为已经超过 17,000 页，说明这类系统正在从 demo 走向长期积累的生产工具。",
+            "sourceLinks": [
+              "https://x.com/garrytan/status/2044292522256806260",
+              "https://x.com/garrytan/status/2044292523817062575"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "这期核心结论是，营销正在从 SEO 转向 agent-led growth，品牌要先让 AI agent 看得懂，再谈让人看得到。James Cadwallader 认为 ChatGPT、Claude、Gemini 已经在替用户浏览和筛选互联网，ProFound 的价值在于帮助公司理解自己在这些模型里的呈现方式、引用来源和情绪语义，并把销售转录、异议归类和 battle cards 这些流程自动化。",
+        "items": [
+          {
+            "headline": "Training Data: From SEO to Agent-Led Growth — Profound’s James Cadwallader",
+            "summary": "这期最重要的结论是，营销的主语正在从人转向 agent。James Cadwallader 认为，品牌不再只是为了被搜索引擎收录，而是要让 ChatGPT、Claude、Gemini 这样的系统在回答用户问题时能够正确理解、引用和重组你的产品信息。ProFound 的定位因此变成了一个面向 AI 时代的营销平台：它一方面告诉公司自己在不同模型中的可见度、情绪和引用来源，另一方面用 agent 去处理销售通话转录、归因异议、生成 battle cards 等重复工作。整期讨论的隐含判断也很明确，传统 SEO 仍然重要，但它已经不足以解释 agent-led growth 的运作方式。",
+            "sourceLinks": [
+              "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天只有 Claude Blog 的更新：Claude Code desktop 被重做成面向并行 agent 工作流的桌面端，重点是让开发者在一个窗口里管理多个会话、边跑测试边看 diff、直接编辑文件，而不是在终端和外部工具之间来回切换。",
+        "items": [
+          {
+            "headline": "Claude Blog: Redesigning Claude Code on desktop for parallel agents",
+            "summary": "这篇更新的核心不是界面微调，而是把 Claude Code desktop 重新设计成适合并行 agent 工作流的控制台。新版本加入了侧栏会话管理、拖拽布局、集成终端、文件编辑器、HTML/PDF 预览和更快的 diff 查看器，同时保持 CLI plugins 兼容，还支持在本地和云端运行会话。对开发者来说，这意味着 agent 编程开始从“单个任务”转向“多会话编排”，桌面端不再只是聊天窗口，而是一个能直接审阅、修改和发起下一轮任务的操作面板。",
+            "sourceLinks": [
+              "https://claude.com/blog/claude-code-desktop-redesign"
+            ]
+          }
+        ]
+      }
+    ],
+    "sourceStats": {
+      "builders": 17,
+      "tweets": 32,
+      "podcasts": 1,
+      "blogs": 1
+    }
+  },
+  {
     "date": "2026-04-14",
     "title": "builders radar · 2026-04-14",
     "summary": "今天的信号集中在 agentic coding 平台的产品化和企业落地分工：一边是 Open Agents、GBrain、Claude Code 这类工作流与基础设施继续迭代，一边是企业开始显式定义“agent deployer/manager”这类新角色。另一条主线是把 AI 闭环从软件扩展到物理世界，Periodic Labs 强调实验数据、自动化和机器人只是加速器，核心仍是可验证的科学闭环。",
