@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2026-04-17 builders-radar：agent harness、Codex 与 Notion 继续前推</title>
+    <meta name="description" content="今天的信号集中在同一个方向：agent 相关产品正在从“会调用工具”转向“可验证、可恢复、可长期运行”。Claude、Codex 和 Notion 都在把复审、权限、评测、session 持久化和工具抽象前置到系统层，而不是把希望压在单个模型能力上。">
+    <link rel="stylesheet" href="../../shared.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到内容</a>
+    <main id="content" class="shell">
+      <section class="hero report-header report-detail-header">
+        <div class="detail-header-body">
+          <div class="eyebrow">2026-04-17</div>
+          <h1 class="detail-title">2026-04-17 builders-radar：agent harness、Codex 与 Notion 继续前推</h1>
+          <div class="detail-header-meta-row">
+            <p class="detail-summary">今天的信号集中在同一个方向：agent 相关产品正在从“会调用工具”转向“可验证、可恢复、可长期运行”。Claude、Codex 和 Notion 都在把复审、权限、评测、session 持久化和工具抽象前置到系统层，而不是把希望压在单个模型能力上。</p>
+            <aside class="source-stats-panel" aria-label="Source stats">
+              <div class="eyebrow">Source Stats</div>
+              <div class="source-stats-grid">
+                
+    <div class="source-stat">
+      <span>Builders</span>
+      <strong>18</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Tweets</span>
+      <strong>45</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Podcasts</span>
+      <strong>1</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Blogs</span>
+      <strong>2</strong>
+    </div>
+  
+              </div>
+            </aside>
+          </div>
+          
+    <nav class="section-nav" aria-label="Report sections">
+      
+    <a href="#x">X / Twitter builders</a>
+  
+    <a href="#podcasts">Podcasts</a>
+  
+    <a href="#blogs">Blogs</a>
+  
+    </nav>
+  
+        </div>
+        <p class="footer-note detail-back-link"><a href="../../index.html">返回归档首页</a></p>
+      </section>
+      
+    <section class="panel section-block" id="x">
+      <div>
+        <div class="eyebrow">x</div>
+        <h2>X / Twitter builders</h2>
+      </div>
+      <p>今天的 X 信息高度集中在三件事：Claude Opus 4.7 / Claude Code 的控制面补齐，Codex computer use 从演示走向执行层，以及 Notion、Vercel 这类团队继续把评测、权限、持久化和工具编排前置到平台层。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Claude（Anthropic）把 Opus 4.7、复审和推理控制一起推出</h3>
+        <p>Claude 把 Opus 4.7 放到 Claude、Claude Platform 和主流云平台，同时在 Claude Code 里加入 /ultrareview、Max 用户的 auto mode 扩展，以及 API 上介于 high 和 max 之间的 xhigh effort。这个更新的重点不只是更强模型，而是把复审、长任务和推理/延迟控制做成可调的产品能力。</p>
+        <ul><li><a href="https://x.com/claudeai/status/2044785272617939282">https://x.com/claudeai/status/2044785272617939282</a></li><li><a href="https://x.com/claudeai/status/2044785266590622185">https://x.com/claudeai/status/2044785266590622185</a></li><li><a href="https://x.com/claudeai/status/2044785264313221470">https://x.com/claudeai/status/2044785264313221470</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Sam Altman（OpenAI）强调 Codex 的 computer use 已经接近可用</h3>
+        <p>Sam Altman 说新版 Codex 的 computer use “shockingly good”，并且能在 Mac 上并行调用应用而不互相干扰，同时还带来了 in-app browser、更多 plugins 和主动建议能力。这个方向更像是在把 Codex 从代码助手推向通用工作执行层。</p>
+        <ul><li><a href="https://x.com/sama/status/2044858862042591378">https://x.com/sama/status/2044858862042591378</a></li><li><a href="https://x.com/sama/status/2044858863246323811">https://x.com/sama/status/2044858863246323811</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Kevin Weil（OpenAI）把 Codex 和生命科学能力一起往前推</h3>
+        <p>Kevin Weil 先用一句话强调新 Codex 的 computer use 很强，随后又宣布 GPT-Rosalind：一个面向 biology、drug discovery 和 translational medicine 的 frontier model，通过受信任访问方式向合格客户开放。与此同时，Life Sciences plugin 已经对所有 Codex 用户开放，说明生命科学能力开始进入产品化阶段。</p>
+        <ul><li><a href="https://x.com/kevinweil/status/2045004924682195027">https://x.com/kevinweil/status/2045004924682195027</a></li><li><a href="https://x.com/kevinweil/status/2044862783947448611">https://x.com/kevinweil/status/2044862783947448611</a></li><li><a href="https://x.com/kevinweil/status/2044862785201565840">https://x.com/kevinweil/status/2044862785201565840</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Cat Wu（Anthropic）把 Claude Code 的默认工作方式往验证靠</h3>
+        <p>Cat Wu 说明 Claude Code 已把 Opus 4.7 的默认 effort 设为 xhigh，并建议把测试流程写进 claude.md，或者做成 /verify-app skill，让模型先学会如何验证自己做的修改。这个更新的重点不是单纯调参，而是把“产出”和“验收”放进同一条工作流里。</p>
+        <ul><li><a href="https://x.com/_catwu/status/2044808539663978970">https://x.com/_catwu/status/2044808539663978970</a></li><li><a href="https://x.com/_catwu/status/2044808538351100377">https://x.com/_catwu/status/2044808538351100377</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Thariq（Anthropic）在收拢 Claude Code 的更新入口</h3>
+        <p>Thariq 说团队会继续围绕 /usage、What’s New 文档和月度 shipped webinars 做更集中的产品更新。信息量不大，但方向很明确：Claude Code 正在把产品变化、使用指引和发布节奏放到更统一的入口里。</p>
+        <ul><li><a href="https://x.com/trq212/status/2044893587691958320">https://x.com/trq212/status/2044893587691958320</a></li><li><a href="https://x.com/trq212/status/2044893586333032627">https://x.com/trq212/status/2044893586333032627</a></li><li><a href="https://x.com/trq212/status/2044893584961556767">https://x.com/trq212/status/2044893584961556767</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Guillermo Rauch（Vercel）把 workflow 和 agent 的耐久性问题提到前台</h3>
+        <p>Guillermo Rauch 认为 agent 和 backend 最难的问题是 durability，因为 LLM 会挂、服务会限流、数据库会变慢，所以必须有能恢复、可自托管、可多云部署的工作流层。他对 AI Gateway 和 aisdk 的判断也延续了同一逻辑：让平台吸收模型与服务的波动，而不是把波动直接暴露给上层应用。</p>
+        <ul><li><a href="https://x.com/rauchg/status/2044858872842826102">https://x.com/rauchg/status/2044858872842826102</a></li><li><a href="https://x.com/rauchg/status/2044808819273052663">https://x.com/rauchg/status/2044808819273052663</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Peter Yang（Roblox）把技能开发变成“先建 eval agent”</h3>
+        <p>Peter Yang 说他现在写 skills 时，会先让 AI 起一个独立的 eval agent 做 yes/no 检查，若没有全绿就继续迭代第一代理的输出。他还希望 Claude 和 Codex 的 web/mobile 端能直接查看和编辑 markdown，这样最后 10% 的指令就能手工精修。</p>
+        <ul><li><a href="https://x.com/petergyang/status/2044998456062906422">https://x.com/petergyang/status/2044998456062906422</a></li><li><a href="https://x.com/petergyang/status/2045007422084051168">https://x.com/petergyang/status/2045007422084051168</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Ryo Lu（Cursor）在做设计原型环境</h3>
+        <p>Ryo Lu 透露 Cursor 正在和 @flowstated 一起做 baby glass，一个新的 prototyping environment，目标是让设计师能快速在代码里想象、重组和测试交互，并复用 Cursor 3 新界面的共享组件。与此同时，他给模型的分工也很具体：Opus 4.7 负责 planning，Composer 2 负责 building 和迭代，Codex / GPT-5.4 负责 hard bugs。</p>
+        <ul><li><a href="https://x.com/ryolu_/status/2044982132859400342">https://x.com/ryolu_/status/2044982132859400342</a></li><li><a href="https://x.com/ryolu_/status/2044789186130256062">https://x.com/ryolu_/status/2044789186130256062</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Garry Tan（Y Combinator）继续修 GBrain 的基础能力</h3>
+        <p>Garry Tan 连发几条更新，分别指向 /ship skill 的稳定性修复、GBrain 的安全修复，以及面向 Gemini Live 的 e2e 测试，后者还会作为 GBrain Voice 的开源能力释放出来。整体看是在补技能、语音和安全这三块基础设施，而不是只堆新功能。</p>
+        <ul><li><a href="https://x.com/garrytan/status/2045023061746004324">https://x.com/garrytan/status/2045023061746004324</a></li><li><a href="https://x.com/garrytan/status/2045020411805700110">https://x.com/garrytan/status/2045020411805700110</a></li><li><a href="https://x.com/garrytan/status/2045002844508766510">https://x.com/garrytan/status/2045002844508766510</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Aaron Levie（Box）把新 Codex 解释成知识工作自动化的跃迁</h3>
+        <p>Aaron Levie 认为新 Codex 会把知识工作者能交给 agent 的任务边界继续推远，尤其是长时间后台任务，比如起草报告、准备 data rooms、审合同、做 onboarding、生成营销素材和处理发票。Box plugin 的意义在于，它让这类自动化直接落在企业内容上，并且更容易跨多个应用串起来。</p>
+        <ul><li><a href="https://x.com/levie/status/2044855448722100720">https://x.com/levie/status/2044855448722100720</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="podcasts">
+      <div>
+        <div class="eyebrow">podcasts</div>
+        <h2>Podcasts</h2>
+      </div>
+      <p>这一期几乎把 Notion 的 agent 方法论说透了：MCP、CLI、Custom Agents、meeting notes 都只是接口，真正重要的是系统记录、权限边界、eval 和自修复回路。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Latent Space：Notion 的 Custom Agents、MCP 和“软件工厂”</h3>
+        <p>最核心的结论是，Notion 不是把 agent 当成一个独立产品层，而是把它嵌进系统记录、权限、评测和工作流里。Simon Last 和 Sarah Sachs 反复强调，CLI 适合轻量、权限明确的 agent，MCP 适合窄场景和严格授权，但真正决定上限的是 harness、session、sandbox 和自验证循环，而不是单个协议本身。Notion 的做法是把 custom agents、meeting notes、agentic find 和任务数据库串成同一套系统：让 agent 写入数据库、读取会议记录、生成 preread，并在失败时通过 eval 和 manager agent 回路修复。它们也明确表示，不会把 fine-tuning 当成主路径，因为工具和接口变化太快，外层系统与可替换的工具抽象更重要。</p>
+        <ul><li><a href="https://www.youtube.com/@LatentSpacePod">https://www.youtube.com/@LatentSpacePod</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="blogs">
+      <div>
+        <div class="eyebrow">blogs</div>
+        <h2>Blogs</h2>
+      </div>
+      <p>两篇博客都在讲同一件事：长任务 agent 的关键不在模型单点能力，而在把 session、harness、sandbox、权限和恢复机制做成稳定抽象。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Anthropic Engineering：Scaling Managed Agents</h3>
+        <p>这篇文章把 Managed Agents 的核心抽象拆成 session、harness 和 sandbox，并强调三者必须解耦，长任务才能在容器失败、网络中断或模型升级时继续恢复。作者用“brain from hands”解释为什么执行环境、会话日志和凭证都不应绑死在同一个容器里，并给出 p50 TTFT 下降约 60%、p95 下降超过 90% 的结果。它传递的重点不是某一版实现，而是把 agent 运行时定义成可替换的接口。</p>
+        <ul><li><a href="https://www.anthropic.com/engineering/managed-agents">https://www.anthropic.com/engineering/managed-agents</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Claude Blog：Claude Managed Agents 已进入 public beta</h3>
+        <p>Claude Managed Agents 的核心卖点是把 sandboxed code execution、checkpointing、credential management、scoped permissions 和 tracing 这些生产化负担从开发者手里拿走。官方强调它支持长时间后台会话、多 agent 协作和更强的治理能力，内部结构化文件生成测试里，成功率最高提升了 10 个百分点。对构建者来说，这意味着竞争焦点正在从 prompt 本身转向运行时、治理和可观测性。</p>
+        <ul><li><a href="https://claude.com/blog/claude-managed-agents">https://claude.com/blog/claude-managed-agents</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+    </main>
+  </body>
+</html>
