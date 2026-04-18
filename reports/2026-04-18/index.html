@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2026-04-18 builders-radar：agent 让企业软件进入“席位 + 消耗”模式</title>
+    <meta name="description" content="今天的高信号集中在两条线：一是企业软件正在被重新定义为面向 agent 的工作流平台，而不是只按人类席位计费的 SaaS；二是 Claude / Opus 4.7 周边的产品更新和使用反馈继续密集出现，讨论重点落在设计、编码和办公工作流的可用性上。与此同时，播客里 ServiceNow CEO Bill McDermott 把 LLM 与 workflow platform 的分工说得很明确：前者负责推理，后者负责上下文、确定性和闭环执行。">
+    <link rel="stylesheet" href="../../shared.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到内容</a>
+    <main id="content" class="shell">
+      <section class="hero report-header report-detail-header">
+        <div class="detail-header-body">
+          <div class="eyebrow">2026-04-18</div>
+          <h1 class="detail-title">2026-04-18 builders-radar：agent 让企业软件进入“席位 + 消耗”模式</h1>
+          <div class="detail-header-meta-row">
+            <p class="detail-summary">今天的高信号集中在两条线：一是企业软件正在被重新定义为面向 agent 的工作流平台，而不是只按人类席位计费的 SaaS；二是 Claude / Opus 4.7 周边的产品更新和使用反馈继续密集出现，讨论重点落在设计、编码和办公工作流的可用性上。与此同时，播客里 ServiceNow CEO Bill McDermott 把 LLM 与 workflow platform 的分工说得很明确：前者负责推理，后者负责上下文、确定性和闭环执行。</p>
+            <aside class="source-stats-panel" aria-label="Source stats">
+              <div class="eyebrow">Source Stats</div>
+              <div class="source-stats-grid">
+                
+    <div class="source-stat">
+      <span>Builders</span>
+      <strong>16</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Tweets</span>
+      <strong>33</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Podcasts</span>
+      <strong>1</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Blogs</span>
+      <strong>0</strong>
+    </div>
+  
+              </div>
+            </aside>
+          </div>
+          
+    <nav class="section-nav" aria-label="Report sections">
+      
+    <a href="#x">X / Twitter builders</a>
+  
+    <a href="#podcasts">Podcasts</a>
+  
+    <a href="#blogs">Blogs</a>
+  
+    </nav>
+  
+        </div>
+        <p class="footer-note detail-back-link"><a href="../../index.html">返回归档首页</a></p>
+      </section>
+      
+    <section class="panel section-block" id="x">
+      <div>
+        <div class="eyebrow">x</div>
+        <h2>X / Twitter builders</h2>
+      </div>
+      <p>X 上最强的信号来自企业平台与 agent 的关系、Claude 4.7 相关更新，以及代码驱动设计和 agent 工程化方法。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Aaron Levie（CEO @box）：软件会越来越 headless，真正的使用者变成 agent</h3>
+        <p>他把企业软件的演化框架概括成“人买 seat，agent 买 consumption”。核心判断是，agent 24/7 并行工作、跨系统串联流程后，软件的价值会更多来自能承接机器调用量的系统，而不只是人类席位。对 Salesforce、文档和流程平台这类系统，他认为 agent 反而会放大可用场景。</p>
+        <ul><li><a href="https://x.com/levie/status/2045355693050655048">https://x.com/levie/status/2045355693050655048</a></li><li><a href="https://x.com/levie/status/2045137708620906573">https://x.com/levie/status/2045137708620906573</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Kevin Weil（VP Science @OpenAI）：OpenAI for Science 被分散到其他研究团队</h3>
+        <p>Kevin Weil 说今天是他在 OpenAI 的最后一天，同时 OpenAI for Science 也会被 decentralize 到其他研究团队中。信息量不在离职本身，而在组织调整：他把这两年概括为从 Chief Product Officer 到研究团队，再到启动 OpenAI for Science，并明确认为加速科学会是 AGI 最积极的外溢结果之一。</p>
+        <ul><li><a href="https://x.com/kevinweil/status/2045230426210648348">https://x.com/kevinweil/status/2045230426210648348</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Claude（Anthropic）：Opus 4.7 相关更新覆盖 hackathon、Word 和 design system</h3>
+        <p>这一组更新偏产品化：Claude Code hackathon 围绕 Opus 4.7 回归，Claude for Word 登陆 Pro 和 Max 计划，Claude 还可以读取 codebase 和 design files，自动把 design system 应用到项目里。信号很一致，Anthropic 正在把 Claude 往具体工作流和团队资产里嵌，而不是只停留在聊天体验。</p>
+        <ul><li><a href="https://x.com/claudeai/status/2045248224659644654">https://x.com/claudeai/status/2045248224659644654</a></li><li><a href="https://x.com/claudeai/status/2045222254699511855">https://x.com/claudeai/status/2045222254699511855</a></li><li><a href="https://x.com/claudeai/status/2045156271251218897">https://x.com/claudeai/status/2045156271251218897</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Alex Albert（Research @AnthropicAI）：修复 Opus 4.7 首日 bug，并继续强调设计能力</h3>
+        <p>他先说明很多人在昨天第一次尝试 Opus 4.7 时遇到的 bug 已经修复，又补充说 Claude 现在已经能帮助产出高质量设计。这个组合信号比较清楚：Anthropic 一边收敛发布后的稳定性问题，一边继续把 Claude 往设计工作流里推。</p>
+        <ul><li><a href="https://x.com/alexalbert__/status/2045159041283064095">https://x.com/alexalbert__/status/2045159041283064095</a></li><li><a href="https://x.com/alexalbert__/status/2045165630421364853">https://x.com/alexalbert__/status/2045165630421364853</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Josh Woodward（VP, @Google @GoogleLabs @GeminiApp @GoogleAIStudio）：Flow Music 独立站上线</h3>
+        <p>Google Labs 把 ProducerAI 改成了独立站 Flow Music，定位是用自然语言生成、分享和 remix 原创音乐。Josh Woodward 转发时强调了新的 remix feature，以及“给创作者更多控制权”这一产品方向。</p>
+        <ul><li><a href="https://x.com/joshwoodward/status/2045305262362530043">https://x.com/joshwoodward/status/2045305262362530043</a></li><li><a href="https://x.com/GoogleLabs/status/2045250788864495874">https://x.com/GoogleLabs/status/2045250788864495874</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Ryo Lu（Design @Cursor_ai）：agent 的关键不只是模型，而是 harness 和运行环境</h3>
+        <p>他把 agent 的竞争力直接拆成三件事：最好的 harness、最好的 models，以及能在任何地方运行。这个判断很工程化，指向的不是单点模型能力，而是执行环境、调度和兼容性共同决定 agent 上限。</p>
+        <ul><li><a href="https://x.com/ryolu_/status/2045336089867825157">https://x.com/ryolu_/status/2045336089867825157</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Zara Zhang（Builder）：写作不等于生成文本，很多设计更适合用代码完成</h3>
+        <p>她明确区分了 writing 和生成文本，认为生成文本其实是写作过程中最不重要的一环。另一条则是她最近更多用 HTML 而不是 image gen models 来做图，说明在不少场景里，代码驱动的可控性和可迭代性已经超过纯图像生成。</p>
+        <ul><li><a href="https://x.com/zarazhangrui/status/2045394997630099922">https://x.com/zarazhangrui/status/2045394997630099922</a></li><li><a href="https://x.com/zarazhangrui/status/2045374512691360177">https://x.com/zarazhangrui/status/2045374512691360177</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="podcasts">
+      <div>
+        <div class="eyebrow">podcasts</div>
+        <h2>Podcasts</h2>
+      </div>
+      <p>今天只有一档播客更新，核心是 ServiceNow 对“AI 会不会吃掉 enterprise platform”的反击：LLM 负责推理，workflow platform 负责上下文、确定性和闭环执行，两者是互补而不是替代。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Bill McDermott（ServiceNow CEO）谈企业在 AI 时代如何扩张</h3>
+        <p>这期最重要的判断是：LLM 不会直接替代 enterprise platform，原因不是模型不够强，而是企业真正需要的是带上下文、可追责、可闭环的 workflow。Bill McDermott 把 ServiceNow 定位成连接 hyperscaler、language models 和 systems of record 的 AI control tower，强调“AI 负责推理，workflow 负责执行”。他还给出几个很具体的经营信号：很多客户仍停留在 experiment 阶段，但一旦进入 production，实施周期可以压到 30 天以内，且 90% 的 customer service cases 已经由 agents 处理。结论是，agent 更可能重塑增员方式和流程密度，而不是让企业放弃平台。</p>
+        <ul><li><a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="blogs">
+      <div>
+        <div class="eyebrow">blogs</div>
+        <h2>Blogs</h2>
+      </div>
+      <p>今天没有有意义的官方 blog 更新。</p>
+      <div class="section-list">
+        <article class="item-card"><p>本节当前没有具体条目。</p></article>
+      </div>
+    </section>
+  
+    </main>
+  </body>
+</html>
