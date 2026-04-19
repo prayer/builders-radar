@@ -80,6 +80,40 @@ function runGit(args, cwd) {
   });
 }
 
+function isRetryablePushRace(error, publishBranch) {
+  if (!publishBranch) {
+    return false;
+  }
+
+  const message = error instanceof Error ? error.message : String(error);
+  return message.includes(`cannot lock ref 'refs/heads/${publishBranch}'`);
+}
+
+async function pushWithRetry({
+  gitRunner,
+  targetRepoPath,
+  publishBranch,
+  pushArgs
+}) {
+  try {
+    await gitRunner(pushArgs, targetRepoPath);
+  } catch (error) {
+    if (!isRetryablePushRace(error, publishBranch)) {
+      throw error;
+    }
+
+    await gitRunner(['fetch', 'origin', publishBranch], targetRepoPath);
+
+    try {
+      await gitRunner(['merge-base', '--is-ancestor', `origin/${publishBranch}`, 'HEAD'], targetRepoPath);
+    } catch {
+      throw error;
+    }
+
+    await gitRunner(pushArgs, targetRepoPath);
+  }
+}
+
 export async function publishSite({
   siteRoot = DEFAULT_SITE_ROOT,
   targetRepoPath,
@@ -126,7 +160,12 @@ export async function publishSite({
       const pushArgs = resolvedPublishBranch
         ? ['push', '--set-upstream', 'origin', resolvedPublishBranch]
         : ['push'];
-      await gitRunner(pushArgs, resolvedTargetRepoPath);
+      await pushWithRetry({
+        gitRunner,
+        targetRepoPath: resolvedTargetRepoPath,
+        publishBranch: resolvedPublishBranch,
+        pushArgs
+      });
     }
   }
 
