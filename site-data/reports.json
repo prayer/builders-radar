@@ -1,5 +1,89 @@
 [
   {
+    "date": "2026-04-20",
+    "title": "builders-radar 2026-04-20：agent 评测噪声、Claude Code 自动模式与 Cowork 的产品化",
+    "summary": "今天的信号集中在两条主线：一条是 agent 能力正在快速提升，但真正决定体验的越来越是评测方法、权限边界和运行时设计；另一条是 AI 产品的竞争点从“模型更强”转向“如何把模型嵌进真实工作流”。Anthropic 的两篇工程博客分别从评测噪声和权限自动化切入，Podcast 里 Felix Rieseberg 进一步把 Cowork 的设计逻辑讲成了一个更明确的结论：对大多数用户来说，关键不是让模型更会说话，而是让它更安全、更可控、并且更贴近人实际工作的环境。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter builders",
+        "summary": "今天的 X 讨论主要围绕 agent 工作流、产品 UX 和 AI 工具链的更新展开。几位 builder 的共同判断是，AI 产品的差异点正在从模型本身转向权限、集成、局部自动化和人机协作方式。",
+        "items": [
+          {
+            "headline": "Peter Yang 关注 Claude Code 的跨端工作流断裂",
+            "summary": "Peter Yang 说自己从 desktop app 转向主要使用 Claude Code 之后，Telegram 集成反而失效了，因此希望能在 Claude desktop 和 mobile 之间直接串起所有聊天，而不是依赖 remote-control 或 CLI 启动命令。这个反馈的核心不是功能缺失本身，而是 AI 工具开始进入日常工作流后，跨设备连续性会变成实际阻力。",
+            "sourceLinks": [
+              "https://x.com/petergyang/status/2045726896995098803"
+            ]
+          },
+          {
+            "headline": "Guillermo Rauch 判断设计正在走向自治化",
+            "summary": "Vercel CEO Guillermo Rauch 认为，关于设计到底该留在 Figma 还是进入 Claude Design 的争论有些跑偏，更大的变化是设计会变成可被 agent 自动执行的能力，而不是一个单独工具。他把未来形态概括为 design.md、团队生成的专用设计工具，以及基于 v0 Platform API 或 Sandbox 自动维护品牌系统和网站内容的产品，结论是设计正在从“人手操作的工具”转向“由代码和 agent 驱动的能力层”。",
+            "sourceLinks": [
+              "https://x.com/rauchg/status/2045553025188835806"
+            ]
+          },
+          {
+            "headline": "Aaron Levie 强调 agent 时代会重写企业软件栈",
+            "summary": "Box CEO Aaron Levie 认为，AI 模型进展太快，导致 agent 架构需要频繁重做，几个月前为了弥补上下文窗口限制而建立的系统，今天可能已经不再是最佳实践。他进一步判断，agent 会让几乎所有行业都增加软件产出，工程师的角色会从“写应用”转向“设计系统、连接平台、管理 agent、升级流程”，这意味着软件需求不是缩小，而是在企业内部被大规模释放。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2045680043607941548",
+              "https://x.com/levie/status/2045616837787070695"
+            ]
+          },
+          {
+            "headline": "Peter Steinberger 更新 CodexBar 0.21",
+            "summary": "Peter Steinberger 发布 CodexBar 0.21，新增 Abacus AI provider、Codex Pro $100 支持、更安全的 OpenAI web extras、修复本地 cost scanning、z.ai 5h quotas、Antigravity/Cursor/Ollama 修复、刷新加速以及 macOS 26 图标修复等。更关键的是，他指出此前 CPU 占用过高的根因是 OpenAI web fetch，已经在新安装中禁用，同时 keychain 问题也已解决；这是一个很典型的 AI 工具链工程更新，重点在稳定性和兼容性，而不是新概念。",
+            "sourceLinks": [
+              "https://x.com/steipete/status/2045582547996856682"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "今天只有一档明显有信息量的播客更新。重点不在于模型有多强，而在于 Anthropic 如何把更强的模型包装成更可控、可进入真实工作场景的产品。",
+        "items": [
+          {
+            "headline": "Anthropic 的 Felix Rieseberg：Cowork 的关键是本地环境、权限控制和 UX",
+            "summary": "Felix Rieseberg 把 Claude Mythos preview 形容为一次明显的能力跃迁，尤其是在安全分析和代码理解上；但他更强调的是，模型能力提升后，真正决定落地效果的已经不是“能不能做”，而是“怎么让人放心地交给它做”。Cowork 的设计逻辑很清楚：把 Claude 放到本地 VM 里，让它只接触被授权的文件和域名，利用 skills、memory、connectors 和 MCP 把工作说明写成可执行的文本规则，而不是依赖复杂数据库或重型 harness。对他来说，trust 主要来自渐进式教育用户，从清理桌面、定时任务这种低风险任务开始，让用户逐步把更重要的工作交出去；因此 UX、任务组织方式和产品取舍，比原始模型能力更像决定性变量。",
+            "sourceLinks": [
+              "https://www.youtube.com/watch?v=9MEJ4syOVrQ"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天的官方博客更新都来自 Anthropic，分别对应 agentic eval 的测量问题，以及 Claude Code 的权限自动化。两篇文章都在强调同一件事：模型越来越强后，周边系统和运行条件会越来越直接地影响最终体验与结论。",
+        "items": [
+          {
+            "headline": "Anthropic Engineering：agentic coding eval 的基础设施噪声会直接改变分数",
+            "summary": "这篇文章用 Terminal-Bench 2.0 和 SWE-bench 的实验说明，agentic coding 评测不能再把运行环境当成“无关背景”。在 Terminal-Bench 2.0 上，严格资源限制到完全放开，分数差最多可达 6 个百分点，而 1x 到 3x 资源头寸之间的提升主要来自 infra error 下降；也就是说，低分不一定是模型差，可能只是容器被过早杀掉。文章的建议很明确：评测应同时公布并控制 guaranteed allocation 和 hard ceiling，资源配置应被视为一等实验变量；对于 leaderboard，低于 3 个百分点的差异应保持怀疑，除非配置完全可比。",
+            "sourceLinks": [
+              "https://www.anthropic.com/engineering/infrastructure-noise"
+            ]
+          },
+          {
+            "headline": "Anthropic Engineering：Claude Code auto mode 试图用分类器替代频繁点击批准",
+            "summary": "这篇文章介绍了 Claude Code auto mode，目标是在不回到 `--dangerously-skip-permissions` 的前提下，减少用户不断点“approve”造成的疲劳。系统采用两层防线：输入层用 prompt-injection probe 过滤工具输出中的注入内容，输出层用基于 Sonnet 4.6 的 transcript classifier 评估每个动作是否符合用户授权；classifier 只看用户消息和工具调用，不看 assistant 文本和工具结果，以降低被“说服”或被注入的风险。部署结果显示，完整 pipeline 的 FPR 下降到 0.4%，但 real overeager actions 的 FNR 仍有 17%，因此它更适合替代完全跳过权限的高自主模式，而不是替代高风险场景下的人类审查。",
+            "sourceLinks": [
+              "https://www.anthropic.com/engineering/claude-code-auto-mode"
+            ]
+          }
+        ]
+      }
+    ],
+    "sourceStats": {
+      "builders": 9,
+      "tweets": 18,
+      "podcasts": 1,
+      "blogs": 2
+    }
+  },
+  {
     "date": "2026-04-19",
     "title": "builders-radar 2026-04-19 日报",
     "summary": "今天的内容几乎都围绕 Anthropic 生态展开：一端是 Claude Cowork、Managed Agents 和 auto mode 把 agent 从“能跑”推进到“更可控地跑”，另一端是 Anthropic Engineering 用评测噪声和权限分级说明，基准分差与自动化能力都很容易被基础设施和交互设计放大。X 上的 builders 也集中在同一主题上：local-first、跨设备工作流、设计自动化，以及 AI 产品真正的差异越来越落在 UX 和工作组织方式，而不是单纯模型能力。",
