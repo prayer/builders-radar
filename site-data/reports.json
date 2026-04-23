@@ -1,5 +1,119 @@
 [
   {
+    "date": "2026-04-23",
+    "title": "2026-04-23 builders-radar 日报",
+    "summary": "今天的信号集中在 agentic work 的流程成熟：一边是 Claude Code、Replit、ChatGPT 相关产品继续把并行会话、工具调用和长任务执行做得更完整，另一边是多位 builders 反复强调人仍然要负责设定问题框架、最终审美和收尾质量。安全调查、静态分析增强和 image agent 的讨论也说明，当前竞争重点已经从“能不能生成”转向“能不能在真实工作流里稳定交付”。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter builders",
+        "summary": "今天 X 上的高信号内容主要围绕 agent 工作流、产品更新和“人机分工”展开。重复主题很多，但最有价值的共识是：模型已经足够承担中间执行，人的价值更多落在 framing、review 和最后的 polish。",
+        "items": [
+          {
+            "headline": "Swyx 认为 GPT-Image-2-Thinking 更像“图像 agent”而不是单纯的新模型",
+            "summary": "Swyx 把 GPT-Image-2-Thinking 的长耗时生成、一次性生成 QR code、diagram、logo、food、face 等能力，解释为一个带 search 和 photoshop 工具的 image agent。这个视角把重点从“模型参数”转到“agent loop”，也把图像生成和 Gemini Flash Vision 那类工具化视觉 agent 放到同一条进化线上。",
+            "sourceLinks": [
+              "https://x.com/swyx/status/2047140362771132544"
+            ]
+          },
+          {
+            "headline": "Josh Woodward 披露 Gemini 的 Conversation branching 已开始灰度",
+            "summary": "Josh Woodward 提到 Conversation branching 已修复并开始向 20% 用户推出，说明 Google 在把多分支对话这种高频工作流做成标准能力。这个更新本身不大，但它指向的是 AI 产品在交互层面的持续补洞，而不是只堆模型能力。",
+            "sourceLinks": [
+              "https://x.com/joshwoodward/status/2047147030351642914"
+            ]
+          },
+          {
+            "headline": "Amjad Masad 强调 Replit 用静态分析把当前一代 LLM 性能再往上推",
+            "summary": "Amjad Masad 表示 Replit 的白皮书显示，把 LLM 和静态分析工具结合后，在一些场景里能拿到显著更好的结果，甚至可到 90%+。他同时还在推进 Replit Agent 与 Gemini Enterprise 的集成，整体方向很明确：把 agent 嵌进企业现有工具链，而不是只当作独立聊天框。",
+            "sourceLinks": [
+              "https://x.com/amasad/status/2047156858214035590",
+              "https://x.com/amasad/status/2047149103294091301"
+            ]
+          },
+          {
+            "headline": "Guillermo Rauch 公开了 Vercel 安全调查的进展",
+            "summary": "Guillermo Rauch 详细说明了他们对威胁行为者的调查，提到团队分析了接近 1PB 的日志，判断攻击活动早于最初的 Context[.]ai 事件，并且模式更像是围绕 token 和 key 的恶意分发与 API 滥用。除了调查本身，他还强调了与 Microsoft、AWS、Wiz 等伙伴的协作，以及对潜在受害者的通知和防护建议，这条信息的核心是安全运营已经成为平台产品的一部分。",
+            "sourceLinks": [
+              "https://x.com/rauchg/status/2047150411170320808"
+            ]
+          },
+          {
+            "headline": "Aaron Levie 认为 ChatGPT agents 会把知识工作推向 headless 平台",
+            "summary": "Aaron Levie 把 ChatGPT agents 的新能力描述为软件“going headless”的重要节点，判断它们会把知识工作 agent 带到更大规模的企业场景。结合 Box 作为知识源的示例，他强调未来的 agent 会通过 MCP 和 CLI 直接编排工具与数据，企业机会在于提供可被 agent 安全调用的 headless 基础设施。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2047028112626749645"
+            ]
+          },
+          {
+            "headline": "Ryo Lu 把 AI 时代的产品问题重新定义为“overcooking”",
+            "summary": "Ryo Lu 反对那种把每个局部功能都补得很满的设计方式，认为 AI 让“新增东西”的成本接近于零，从而更容易把一个原本清晰的系统堆成互相冲突的集合。对产品和设计团队来说，这条判断的实际含义是：AI 不会自动带来更好的结构，反而会放大“没人敢说不”的失焦问题。",
+            "sourceLinks": [
+              "https://x.com/ryolu_/status/2046957675079237668"
+            ]
+          },
+          {
+            "headline": "Garry Tan 在讨论 skill 设计时更偏向更大的可参数化技能",
+            "summary": "Garry Tan 认为更少但更大的 skills 往往能缩短 resolver、减少 context bloat，因此短 resolver 通常优于长 resolver。他还表示，遇到相邻 skills 时，与其拆得很碎，不如把它们合并成一个更大的 skill，再用 branching parameters 控制差异，这反映出他对 agent 提示结构的偏好是“少层级、少碎片、少上下文浪费”。",
+            "sourceLinks": [
+              "https://x.com/garrytan/status/2047184243164651648",
+              "https://x.com/garrytan/status/2047183884266402275"
+            ]
+          },
+          {
+            "headline": "Dan Shipper 继续强化“人是 bread，AI 是 filling”的工作模型",
+            "summary": "Dan Shipper 围绕《AI Sandwich》这期节目，把人的职责定义为在开始阶段设定框架、在结束阶段做判断和 polish，而把中间的写作、测试、迭代交给模型。这个观点和他对 compound engineering 的描述一致：真正的变化不是“人被替代”，而是人的工作重心从执行转向 framing、review 和品味判断。",
+            "sourceLinks": [
+              "https://x.com/danshipper/status/2047027507397005367"
+            ]
+          },
+          {
+            "headline": "Claude 和 Peter Steinberger 都在强调桌面端和可视化工作流的价值",
+            "summary": "Claude 宣布 Claude Cowork 里加入了交互式 charts 和 diagrams，说明面向协作分析的界面还在继续补强。Peter Steinberger 的反应虽然简短，但也侧面反映出 builders 对这类可视化和高密度 UI 能力的关注度在上升。",
+            "sourceLinks": [
+              "https://x.com/claudeai/status/2047047633416397076",
+              "https://x.com/steipete/status/2047189920104477009"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "今天只有一档播客更新，核心结论很集中：agentic coding 并不是把人从流程里移除，而是把人的位置从“执行者”改成“设框架的人”和“最后把关的人”。Kieran Klaassen 作为 Quora 的 GM 和 Compound Engineering 的作者，强调 AI 最适合处理中间的工作量，而真正决定质量的仍然是问题定义、review 和最后的 polish；他把这个结构概括为 plan、work、review、compound，并进一步指出，经验、品味和“愿意把事情做漂亮”的人，会越来越重要。",
+        "items": [
+          {
+            "headline": "AI & I by Every: The AI Sandwich: Where Humans Excel in an AI World",
+            "summary": "这期的核心不是“AI 能做多少”，而是“人该站在哪两个端点”。Kieran Klaassen 反复强调，模型已经足以承担大量 work 阶段，甚至能连续处理很长时间，但它们仍然需要人来决定问题的边界、选择正确的方向，并在最后把结果从“能用”推到“好看、好用、像自己的作品”。他提出的 Compound Engineering 也不是单纯的自动化流程，而是一个把经验写回仓库、让下一次不再重复错误的闭环。真正有意义的分工是：人在前面定框架，在后面做审美和判断，中间让 agent 去跑。",
+            "sourceLinks": [
+              "https://www.youtube.com/watch?v=G0LTv8hQ5Cs"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "今天的官方博客更新聚焦在 Claude Code 桌面端重设计，主题很明确：适配并行 agent 工作，而不是单会话聊天。",
+        "items": [
+          {
+            "headline": "Claude Blog: Redesigning Claude Code on desktop for parallel agents",
+            "summary": "Claude Code 桌面端这次重设计的核心，是把并行 agent 工作流直接做进产品形态里。新侧边栏统一管理多个 session，支持按状态、项目和环境筛选；拖拽式布局、集成 terminal、文件编辑器和更快的 diff viewer 让用户可以在同一个应用里完成查看、修改、测试和交付。它还补齐了 CLI plugin 一致性、SSH 到 Mac、以及更细的视图模式和快捷键，说明 Claude 在把“并行跑多个任务，人在 orchestrator 位上调度”当成默认使用方式。",
+            "sourceLinks": [
+              "https://claude.com/blog/claude-code-desktop-redesign"
+            ]
+          }
+        ]
+      }
+    ],
+    "sourceStats": {
+      "builders": 15,
+      "tweets": 30,
+      "podcasts": 1,
+      "blogs": 1
+    }
+  },
+  {
     "date": "2026-04-22",
     "title": "builders-radar 2026-04-22",
     "summary": "今天的信号集中在三条主线：一是 agent 不再只是聊天界面，正在进入设计、前端和工作流自动化；二是安全与基础设施继续前置，Vercel 和 Claude 都在强调更快的补丁、审计和防御能力；三是稳定币、链上结算和 tokenization 被重新放到“真实经济活动”的语境里讨论，Circle 也把 ARC 描述为面向机器经济的经济操作系统。",
