@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>builders-radar 2026-04-29 日报</title>
+    <meta name="description" content="今天的信号主要集中在三条线：agents 正从单次编程助手走向持续集成、代码审查和生产查询的工作流基础设施；创意与设计工具开始被 connector、SVG 和共享代码仓库的方式重构；与此同时，多位 builder 认为技术人员的杠杆被显著放大，但维护、安全和协作成本仍然不会消失。">
+    <link rel="stylesheet" href="../../shared.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到内容</a>
+    <main id="content" class="shell">
+      <section class="hero report-header report-detail-header">
+        <div class="detail-header-body">
+          <div class="eyebrow">2026-04-29</div>
+          <h1 class="detail-title">builders-radar 2026-04-29 日报</h1>
+          <div class="detail-header-meta-row">
+            <p class="detail-summary">今天的信号主要集中在三条线：agents 正从单次编程助手走向持续集成、代码审查和生产查询的工作流基础设施；创意与设计工具开始被 connector、SVG 和共享代码仓库的方式重构；与此同时，多位 builder 认为技术人员的杠杆被显著放大，但维护、安全和协作成本仍然不会消失。</p>
+            <aside class="source-stats-panel" aria-label="Source stats">
+              <div class="eyebrow">Source Stats</div>
+              <div class="source-stats-grid">
+                
+    <div class="source-stat">
+      <span>Builders</span>
+      <strong>14</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Tweets</span>
+      <strong>34</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Podcasts</span>
+      <strong>0</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Blogs</span>
+      <strong>0</strong>
+    </div>
+  
+              </div>
+            </aside>
+          </div>
+          
+    <nav class="section-nav" aria-label="Report sections">
+      
+    <a href="#x">X / Twitter builders</a>
+  
+    <a href="#podcasts">Podcasts</a>
+  
+    <a href="#blogs">Blogs</a>
+  
+    </nav>
+  
+        </div>
+        <p class="footer-note detail-back-link"><a href="../../index.html">返回归档首页</a></p>
+      </section>
+      
+    <section class="panel section-block" id="x">
+      <div>
+        <div class="eyebrow">x</div>
+        <h2>X / Twitter builders</h2>
+      </div>
+      <p>今天的 X 信号集中在 agents 的工程化落地、面向 agent 的开发工具，以及创意/设计工作流的接口重构。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Peter Steinberger：把 Codex 接进每次提交后的自动审查和修复循环</h3>
+        <p>Peter Steinberger，@OpenClaw / @OpenAI 相关 builder，描述了他把 Codex 放进每次 commit 的落地流程：提交后先做 review，发现问题就自动再起一个 Codex 去修复，再接 review agent 复查，最多循环 5 次。这个模式的重点不是“写代码更快”，而是把模型直接纳入持续质量控制链路，面向 regression 和 security issues 做闭环。</p>
+        <ul><li><a href="https://x.com/steipete/status/2049356949523730699">https://x.com/steipete/status/2049356949523730699</a></li><li><a href="https://x.com/steipete/status/2049290741013262522">https://x.com/steipete/status/2049290741013262522</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Dan Shipper：Codex 里的浏览器正在变成协作层</h3>
+        <p>Dan Shipper，@every CEO，强调在 Codex 里浏览 PostHog 明显优于在浏览器里单独看，因为 Codex 可以写 query、看结果，还能继续触发 agents 去写 PR 或执行生产数据库请求。其核心判断是，带有共享上下文的“桌面编码编排工具内浏览器”比“浏览器里的 agent”更像真实工作流入口。</p>
+        <ul><li><a href="https://x.com/danshipper/status/2049236793761976357">https://x.com/danshipper/status/2049236793761976357</a></li><li><a href="https://x.com/danshipper/status/2049223943735726150">https://x.com/danshipper/status/2049223943735726150</a></li><li><a href="https://x.com/danshipper/status/2049223933766041688">https://x.com/danshipper/status/2049223933766041688</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Amjad Masad：人类级 bots 会让免费平台承压，micro-payments 值得认真考虑</h3>
+        <p>Amjad Masad，@replit CEO，借 GitHub 的增长讨论指出，免费服务在 human-level bots 时代会越来越难维持。他提出用微支付来抑制 spam、让基础设施可持续，甚至把每次 git push 的成本压到极低；这反映出他对 AI 时代平台定价模型正在变化的判断。</p>
+        <ul><li><a href="https://x.com/amasad/status/2049242460078100638">https://x.com/amasad/status/2049242460078100638</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Guillermo Rauch：Vercel Labs 在为 agents 建 devtools</h3>
+        <p>Guillermo Rauch，@vercel CEO，明确把 Vercel Labs 的使命定义为“AI 时代的 devtools”，并指出团队正在为 agents 构建工具，而不只是为人类构建工具。tweet 里列出的 agent-browser、portless、skills、chat、just-bash、json-render 等产品，和 22.8M+ downloads 一起说明这条线已经有实际使用规模。</p>
+        <ul><li><a href="https://x.com/rauchg/status/2049216048831025232">https://x.com/rauchg/status/2049216048831025232</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Aaron Levie：agents 放大技术人的杠杆，但不会让每个人都自己做复杂软件</h3>
+        <p>Aaron Levie，@box CEO，反复强调软件岗位不会消失，agents 会把技术人员的产出杠杆放大到前所未有的程度。与此同时，他也区分了“能做”与“适合长期维护”之间的差别：升级、维护、安全修补和持续治理仍然需要技术角色承担，这也是为什么未来会有更多软件和更多软件开发者，但不是人人都适合自己搭复杂系统。</p>
+        <ul><li><a href="https://x.com/levie/status/2049333853777764495">https://x.com/levie/status/2049333853777764495</a></li><li><a href="https://x.com/levie/status/2049163935182733396">https://x.com/levie/status/2049163935182733396</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Peter Yang：solo builder 的空间在变大，但模型能力还像处在早期游戏机时代</h3>
+        <p>Peter Yang，Roblox 的 product，表达了对 solo AI builders 的明显认可，认为现在的世界更像他们的 playground。另一条判断是他用“游戏时代”来类比模型能力，认为当前仍大致处在 NES 级别，隐含的意思是：能力已经足够有用，但离更高阶的通用解决方案还有明显距离。</p>
+        <ul><li><a href="https://x.com/petergyang/status/2049345724559847585">https://x.com/petergyang/status/2049345724559847585</a></li><li><a href="https://x.com/petergyang/status/2049232534064734331">https://x.com/petergyang/status/2049232534064734331</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Thariq：Claude Code 正在集中处理最烦人的卡顿和渲染问题</h3>
+        <p>Thariq，Claude Code @anthropicai，提到团队正在“猎杀” Claude Code 里最烦人的 bug，包括大文件写入时看起来像卡住的问题，以及要把 no flicker renderer 做到足够好，争取作为默认 renderer 发布。这个信号很明确：产品已经进入以体验细节和边角问题为核心的打磨阶段，而不是只追求功能扩张。</p>
+        <ul><li><a href="https://x.com/trq212/status/2049252080892973563">https://x.com/trq212/status/2049252080892973563</a></li><li><a href="https://x.com/trq212/status/2049234229926695188">https://x.com/trq212/status/2049234229926695188</a></li><li><a href="https://x.com/trq212/status/2049234228290961690">https://x.com/trq212/status/2049234228290961690</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Claude：creative tools 的连接器开始扩张到更多专业软件</h3>
+        <p>Claude，@anthropicai 的产品账号，宣布今天新增 Adobe Creative Cloud、Ableton、Splice、Canva Affinity、SketchUp 和 Resolume 等连接器，同时加入 Blender Development Fund。更具体地说，Fusion connector 让设计师和工程师可以通过对话创建和修改 3D 模型，说明 Claude 正在把自己嵌入专业创意软件链路。</p>
+        <ul><li><a href="https://x.com/claudeai/status/2049143442601546054">https://x.com/claudeai/status/2049143442601546054</a></li><li><a href="https://x.com/claudeai/status/2049143440508616863">https://x.com/claudeai/status/2049143440508616863</a></li><li><a href="https://x.com/claudeai/status/2049143438281445811">https://x.com/claudeai/status/2049143438281445811</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Zara Zhang：不要让 AI 直接出图片，优先让它出 SVG 或可定制代码</h3>
+        <p>Zara Zhang 认为，与其让 AI 生成图片，不如让它生成 SVG，因为矢量图更容易无缝融入设计风格，也更适合 HTML Slides 这类界面化内容。她还把这一思路延伸到“idea file”和 GitHub repo 共享：先写清楚想法，再让用户自己的 agents 按需生成定制 UI。</p>
+        <ul><li><a href="https://x.com/zarazhangrui/status/2049258231042805806">https://x.com/zarazhangrui/status/2049258231042805806</a></li><li><a href="https://x.com/zarazhangrui/status/2049186121314415054">https://x.com/zarazhangrui/status/2049186121314415054</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="podcasts">
+      <div>
+        <div class="eyebrow">podcasts</div>
+        <h2>Podcasts</h2>
+      </div>
+      <p>今天没有有意义的播客更新。</p>
+      <div class="section-list">
+        <article class="item-card"><p>本节当前没有具体条目。</p></article>
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="blogs">
+      <div>
+        <div class="eyebrow">blogs</div>
+        <h2>Blogs</h2>
+      </div>
+      <p>今天没有有意义的官方博客更新。</p>
+      <div class="section-list">
+        <article class="item-card"><p>本节当前没有具体条目。</p></article>
+      </div>
+    </section>
+  
+    </main>
+  </body>
+</html>
