@@ -1,0 +1,121 @@
+{
+  "date": "2026-05-01",
+  "title": "Builders Radar 日报 · 2026-05-01",
+  "summary": "今天的信号主要集中在三件事：agent 正从 coding 扩展到更广泛的知识工作，安全能力开始成为默认产品层，软件也在向 headless 和 API-first 的交互方式重构。与此同时，AI for Science 仍然是更长期的主线，Demis Hassabis 把 DeepMind 的路径重新收束到 AlphaFold、模拟系统和生物学。",
+  "sections": [
+    {
+      "id": "x",
+      "title": "X / Twitter builders",
+      "summary": "今天的 X 信号高度集中在 agent 工作流、security、以及软件 headless 化：不少 builders 在讨论如何把模型真正放进日常工作、产品架构和商业模型里，而不是停留在“加速写代码”的层面。",
+      "items": [
+        {
+          "headline": "Andrej Karpathy：LLM 的价值边界正在从“加速既有流程”扩展到新能力与新范式",
+          "summary": "Andrej Karpathy 先强调，LLM 不只是把编码等既有工作做得更快，还在打开新的能力边界，例如完全由 LLM 包裹的应用、用自然语言写成并安装的“.md skills”，以及面向非结构化信息的 LLM knowledge bases。他还把 LLM 的“jaggedness”解释为能力分布问题，并把 agent-native economy 描述成下一阶段重点：如何让产品和服务被拆成更适合模型操作的 sensors、actuators 和 logic。",
+          "sourceLinks": [
+            "https://x.com/karpathy/status/2049903821095354523",
+            "https://x.com/karpathy/status/2049907410303865030"
+          ]
+        },
+        {
+          "headline": "Swyx：coding agents 正在“突破边界”，而且已经开始覆盖更广泛的知识工作",
+          "summary": "Swyx 直接把“coding agents breaking containment”称为今年的 breakout theme，意思是 agent 的影响已经不再局限于程序员。他还提到自己用 agent 运营 @aidotengineer 这类 tiny team 场景，强调真正的变化不是某一个 agent 产品，而是日常知识工作应该更积极地把多个 agent 用起来。",
+          "sourceLinks": [
+            "https://x.com/swyx/status/2050068468498842058",
+            "https://x.com/swyx/status/2050076322781860144",
+            "https://x.com/swyx/status/2050084459291324673"
+          ]
+        },
+        {
+          "headline": "Cat Wu：Claude Security 进入 public beta，直接把安全扫描嵌进 Claude Code on the web",
+          "summary": "Cat Wu 公布 Claude Security 已经在 Claude Code 的 web 版里进入 public beta，卖点是把仓库安全扫描和修复放在同一个工作流里完成。它的定位很明确：点进 repo 就能拿到验证过的漏洞发现，再在同一处继续修。",
+          "sourceLinks": [
+            "https://x.com/_catwu/status/2049964403177689130"
+          ]
+        },
+        {
+          "headline": "Aaron Levie：agent 时代的软件必须 headless，商业模式也会跟着改",
+          "summary": "Aaron Levie 认为，随着 agents 成为软件的最大使用者，软件必须先变成 headless，agent 不会看 UI，而是直接调用 API。他的判断是，seat 仍然适用于人，但需要附带一定额度的 API 使用；而真正由 agent 驱动的工作则更可能走 consumption model，甚至需要按“结果”而不是按调用次数来计费。",
+          "sourceLinks": [
+            "https://x.com/levie/status/2050051426446152159"
+          ]
+        },
+        {
+          "headline": "Sam Altman：Codex 今天有大升级，目标已经不止是 coding",
+          "summary": "Sam Altman 明确说 Codex 今天有“大升级”，并建议把它用在 non-coding computer work 上，信号很直接：Codex 的定位正在从编程助手扩展到更广泛的计算机工作。这个表述也和当天其他 builders 对 agent 跨任务边界的判断一致。",
+          "sourceLinks": [
+            "https://x.com/sama/status/2049946120441520624",
+            "https://x.com/sama/status/2050021650641695108"
+          ]
+        },
+        {
+          "headline": "Peter Steinberger：OpenClaw 的群聊体验和 codex harness 都在继续打磨",
+          "summary": "Peter Steinberger 先强调自己改过 OpenClaw 在 group chats 里的 agent 对话方式，效果已经明显更好；如果过去体验不稳定，他建议重新试一次。另一条信息更偏工程侧：如果 GPT 的表现不理想，就切到 codex harness，同时启用两者。",
+          "sourceLinks": [
+            "https://x.com/steipete/status/2049988836160074022",
+            "https://x.com/steipete/status/2050003238498226541",
+            "https://x.com/steipete/status/2049976855617314991"
+          ]
+        },
+        {
+          "headline": "Garry Tan：GBrain 被定位成 personal AI 场景里的独立类别",
+          "summary": "Garry Tan 直接把 GBrain 放到 Hermes Agent 和 OpenClaw 的使用场景里看，认为它适合 Karpathy-style Knowledge Wiki 这类 personal AI 场景。更关键的是，他不再把 GBrain 看成和 Mempalace 相似的 retrieval 工具，而是一个更独立的类别。",
+          "sourceLinks": [
+            "https://x.com/garrytan/status/2050096324100682097",
+            "https://x.com/garrytan/status/2050095919157350644"
+          ]
+        },
+        {
+          "headline": "Ryo Lu：Cursor SDK 的集成足够顺手，产品哲学也更偏“少而稳的核心概念”",
+          "summary": "Ryo Lu 分享了把 Cursor SDK 直接贴进 Cursor 里集成的体验，说明这类 SDK 的上手成本已经很低。他同时用一条长帖解释自己的设计观：所谓“general purpose”并不等于“无立场”，真正好的系统是核心概念少、稳定、可扩展，把复杂性留在边缘。",
+          "sourceLinks": [
+            "https://x.com/ryolu_/status/2049873259974611002",
+            "https://x.com/ryolu_/status/2049866003287576978",
+            "https://x.com/ryolu_/status/2049872551955013713"
+          ]
+        },
+        {
+          "headline": "Aditya Agarwal：AI 正把 cybersecurity 推到关键拐点",
+          "summary": "Aditya Agarwal 直接判断，cybersecurity 正在经历一个关键拐点，核心论点是“attacker 有 AI，defender 也必须有 AI”。他转发的播客内容围绕企业内部栈不可见、AI 找坏代码比人更快，以及为什么修复混乱的唯一办法仍然是更多 AI。",
+          "sourceLinks": [
+            "https://x.com/adityaag/status/2049941075872113145",
+            "https://x.com/adityaag/status/2049874181509034151"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasts",
+      "title": "Podcasts",
+      "summary": "今天只有一集高信号播客，核心不是回顾 DeepMind 的历史，而是把 Demis Hassabis 的长期方法论讲清楚：先把 AI 做成足够强的工具，再用它反过来推进科学、医学和对复杂系统的理解。",
+      "items": [
+        {
+          "headline": "Training Data：Demis Hassabis 继续把 DeepMind 的主线锚定在 AI for Science",
+          "summary": "Demis Hassabis 解释了自己从少年时期就把 AI 视为最重要且最有趣的事业，因此先走游戏、神经科学和创业路径，再汇入 DeepMind。对他来说，关键节点包括深度学习、reinforcement learning、GPU/TPU 计算能力，以及 AlphaGo 之后正式启动 AI for Science；AlphaFold 已经证明 AI 能在生物学里产生实质突破，而下一步是把分子设计、虚拟细胞、天气模拟和更精确的世界模拟继续往前推。他的判断很明确：AI 既是研究对象，也是研究工具，先做成强工具，再讨论 agency、consciousness 这类更远的问题。",
+          "sourceLinks": [
+            "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blogs",
+      "title": "Blogs",
+      "summary": "今天的官方博客更新只有一篇，但信号很集中：Claude Code desktop 正在按并行 agent 的真实工作方式重做，目标是把 orchestrator 视角、diff review、终端、编辑器和预览统一起来。",
+      "items": [
+        {
+          "headline": "Claude Blog：Claude Code desktop 重设计，核心是并行 agent 工作流",
+          "summary": "这篇博客的重点是把 Claude Code desktop 变成适合“同时推进多个任务”的工作台，而不是单一聊天窗口。新版本加入了管理多个 session 的 sidebar、拖拽式布局、集成 terminal 和 file editor、更快的 diff viewer、扩展的 preview，以及更清晰的使用量和会话状态视图；同时还强调了 SSH、CLI plugins 和本地/云端会话的一致性。对开发者的实际影响是，review、测试、修补和继续派发任务可以尽量留在同一个应用里完成。",
+          "sourceLinks": [
+            "https://claude.com/blog/claude-code-desktop-redesign"
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceStats": {
+    "builders": 17,
+    "tweets": 41,
+    "podcasts": 1,
+    "blogs": 1
+  }
+}
