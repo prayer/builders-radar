@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Builders Radar 日报｜2026-05-02</title>
+    <meta name="description" content="今天的信号集中在两条线：一是 inference 仍然是强约束市场，容量、供应链、post-training 和 runtime 优化正在共同决定产品边界；二是 Claude、Replit 等产品继续把“可连接、可记忆、可定制”的 agent 能力推向更实际的工作流。X 上更偏向对 Codex、Replit 和 agent 协作方式的使用反馈，博客则集中在 Claude Code 的质量复盘、消费级 connectors，以及面向长期运行 agent 的 memory 能力。">
+    <link rel="stylesheet" href="../../shared.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到内容</a>
+    <main id="content" class="shell">
+      <section class="hero report-header report-detail-header">
+        <div class="detail-header-body">
+          <div class="eyebrow">2026-05-02</div>
+          <h1 class="detail-title">Builders Radar 日报｜2026-05-02</h1>
+          <div class="detail-header-meta-row">
+            <p class="detail-summary">今天的信号集中在两条线：一是 inference 仍然是强约束市场，容量、供应链、post-training 和 runtime 优化正在共同决定产品边界；二是 Claude、Replit 等产品继续把“可连接、可记忆、可定制”的 agent 能力推向更实际的工作流。X 上更偏向对 Codex、Replit 和 agent 协作方式的使用反馈，博客则集中在 Claude Code 的质量复盘、消费级 connectors，以及面向长期运行 agent 的 memory 能力。</p>
+            <aside class="source-stats-panel" aria-label="Source stats">
+              <div class="eyebrow">Source Stats</div>
+              <div class="source-stats-grid">
+                
+    <div class="source-stat">
+      <span>Builders</span>
+      <strong>12</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Tweets</span>
+      <strong>28</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Podcasts</span>
+      <strong>1</strong>
+    </div>
+  
+    <div class="source-stat">
+      <span>Blogs</span>
+      <strong>3</strong>
+    </div>
+  
+              </div>
+            </aside>
+          </div>
+          
+    <nav class="section-nav" aria-label="Report sections">
+      
+    <a href="#x">X / Twitter builders</a>
+  
+    <a href="#podcasts">Podcasts</a>
+  
+    <a href="#blogs">Blogs</a>
+  
+    </nav>
+  
+        </div>
+        <p class="footer-note detail-back-link"><a href="../../index.html">返回归档首页</a></p>
+      </section>
+      
+    <section class="panel section-block" id="x">
+      <div>
+        <div class="eyebrow">x</div>
+        <h2>X / Twitter builders</h2>
+      </div>
+      <p>今天的 X 更新以产品使用反馈、agent 协作方式和基础设施判断为主，少量项目里程碑也有明确产品信号。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Swyx 关注 Codex 与 Web 输入工作流的可用性</h3>
+        <p>Swyx 提到希望有一个 Chrome extension，能直接增强网页里的 image input box：既可以用纯文字生成简单内容，也可以接入 @tldraw 画图，再按所需比例生成结果。另一条则把 Codex 直接拿来和 Slack AI search 比较，意思很明确：在检索和工作流场景里，Codex 已经足够成为默认工具之一。整体上他在强调的是“无缝嵌入现有输入框和协作工具”的产品价值，而不是再叠一层抽象聊天界面。</p>
+        <ul><li><a href="https://x.com/swyx/status/2050460622706626740">https://x.com/swyx/status/2050460622706626740</a></li><li><a href="https://x.com/swyx/status/2050432398161264664">https://x.com/swyx/status/2050432398161264664</a></li><li><a href="https://x.com/swyx/status/2050396374282408358">https://x.com/swyx/status/2050396374282408358</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Amjad Masad 用 Replit 10 周年强调编程普及</h3>
+        <p>Amjad Masad 说 Replit 迎来 10 周年，并在当天开放 24 小时免费使用，主线仍然是“让 coding 更容易被更多人使用”。这条信息本身不复杂，但它把 Replit 的产品叙事重新钉回到一个很清楚的目标：把学习、构建和交付放在同一条低门槛路径上。</p>
+        <ul><li><a href="https://x.com/amasad/status/2050479551537619413">https://x.com/amasad/status/2050479551537619413</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Aaron Levie 继续押注 agents 时代的软件系统</h3>
+        <p>Aaron Levie 的长帖核心判断是：当 agent 数量远多于人时，真正增长的不是单纯的“AI 层”，而是承载这些 agent 工作的 system of record、workflow、security 和 compliance。对企业来说，AI 不是先带来裁员，而是先把原本做不到的自动化、客户支持、合同处理和数据理解打开。这个视角的重点不在“AI 会不会替代软件”，而在“软件会因 agent 工作量增加而扩张到哪些新边界”。</p>
+        <ul><li><a href="https://x.com/levie/status/2050295657836277764">https://x.com/levie/status/2050295657836277764</a></li><li><a href="https://x.com/levie/status/2050240083325030404">https://x.com/levie/status/2050240083325030404</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Zara Zhang 把 coding agent 定义成“cofounder”</h3>
+        <p>Zara Zhang 的观点很直接：她不是把 coding agent 当员工，而是当 cofounder，用法也不是下指令，而是提出问题、描述背景、让它给意见。这个说法的价值在于方法论层面，它暗示高质量使用方式更接近“共同推演问题”，而不是把 agent 当成一次性任务执行器。</p>
+        <ul><li><a href="https://x.com/zarazhangrui/status/2050326543797469415">https://x.com/zarazhangrui/status/2050326543797469415</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Nikunj Kothari 把 AI 工具链、支付和小型产品实验串成闭环</h3>
+        <p>Nikunj Kothari 公开说自己的一个付费项目已经跑到 $36,500 ARR，同时说明项目是用 @Railway、@conductor_build、@claudeai 和 @stripe 搭起来的。另一条里他还提到这是自己第一个“paid”项目，单份 report 成本大约 $8-$9，所以定价基本是按成本卖。这类信息的意义不在金额本身，而在于它展示了现在独立 builder 如何把 infra、模型和支付快速拼成可收费产品。</p>
+        <ul><li><a href="https://x.com/nikunj/status/2050407946438467878">https://x.com/nikunj/status/2050407946438467878</a></li><li><a href="https://x.com/nikunj/status/2050353986742698400">https://x.com/nikunj/status/2050353986742698400</a></li><li><a href="https://x.com/nikunj/status/2050355231486316818">https://x.com/nikunj/status/2050355231486316818</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Claude 宣布 Code with Claude 开发者大会下周回归</h3>
+        <p>Claude 发帖确认 Code with Claude 开发者大会下周回归，并开放直播注册。这个更新更像是产品节奏信号而不是技术细节披露，但它说明 Claude 正在继续把 developer audience 作为重要触达面。</p>
+        <ul><li><a href="https://x.com/claudeai/status/2050252933866930339">https://x.com/claudeai/status/2050252933866930339</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="podcasts">
+      <div>
+        <div class="eyebrow">podcasts</div>
+        <h2>Podcasts</h2>
+      </div>
+      <p>今天只有一档高信号播客，主题集中在 inference 供给、custom model 需求和基础设施竞争。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>No Priors 访谈：Baseten CEO 解释 inference crunch 为什么还没结束</h3>
+        <p>这期最重要的结论是：inference 不是成熟市场，而是仍然受制于算力、供应链和运行时能力的高压市场。Tuhin Srivastava 反复强调，客户已经从“要不要用 AI”进入“怎么把模型定制到自己的数据和 workflow 里”，而 Baseten 当前大部分 tokens 都来自 custom model inference，约 90-95% 的流量都在这条线上。访谈里最有分量的几个判断是：开放模型已经越过基础能力门槛，但真正拉开差距的是 post-training、eval、sandbox 和 runtime；容量依然极紧，优质 cloud 数量有限，且三到五年期的预付合同和资本成本正在改变整个供给市场；GPU as a service 很难形成粘性，真正 sticky 的是带软件层的 inference cloud。整体上，这期把“模型能力进步”之外的现实压力讲得很清楚：谁能更快拿到、编排和优化 compute，谁就更接近下一阶段的产品边界。</p>
+        <ul><li><a href="https://www.youtube.com/watch?v=XAbKflCncDo">https://www.youtube.com/watch?v=XAbKflCncDo</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+
+    <section class="panel section-block" id="blogs">
+      <div>
+        <div class="eyebrow">blogs</div>
+        <h2>Blogs</h2>
+      </div>
+      <p>今天的官方博客更新主要围绕产品稳定性复盘、消费级 connectors 扩展，以及长期运行 agent 的 memory 能力。</p>
+      <div class="section-list">
+        
+      <article class="item-card">
+        <h3>Anthropic 复盘 Claude Code 的近期质量问题</h3>
+        <p>Anthropic 这篇更新把“看起来像模型退化”的问题拆成了三类具体变更：Claude Code 默认 reasoning effort 从 high 改到 medium、一个清理 idle session thinking history 的缓存优化 bug、以及一条降低 verbosity 的 system prompt 改动。关键结论是 API 和 inference layer 没受影响，问题出在产品层和上下文管理层的组合效应，最终在 4 月 20 日前后全部修复。更重要的是，他们把后续措施说得很明确：更多员工使用与用户一致的公开版本、更严格的 system prompt 审核、每次 prompt 变更都跑更广的 per-model eval 和 ablation、以及对可能影响 intelligence 的改动加 soak period 和渐进 rollout。</p>
+        <ul><li><a href="https://www.anthropic.com/engineering/april-23-postmortem">https://www.anthropic.com/engineering/april-23-postmortem</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Claude 扩展了面向日常生活的 connectors</h3>
+        <p>Claude 新增了一批偏消费场景的 connectors，包括 AllTrails、Instacart、Audible、Tripadvisor、Intuit TurboTax、Spotify、Uber、Uber Eats 等。产品重点不只是“能连更多 app”，而是 Claude 会根据上下文动态建议合适的 connector，并在同一对话里完成查找、比选和确认动作。对 builder 来说，这意味着 Claude 正在把 AI 从工作软件的中间层扩展到日常决策和交易场景，且仍然强调用户控制、无广告和不把 connector 数据用于训练。</p>
+        <ul><li><a href="https://claude.com/blog/connectors-for-everyday-life">https://claude.com/blog/connectors-for-everyday-life</a></li></ul>
+      </article>
+    
+      <article class="item-card">
+        <h3>Claude Managed Agents 增加内置 memory</h3>
+        <p>Claude Managed Agents 现在提供 public beta 的内置 memory，主打让长期运行的 agent 能跨 session 学习，而 memory 以文件形式存储，便于导出、审计和通过 API 管理。官方强调它适合企业场景，因为 memory 可以做作用域控制、日志追踪、版本回滚和跨 agent 共享，不需要开发者自己再搭一套 retrieval 基础设施。案例里，Netflix、Rakuten、Wisedocs 和 Ando 都把它用于跨会话保留上下文、减少重复错误和提升验证效率。</p>
+        <ul><li><a href="https://claude.com/blog/claude-managed-agents-memory">https://claude.com/blog/claude-managed-agents-memory</a></li></ul>
+      </article>
+    
+      </div>
+    </section>
+  
+    </main>
+  </body>
+</html>
