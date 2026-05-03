@@ -1,5 +1,99 @@
 [
   {
+    "date": "2026-05-03",
+    "title": "2026-05-03 Builders Radar",
+    "summary": "今天的核心信号集中在两条线：一是 agent 正从“写代码的工具”变成跨文件、跨应用、跨组织流程的执行层，二是围绕上下文、权限、治理和安全的工程约束正在快速上升。X 上的讨论更多落在工作流重构、产品发布和创业策略，播客与官方博客则分别从 OpenAI 和 Anthropic 的视角，补充了算力、注意力瓶颈以及长程 agent 架构演进的判断。",
+    "sections": [
+      {
+        "id": "x",
+        "title": "X / Twitter builders",
+        "summary": "今天的 X 讨论以 agent 工作流、产品发布和创业判断为主，重点都落在“如何把模型真正接入工作”而不是单纯演示能力。",
+        "items": [
+          {
+            "headline": "Swyx：Vibe-kanban 关闭本身不是重点，关键是复盘出“卖企业”和“转售 tokens”这两条生意路径",
+            "summary": "Swyx 转述 @tokengobbler 在 AIE Europe 现场关闭 Vibe-kanban 的消息，强调这类项目即使还有 30,000 MAU，若没有企业销售或 token 转售这类收入结构，商业上也会卡住。信息量更高的部分是他提到从 2021 到 2025 的软件工程复盘会长期留在脑子里，指向的是 AI 产品迭代期里工程方法论本身的变化。",
+            "sourceLinks": [
+              "https://x.com/swyx/status/2050753293601935777"
+            ]
+          },
+          {
+            "headline": "Peter Yang：用 Codex 或 Claude Code 清理本地文件和 Google Drive，前提是先让模型给出计划",
+            "summary": "Peter Yang 把 Codex / Claude Code 用在整理本地启动项、下载目录和 Google Drive，强调让模型先输出计划，再决定是否执行。这个用法的信号不是“整理文件”本身，而是把 agent 用在半危险但高回报的本地运维任务上，并通过先审计划来控制风险。",
+            "sourceLinks": [
+              "https://x.com/petergyang/status/2050623358488997917"
+            ]
+          },
+          {
+            "headline": "Amjad Masad：多项目并行 agent 是当前工作方式的放大器",
+            "summary": "Amjad Masad 连发的几条 quote 都围绕同一个方向：`10 project 10 parallel agents each`，以及“Prompt”的含义已经变了，但很多事情又保持不变。组合起来看，他在强调的是 agent 并行化会改变项目推进密度，而不是简单替代人写提示词。",
+            "sourceLinks": [
+              "https://x.com/amasad/status/2050793150713864678",
+              "https://x.com/amasad/status/2050691458920005737",
+              "https://x.com/amasad/status/2050801714656424140"
+            ]
+          },
+          {
+            "headline": "Aaron Levie：AI 不会减少软件工程需求，反而会把更多企业项目重新拉回“该做”的范围",
+            "summary": "Aaron Levie 的论点很直接：AI 让每个工程师更强，结果通常不是裁掉工程，而是把原本因为成本和人才约束而缩掉的项目重新做起来。延伸到银行、制造、零售、营销、法务、财务等场景后，他的结论是新增需求会在更多组织里出现，而不是被“自动化完成”后消失。",
+            "sourceLinks": [
+              "https://x.com/levie/status/2050684160151617603"
+            ]
+          },
+          {
+            "headline": "Peter Steinberger：Crabbox 0.3.0 重点是把运行时问题拆掉，而不是堆功能",
+            "summary": "Peter Steinberger 公布 Crabbox 0.3.0，更新集中在远程 Linux、GitHub browser login、Blacksmith Testbox wrap、live run replay、durable run events、AWS image create 和 Cloudflare Access。另一条 quote 还提到 npm 安装下的依赖问题和性能问题已被修复，插件系统被认为“麻烦但值得”，说明这次版本更偏向基础设施稳定性而不是表层功能。",
+            "sourceLinks": [
+              "https://x.com/steipete/status/2050490163810230579",
+              "https://x.com/steipete/status/2050735979477008412"
+            ]
+          },
+          {
+            "headline": "Sam Altman：模型能力提升仍然比单纯降价提速更关键",
+            "summary": "Sam Altman 明确说自己更想要模型更便宜更快，但现实里“更聪明”仍然是最重要的变量。结合他对 GPT-5.4 fast mode 的正面反馈，这条信息更像是在给产品和模型路线排序，而不是单纯做情绪化夸赞。",
+            "sourceLinks": [
+              "https://x.com/sama/status/2050671161915371998",
+              "https://x.com/sama/status/2050658558174437701"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcasts",
+        "summary": "这一期播客的主轴很清晰：AI 时代最稀缺的资源不是算力本身，而是人类注意力、上下文和对高风险动作的判断。",
+        "items": [
+          {
+            "headline": "Training Data: OpenAI 的 Greg Brockman 谈“注意力瓶颈”与 agent 化工作流",
+            "summary": "这一期最重要的判断是，AI 的瓶颈正在从“模型能不能做”转向“人类是否有精力提供足够上下文、审批和治理”。Greg Brockman 先从算力讲起，把 OpenAI 的业务概括为“买、租、建 compute，再以正毛利转售”，并明确说算力永远不够，需求增长会持续吃掉供给。更值得注意的是，他把 scaling laws 描述为一种经验上仍在展开的“深层谜题”，同时强调模型进步往往来自细小但关键的工程和数据处理改动，而不只是更大的模型。对创业者的建议也很直接：继续向 agentic 工具倾斜，因为过去几个月它们已经从“写 20% 代码”走到“写 80% 代码”，而真正的拐点在于让 AI 拿到足够上下文、让它能跨会议和跨系统理解任务。OpenAI 内部的实践则显示，应用层的重点正在变成治理、权限、可观测性和责任边界，比如保留“人类对合并代码负责”的要求。安全方面，他认为模型可以用于扫描代码库和端到端红队，但前提是配合 trusted access programs 和更严格的风险分层。",
+            "sourceLinks": [
+              "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blogs",
+        "title": "Blogs",
+        "summary": "官方博客今天的重点是长程 agent 基础设施怎么设计，核心不是单个模型能力，而是把会变化的实现和必须稳定的接口分开。",
+        "items": [
+          {
+            "headline": "Anthropic Engineering：Managed Agents 把“brain”和“hands”解耦",
+            "summary": "Anthropic 发布 Managed Agents，核心思路是把 agent 的 session、harness 和 sandbox 分离，避免把长程执行绑死在单一容器或单一实现上。文章最实用的部分在于，它明确指出 harness 里很多“模型做不到”的假设会随着模型进步迅速过时，例如以前需要上下文重置来应对“context anxiety”，到了更强的模型上反而成了冗余逻辑。架构上，session 作为持久化事件日志放在上下文窗口之外，sandbox 负责执行，harness 通过接口调度两者，这样既提高可恢复性，也把凭据隔离到 sandbox 外部，降低 prompt injection 风险。Anthropic 还给出性能结果：这种解耦让 p50 TTFT 下降约 60%，p95 下降超过 90%。对构建 agent 平台的人来说，这篇文章的结论很明确：接口要比当前实现更长寿，状态、计算和权限必须拆开设计。",
+            "sourceLinks": [
+              "https://www.anthropic.com/engineering/managed-agents"
+            ]
+          }
+        ]
+      }
+    ],
+    "sourceStats": {
+      "builders": 11,
+      "tweets": 23,
+      "podcasts": 1,
+      "blogs": 1
+    }
+  },
+  {
     "date": "2026-05-02",
     "title": "Builders Radar 日报｜2026-05-02",
     "summary": "今天的信号集中在两条线：一是 inference 仍然是强约束市场，容量、供应链、post-training 和 runtime 优化正在共同决定产品边界；二是 Claude、Replit 等产品继续把“可连接、可记忆、可定制”的 agent 能力推向更实际的工作流。X 上更偏向对 Codex、Replit 和 agent 协作方式的使用反馈，博客则集中在 Claude Code 的质量复盘、消费级 connectors，以及面向长期运行 agent 的 memory 能力。",
