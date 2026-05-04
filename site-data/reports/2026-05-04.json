@@ -1,0 +1,95 @@
+{
+  "date": "2026-05-04",
+  "title": "builders-radar 日报｜2026-05-04",
+  "summary": "今天的信号集中在 agentic engineering 的落地方式：一边是 Replit、GBrain 这类产品把并行执行、上下文主权和 agent 工作台推向更完整的系统化形态，另一边是企业落地的复杂度被重新定价，真正的瓶颈变成数据接入、权限、流程文档和评估。播客里 Andrej Karpathy 进一步把这个变化上升为新编程范式，强调可验证任务会继续加速自动化，而人类更需要承担理解、判断和规格设计的角色。",
+  "sections": [
+    {
+      "id": "x",
+      "title": "X / Twitter builders",
+      "summary": "今天 X 上最集中的主题是 agents 从“能用”走向“可部署、可管理、可扩展”：既有产品层面的并行执行与工作台能力，也有企业落地、权限治理和本地环境稳定性这类更偏工程化的问题。",
+      "items": [
+        {
+          "headline": "Amjad Masad：Replit 的 agentic parallelism 已经进入高并发执行阶段",
+          "summary": "他用“10 active, 198 draft, 700+ done”来描述 @Replit 当前的 agent 并行状态，核心意思是这里的自动化不再是单个助手，而是同时推进大量任务的流水线。相关表述也把最近一日的 vibe coding 产出推到了更高的强度，重点不在炫技，而在于 agent 已经开始承担实际吞吐。",
+          "sourceLinks": [
+            "https://x.com/amasad/status/2051167532523074015",
+            "https://x.com/amasad/status/2051007848440877242"
+          ]
+        },
+        {
+          "headline": "Aaron Levie：企业级 agents 的瓶颈是系统工程，不是演示效果",
+          "summary": "他判断，把 agents 真的放进企业流程会创造出大量新的工作形态，包括咨询、FDE 和内部 agent 工程岗位。真正困难的是安全接入企业数据、设计权限和 scope、建立监控与日志、把流程文档化，以及为关键流程建立 evals；这也解释了为什么 vertical AI agents 会成为机会点。",
+          "sourceLinks": [
+            "https://x.com/levie/status/2051057677984469277",
+            "https://x.com/levie/status/2051009208393589096"
+          ]
+        },
+        {
+          "headline": "Garry Tan：GBrain 把开源、自建 stack 和数据主权绑在一起",
+          "summary": "他把 GBrain 的开源定位解释为一种策略选择：在智能能力快速扩张时，自己掌握 prompts 和 data 才能保留独立思考能力。另一条产品更新补充了 GBrain 的能力，包括多 repo、多 MCP endpoint、OAuth/Bearer Token，以及通过 OpenClaw 或 Hermes 获取一次性管理员登录链接，说明他在推进更完整的 agent 工作台。",
+          "sourceLinks": [
+            "https://x.com/garrytan/status/2051110206466302136",
+            "https://x.com/garrytan/status/2051089704658010321",
+            "https://x.com/garrytan/status/2051099735176659256"
+          ]
+        },
+        {
+          "headline": "Peter Steinberger：RepoBar 0.4.0 把 GitHub 菜单做得更像日常工具",
+          "summary": "这次更新的重点是 persistent SQLite caching、减少无效 API 调用、可见 rate limits、改进 Issues/PR 加载，以及 archive fallback support。它不是一个追求复杂叙事的发布，而是把 menubar 小工具继续打磨成一个更稳定的 GitHub 入口。",
+          "sourceLinks": [
+            "https://x.com/steipete/status/2051088325100831046"
+          ]
+        },
+        {
+          "headline": "Peter Yang：agent 工具栈开始变成日常工作配置",
+          "summary": "他分享了一个很具体的 macOS 设置方法，用 Amphetamine 配合 Session Defaults，让合上 MacBook 屏幕后 agents 继续运行。这个信号很直接：使用 agent 不只是选模型和写 prompt，还包括维持本地执行环境、后台会话和工具链的稳定性；他同时也在比较 Hermes 和 OpenClaw 的实际差异。",
+          "sourceLinks": [
+            "https://x.com/petergyang/status/2050963126234034387",
+            "https://x.com/petergyang/status/2051129249348894754"
+          ]
+        },
+        {
+          "headline": "Zara Zhang：AI 让“小而怪”的产品重新变得可行",
+          "summary": "她的判断是，过去软件开发成本太高，小产品很难成立；现在只需要你和一个 coding agent，就能把原本会被大公司产品评审拒掉的想法直接做出来。她还把一个 human-agent interaction demo 评为近期最值得看的演示之一，说明她关注的是交互范式本身。",
+          "sourceLinks": [
+            "https://x.com/zarazhangrui/status/2051155065331941873",
+            "https://x.com/zarazhangrui/status/2051192270632993176"
+          ]
+        },
+        {
+          "headline": "Sam Altman：Agents SDK 2.0 被低估",
+          "summary": "他的公开判断非常直接，只有一句话，但指向很明确：OpenAI 仍在继续押注 agents 工具链。信息量不多，不过它仍然是今天少数来自基础模型厂商的产品信号之一。",
+          "sourceLinks": [
+            "https://x.com/sama/status/2050998576671859003"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasts",
+      "title": "Podcasts",
+      "summary": "今天只有一集值得读的播客，核心不是“AI 会不会替代程序员”，而是 Karpathy 如何把软件开发重新解释成一个以 prompts、上下文和可验证性为中心的工程问题。",
+      "items": [
+        {
+          "headline": "Training Data: Andrej Karpathy 谈从 vibe coding 到 agentic engineering",
+          "summary": "这期最重要的观点是，Karpathy 认为近几个月的变化不是渐进式改良，而是 agentic workflow 真的开始可用，很多过去需要手写的代码块，现在会直接“写对”。他把这种变化上升为 software 3.0：编程的杠杆从显式代码和训练权重，转向 prompt 与 context window，LLM 更像一个会执行计算的解释器。围绕这个框架，他反复强调“可验证性”会决定自动化推进的速度，代码、数学等领域之所以进展更快，是因为训练和评估都能围绕验证奖励展开；而企业落地、UI 生成、知识库重编排等场景，则在逼近一种更“agent-native”的基础设施。另一条更现实的判断是，人类短期内不会退出循环，反而要更重视理解、规格设计、审美和判断，因为 agents 仍然会在主键、权限、流程边界和抽象层上出错。",
+          "sourceLinks": [
+            "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blogs",
+      "title": "Blogs",
+      "summary": "今天没有有意义的官方 blog 更新。",
+      "items": []
+    }
+  ],
+  "sourceStats": {
+    "builders": 10,
+    "tweets": 24,
+    "podcasts": 1,
+    "blogs": 0
+  }
+}
