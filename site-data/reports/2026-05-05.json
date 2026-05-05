@@ -1,0 +1,109 @@
+{
+  "date": "2026-05-05",
+  "title": "Builders Radar 日报 · 2026-05-05",
+  "summary": "今天的核心信号集中在两条线：一条是 AI agent 的生产化正在从“能用”转向“可控可规模化”，Anthropic 用 Claude Code auto mode 处理权限疲劳，Vercel 和 Replit 则继续把 agent 落到安全审查、企业流程和实际业务结果上；另一条是自动驾驶在 Waymo 这里继续体现出长周期工程的复利，重点不再是单点能力，而是世界模型、硬件、验证和城市扩张同时推进。产品侧还可以看到编排、记忆、QA 和语音交互在持续演进，说明 builders 关注的重心已经从演示转向稳定交付。",
+  "sections": [
+    {
+      "id": "x",
+      "title": "X / Twitter builders",
+      "summary": "今天 X 上的主线是 agent 进入生产环境后的两类问题：一类是如何降低权限、验证和 QA 的摩擦，另一类是如何把模型能力真正嵌入业务流程、分发和商业化。Waymo、Claude Code、Vercel、Replit、Y Combinator 和若干产品型 builder 的信息密度都比较高。",
+      "items": [
+        {
+          "headline": "Peter Yang：AI 的演进路径正在从 coding 走向知识工作，再走向个人 agent",
+          "summary": "Peter Yang 认为 AI 的前沿会按顺序经历 coding、知识工作、个人 agent 三个阶段，这个判断更像是在描述产品扩散路径而不是单纯的模型能力。他还提到希望让 8 岁女儿用 agents 做出能分享给班级和老师的作品，说明他关注的是可交付、可传播的个人级应用，而不是抽象能力展示。",
+          "sourceLinks": [
+            "https://x.com/petergyang/status/2051508988936937764"
+          ]
+        },
+        {
+          "headline": "Amjad Masad：Replit 正在把 AI 直接连接到商业结果和教育场景",
+          "summary": "Amjad Masad 转发了 Replit 帮助创业者找到投资人并拿到会面的案例，这类反馈说明工具型产品已经开始被放到真实的融资和销售链路里检验。他同时点赞了面向聋人学生的多模态学习平台，体现出他对 AI 在教育中的实用价值保持持续关注。",
+          "sourceLinks": [
+            "https://x.com/amasad/status/2051511694040744139",
+            "https://x.com/amasad/status/2051406536443035922"
+          ]
+        },
+        {
+          "headline": "Guillermo Rauch：npx deepsec 把安全审查做成可并行的 agent orchestrator",
+          "summary": "Guillermo Rauch 介绍了一个开源 agent orchestrator，用于深度安全审查，并强调它在内部和多个 OSS 项目上的测试让团队更有信心公开发布。核心判断很明确：编码 agent 已经可以在几分钟内发现传统团队可能要花数月才能定位的关键漏洞，而且与 Vercel Sandbox 结合后，可以把大量审查并行化。",
+          "sourceLinks": [
+            "https://x.com/rauchg/status/2051386798899888539"
+          ]
+        },
+        {
+          "headline": "Aaron Levie：企业 agent 落地的瓶颈不在模型，而在系统与流程改造",
+          "summary": "Aaron Levie 认为 Anthropic 和 OpenAI 推出的企业 agent 相关举措只是一个开始，接下来真正的工作是把 IT、上下文、工作流、人与 agent 的分工、采纳和变更管理都补起来。他的判断是，模型里虽然装着大量能力，但把这些能力稳定地嵌入业务流程没有捷径，这会催生一批新的岗位和公司。",
+          "sourceLinks": [
+            "https://x.com/levie/status/2051344780328858040"
+          ]
+        },
+        {
+          "headline": "Garry Tan：GBrain v0.27 强化了多模型支持，目标是统一记忆、代码和搜索",
+          "summary": "Garry Tan 表示 GBrain v0.27 已经支持更多非 Anthropic 和非 OpenAI 的 embeddings 与 LLM，同时后续会补上多模态 embeddings、深度照片 OCR、描述和 EXIF 提取。他进一步强调，GBrain 的差异化不在于单独的 memory layer、code tool 或 search engine，而在于三者统一在一个 graph 和 query interface 之下。",
+          "sourceLinks": [
+            "https://x.com/garrytan/status/2051517574589116510",
+            "https://x.com/garrytan/status/2051525161380364315",
+            "https://x.com/garrytan/status/2051536806932566406"
+          ]
+        },
+        {
+          "headline": "Peter Steinberger：Crabbox 正在把 QA 从截图和远程机房推进到可复现的沙盒",
+          "summary": "Peter Steinberger 发布 Crabbox 0.5.0，重点是 desktop/browser leases、VNC 和 authenticated WebVNC、AWS Windows + WSL2，以及截图和应用启动能力，这让远程 CI box 变得更像可操作的工作台。更关键的是，他说现在能让 agent 直接在 ephemeral crabboxes 里复现问题，并把视频附在 PR 上，说明 QA 正在朝“自动复现、自动记录、自动协作”的方向演进。",
+          "sourceLinks": [
+            "https://x.com/steipete/status/2051485798613111116",
+            "https://x.com/steipete/status/2051557150040711425"
+          ]
+        },
+        {
+          "headline": "Nikunj Kothari：创业公司不能只靠分发和发布节奏，留存才是更硬的约束",
+          "summary": "Nikunj Kothari 认为 2023-2025 这批创业公司已经开始意识到，精致发布视频和强分发虽然可能带来融资，但如果不把留存当成同等甚至更重要的工作，资金会很快被烧掉。他还提到 Gemini Flash 在生产环境里便宜、好用、上下文长，说明他对模型选型的标准偏向成本、吞吐和结构化输出。",
+          "sourceLinks": [
+            "https://x.com/nikunj/status/2051349526171287930",
+            "https://x.com/nikunj/status/2051321911741972900"
+          ]
+        },
+        {
+          "headline": "Sam Altman：语音模型会继续改善，人机交互方式已经开始变化",
+          "summary": "Sam Altman 表示他对 voice models 变得更好感到兴奋，并认为人们已经在改变与 AI 的交互方式。这条信息本身不复杂，但它强化了一个趋势：语音不再只是补充接口，而是正在成为 AI 产品体验的一部分。",
+          "sourceLinks": [
+            "https://x.com/sama/status/2051464865634742334"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasts",
+      "title": "Podcasts",
+      "summary": "今天有一个值得关注的播客更新，主题集中在 Waymo 如何把长期研发变成可规模化的自动驾驶业务。",
+      "items": [
+        {
+          "headline": "Training Data：Waymo 的关键不是单点技术突破，而是把安全、验证和规模化一起做成系统",
+          "summary": "Dmitri Dolgov 的核心信息是：自动驾驶真正难的不是“先做出能跑的 demo”，而是把它做成可以长期运行、可验证、可扩张的产品。Waymo 早期通过 10 万英里全自动和 10 条高难路线建立对问题空间的理解，随后又把世界模型、driver / simulator / critic 架构、端到端学习与结构化中间表征结合起来，去支撑更高的安全性和闭环评估。Dolgov 明确说，基础的 vanilla end-to-end 不够，必须叠加运行时验证、训练评估和强化学习所需的结构化能力。更重要的是，Waymo 已经把安全作为从第一天开始的非可选层，并给出超过 1.7 亿完全自动驾驶英里、在运营城市里比人类驾驶员在严重伤害碰撞上高出 13 倍安全的结果。当前的看点不只是 11 座城市和 2,000 万次 rides，而是 London 与 Tokyo 的国际扩张计划，说明 Waymo 已经进入全球化商业化阶段。",
+          "sourceLinks": [
+            "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blogs",
+      "title": "Blogs",
+      "summary": "今天只有一篇官方博客更新，但信号很明确：agent 安全正在从“人工逐次确认”转向“分类器 + 沙盒 + 输入防护”的组合。",
+      "items": [
+        {
+          "headline": "Anthropic Engineering：Claude Code auto mode 试图在自治和安全之间找到可运营的中间层",
+          "summary": "这篇文章的重点不是“完全取消权限”，而是用模型分类器替代大部分人工确认，缓解 approval fatigue，同时保留必要的安全边界。Anthropic 把输入层的 prompt-injection probe 和输出层的 transcript classifier 组合起来，前者在工具结果进入上下文前做风险提示，后者在执行前判断动作是否越界。文中给出的结果也很直接：部署后的完整流水线把 FPR 降到 0.4%，但在真实 overeager actions 上仍有 17% 的 FNR，这意味着它适合替代 `--dangerously-skip-permissions` 这类高风险做法，但不是高风险基础设施上的人工审查替代品。对 builders 的实际含义是，agent 产品的竞争点正在从“能不能执行”转向“能不能在低摩擦下持续安全地执行”。",
+          "sourceLinks": [
+            "https://www.anthropic.com/engineering/claude-code-auto-mode"
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceStats": {
+    "builders": 12,
+    "tweets": 25,
+    "podcasts": 1,
+    "blogs": 1
+  }
+}
